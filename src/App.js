@@ -14,7 +14,7 @@ import './Style/App.css';
 import Intro from './Component/Intro page/Intro';
 import Admin from './Component/Admin/Admin';
 import TopColleges from './Component/Top Colleges/TopColleges';
-import Education from './Component/Education/Education';
+import { Education } from './Component';
 import Interview from './Component/Interview/Interview';
 import Blog from './Component/Blog/Blog';
 

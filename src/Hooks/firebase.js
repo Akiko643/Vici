@@ -100,7 +100,6 @@ export const useCol = (path, sort = false) => {
                         ...doc.data(),
                     }))
                 );
-                console.log(data);
                 setLoading(false);
             });
 
