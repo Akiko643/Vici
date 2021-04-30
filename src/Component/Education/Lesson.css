@@ -1,0 +1,5 @@
+.lesson {
+    background-image: url('../../Img/unnamed.jpg');
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+}

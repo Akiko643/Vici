@@ -2,6 +2,11 @@
     display: flex;
 }
 
+.flex-row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 .flex-row {
     display: flex;
     flex-direction: row;

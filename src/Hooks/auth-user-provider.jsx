@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useFirebase, useCol } from '../Hooks/firebase';
+import firebase from 'firebase';
+import { useFirebase, useCol, useDoc } from '../Hooks/firebase';
 import { useHistory } from 'react-router-dom';
 export const AuthContext = createContext({
     user: null,
@@ -14,7 +15,26 @@ export const AuthUserProvider = ({ children }) => {
     const history = useHistory();
     let { auth, googleProvider } = useFirebase();
     let { createRecord } = useCol('users');
-    const createNewUser = async ({
+    let list = ['Education', ]
+    useEffect(() => {
+        if (!auth) {
+            return;
+        }
+        const subscribe = auth.onAuthStateChanged((authUser) => {
+            if (authUser) {
+                if (authUser.emailVerified === true) {
+                    setState({ ready: true });
+                }
+            }
+
+            authUser
+                ? setState({ user: authUser })
+                : setState({ user: authUser });
+        });
+        // updateUserData();
+        return () => subscribe();
+    }, [auth]);
+    const createNewUser = ({
         email,
         uid,
         displayName,
@@ -22,7 +42,7 @@ export const AuthUserProvider = ({ children }) => {
         phoneNumber,
         role = 'member',
     }) => {
-        await createRecord(uid, {
+        createRecord(uid, {
             email,
             displayName,
             gender,
@@ -48,6 +68,17 @@ export const AuthUserProvider = ({ children }) => {
     }) => {
         auth.createUserWithEmailAndPassword(email, password)
             .then((result) => {
+                console.log(result.user);
+                result.user
+                    .updateProfile({
+                        displayName: username,
+                    })
+                    .then(function () {
+                        console.log('Successfully updated username');
+                    })
+                    .catch(function (error) {
+                        console.log('gege');
+                    });
                 createNewUser({
                     ...result.user,
                     displayName: username,
@@ -66,25 +97,15 @@ export const AuthUserProvider = ({ children }) => {
             })
             .catch((error) => console.log(error.message));
     };
-
-    useEffect(() => {
-        if (!auth) {
-            return;
-        }
-        const subscribe = auth.onAuthStateChanged((authUser) => {
-            if (authUser) {
-                if (authUser.emailVerified === true) {
-                    setState({ ready: true });
-                }
-            }
-
-            authUser
-                ? setState({ user: authUser })
-                : setState({ user: authUser });
+    const singInWithEmailAndPassword = async ({
+        email,
+        password
+    }) => {
+        await auth.signInWithEmailAndPassword(email, password)
+        .catch((error) => {
+            console.log(error.message)
         });
-
-        return () => subscribe();
-    }, [auth]);
+    }
 
     return (
         <AuthContext.Provider
@@ -93,6 +114,7 @@ export const AuthUserProvider = ({ children }) => {
                 auth,
                 signInWithGmail,
                 signUpWithEmailAndPassword,
+                singInWithEmailAndPassword
             }}
         >
             {children}

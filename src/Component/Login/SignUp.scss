@@ -1,0 +1,109 @@
+.label-container {
+    height: 48px;
+    width: 343px;
+    margin-bottom: 20px;
+    background: #FFFFFF;
+    border: 0.5px solid #7B8794;
+    border-radius: 8px;
+}
+.signup-body{
+    background: linear-gradient(270deg, #7EE8FF 0%, #FFF066 99.99%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.input-field {
+    border: 0;
+    border-radius: 8px;
+    height: 46px;
+    width: 285px;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    // margin-left: 56px;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    width: 631px;
+    height: 531px;
+    border-radius: 30px;
+    background: #fff;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.signup__button{
+    color: #fff;
+    margin-bottom: 70px;
+    width: 335px;
+    height: 55px;
+    background: #FF5555;
+    border-radius: 50px;
+    border: 0;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+}
+.input_label {
+    position: absolute;
+    text-align: start;
+    font-size: 1.2rem;
+}
+.logo_vici {
+    width: 207px;
+    height: 53px;
+    margin: 40px 0px;
+}
+.active-sign-up {
+    box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px 0px 0px 0px;
+}
+.active-log-in {
+    box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 25px 0px 0px;
+}   
+.deactive-log-in {
+    background: #F8F8F8;
+    border-radius: 0px 25px 0px 0px;
+}
+.deactive-sign-up {
+    background: #F8F8F8;
+    border-radius: 25px 0px 0px 0px;
+}
+.o-x-v {
+    position:relative;
+    z-index:999;
+    overflow-x: visible;
+}
+#close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    height: 25px;
+    width: 25px;
+}
+.forgot {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+}
+*:focus {
+    outline: none;
+}
+.input_icon {
+    width: 24px;
+    height: 24px;
+    margin: 11px;
+}
+.pointer {
+    cursor: pointer;
+}

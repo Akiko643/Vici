@@ -1,0 +1,13 @@
+img {
+    width: 80%;
+    height: auto;
+}
+.wrapper {
+    /* height: 800px; */
+    width: 500px;
+}
+
+.wrapper > h1 {
+    font-size: 60px;
+    margin-bottom: 50px;
+}

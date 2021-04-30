@@ -3,36 +3,36 @@ export const EducationItems = [
         id: '0',
         name: 'Psychology',
         cName: 'list-item',
-        path: '/psychology'
+        path: '/psychology',
     },
     {
         id: '1',
         name: 'Philosophy',
         cName: 'list-item',
-        path: '/philosphy'
+        path: '/philosophy',
     },
     {
         id: '2',
         name: 'World History',
         cName: 'list-item',
-        path: '/world-history'
+        path: '/world-history',
     },
     {
         id: '3',
         name: 'Economics',
         cName: 'list-item',
-        path: '/economics'
+        path: '/economics',
     },
     {
         id: '4',
         name: 'Business',
         cName: 'list-item',
-        path: 'business'
+        path: '/business',
     },
     {
         id: '5',
         cName: 'list-item',
         name: 'Statistics',
-        path: '/statistics'
-    }
-]
+        path: '/statistics',
+    },
+];

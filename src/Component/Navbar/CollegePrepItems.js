@@ -1,38 +1,38 @@
 export const CollegePrepItems = [
     {
-        id: "0",
-        name: "International Exams",
+        id: '0',
+        name: 'International Exams',
         cName: 'list-item',
-        path: '/international-exams'
+        path: '/international-exams',
     },
     {
-        id: "1",
-        name: "Scholarships",
+        id: '1',
+        name: 'Scholarships',
         cName: 'list-item',
-        path: '/scholarships'
+        path: '/scholarships',
     },
     {
-        id: "2",
-        name: "Top Colleges",
+        id: '2',
+        name: 'Top Colleges',
         cName: 'list-item',
-        path: '/top-colleges'
+        path: '/top-colleges',
     },
     {
-        id: "3",
-        name: "Choose Your Major",
+        id: '3',
+        name: 'Choose Your Major',
         cName: 'list-item',
-        path: '/choose-your-major'
+        path: '/major',
     },
     {
-        id: "4",
-        name: "Ideal Plan",
+        id: '4',
+        name: 'Ideal Plan',
         cName: 'list-item',
-        path: 'ideal-plan'
+        path: '/ideal-plan',
     },
     {
-        id: "5",
-        name: "Extracurriculars",
+        id: '5',
+        name: 'Extracurriculars',
         cName: 'list-item',
-        path: 'extracurriculars'
-    }
-]
+        path: '/extracurriculars',
+    },
+];

@@ -54,6 +54,7 @@ export const useDoc = (path) => {
         }
         firestore.doc(path).onSnapshot((doc) => {
             setData({ id: doc.id, ...doc.data() });
+            console.log(data, 'data');
             setLoading(false);
         });
 
@@ -87,7 +88,6 @@ export const useCol = (path, sort = false) => {
     const { firestore } = useFirebase();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-
     useEffect(() => {
         if (firestore && path) {
             let query = firestore.collection(path);
@@ -100,6 +100,7 @@ export const useCol = (path, sort = false) => {
                         ...doc.data(),
                     }))
                 );
+                console.log(data);
                 setLoading(false);
             });
 

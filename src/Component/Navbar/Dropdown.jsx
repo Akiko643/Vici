@@ -3,12 +3,10 @@ import './Dropdown.css';
 import { Link } from 'react-router-dom';
 const Dropdown = ({ listName }) => {
     const [click, setClick] = useState(false);
-    const handleClick = () => setClick(!click);
-    console.log(listName);
     return (
         <>
             <ul
-                onClick={handleClick}
+                onClick={() => setClick(!click)}
                 className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}
             >
                 {listName.map((item, index) => {
@@ -21,6 +19,7 @@ const Dropdown = ({ listName }) => {
                             >
                                 {item.name}
                             </Link>
+                            <hr className={'ml-5 mr-5'}/>
                         </li>
                     );
                 })}
