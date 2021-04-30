@@ -1,6 +1,7 @@
 @import './variables.scss';
 @import './flex.scss';
 @import './typograph.scss';
+@import 'antd/dist/antd.css';
 
 @function pow($base, $exp) {
     $res: 1;
@@ -47,7 +48,7 @@
     // }
 }
 
-@for $i from 0 through 700 {
+@for $i from 0 through 2000 {
     .h-#{$i} {
         height: $i + px;
     }
@@ -145,7 +146,7 @@
     }
 }
 
-@for $i from -1 through 100 {
+@for $i from -2 through 100 {
     .h-vh-#{$i} {
         height: $i + vh;
     }
@@ -174,6 +175,11 @@ body {
 .of-y-h {
     overflow-y: hidden !important;
 }
+
+.of-x-h {
+    overflow-x: hidden !important;
+}
+
 
 .of-y {
     overflow-y: scroll;
@@ -233,6 +239,11 @@ body {
 .l-50 {
     left: 50%;
 }
+
+.l-0 {
+    left: 0;
+}
+
 .t-50 {
     top: 50%;
 }
@@ -241,6 +252,10 @@ body {
 }
 .b-50 {
     bottom: 50%;
+}
+
+.b-0 {
+    bottom: 0;
 }
 
 .w95 {
@@ -340,7 +355,7 @@ body {
     }
 }
 
-@for $i from -100 to 100 {
+@for $i from -2000 to 2000 {
     .bradius-#{$i} {
         border-radius: $i + px;
     }
@@ -502,7 +517,7 @@ body {
     background-color: inherit !important;
 }
 
-@for $i from 0 through 600 {
+@for $i from 0 through 3000 {
     .hi-#{i} {
         height: $i + px !important;
     }

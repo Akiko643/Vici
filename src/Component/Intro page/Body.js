@@ -1,35 +1,61 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Wrap from './Wrap';
-import img1 from '../../Img/bodypage1.png';
-import img2 from '../../Img/bodypage2.png';
-import img3 from '../../Img/bodypage3.png';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import img1 from "../../Img/IntroPageSpace.svg";
+import img2 from "../../Img/IntroPageExplore.svg";
+import Date from "./Date";
+import Speakers from "./Speakers";
+import "./Transition.css";
+
 function Body() {
+    let speakers = ["John Doe", "Farmer John", "Onkar Judge"];
+    const [isShown, setIsShown] = useState(true);
+
     return (
-        <div>
-            {/* <h1>Hello World</h1>
-            <Link to='/infos'>Informations</Link> */}
-            <Wrap
-                title='Welcome to vici'
-                description='This is non profit website directed towards teenagersto help them conquer their own dreams by supporting them in various aspects.'
-                link='/user-login'
-                photo={img1}
-                left={1}
-            />
-            <Wrap
-                title='Welcome to vici'
-                description='This is non profit website directed towards teenagersto help them conquer their own dreams by supporting them in various aspects.'
-                link='/infos'
-                photo={img2}
-                left={0}
-            />
-            <Wrap
-                title='Welcome to vici'
-                description='This is non profit website directed towards teenagersto help them conquer their own dreams by supporting them in various aspects.'
-                link='/'
-                photo={img3}
-                left={1}
-            />
+        <div className="ph-190 of-x-h">
+            <div className="flex items-center justify-between mb-140">
+                <h1 className="fs-60 w-430">
+                    Walk with us, bla bla bla uria loozon
+                </h1>
+                <div>
+                    <img src={img1} className="h-550"></img>
+                    {/* <img src="./images/IntroPageSpaceGreen.svg" className="h-550"></img> */}
+                </div>
+            </div>
+            <div className="mb-140 pr">
+                <div className="absolute w-vw-100 h-1200 left--190 bottom--650">
+                    <img
+                        className="absolute hi-1200 left--190 z--1"
+                        src="./images/Wave.svg"
+                    ></img>
+                </div>
+                <h2 className="fw-600 fs-30">International exams</h2>
+                <div className="flex justify-between">
+                    <Date exam="SAT Dates"></Date>
+                    <Date exam="IELTS Dates"></Date>
+                    <Date exam="TOEFL Dates"></Date>
+                </div>
+            </div>
+            <div className="mb-140 h-381 w100 b-footer c-white">For You</div>
+            <div className="h-200 w100 b-footer c-white mb-140">
+                Advertisement
+            </div>
+            <div className="mb-140">
+                <h2 className="fw-600 fs-30">Latest Speakers</h2>
+                <div className="flex justify-between">
+                    {speakers.map((speaker) => (
+                        <Speakers person={speaker}></Speakers>
+                    ))}
+                </div>
+            </div>
+            <div className="flex items-center justify-between">
+                <img src={img2}></img>
+                <div className="w50 flex items-center justify-center flex-col">
+                    <h1 className="fs-60 w-430 mb-80">Explore with us</h1>
+                    <button className="b-secondary nb bradius-10 w-160 h-40 c-white">
+                        Get started
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }
