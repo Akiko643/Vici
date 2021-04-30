@@ -40,7 +40,7 @@ export const Education = () => {
                         data.map((dt, index) => {
                             return (
                                 <Route exact path={'/education/'+dt.id}>
-                                    <Info chapters={dt.chapters} key={index}/>
+                                    <Info chapters={dt.chapters} key={index} name={dt.name}/>
                                 </Route>
                             );
                         })
