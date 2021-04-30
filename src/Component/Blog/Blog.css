@@ -4,3 +4,7 @@
     background-repeat: no-repeat, repeat;
     background-size: cover;
 }
+
+.blogsection:hover {
+    background: #dadada;
+}

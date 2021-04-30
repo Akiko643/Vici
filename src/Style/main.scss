@@ -47,7 +47,7 @@
     // }
 }
 
-@for $i from 0 through 600 {
+@for $i from 0 through 700 {
     .h-#{$i} {
         height: $i + px;
     }
