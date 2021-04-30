@@ -1,0 +1,23 @@
+.lesson {
+    background-image: url('../../Img/unnamed.jpg');
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+}
+.too {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #E9C692;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    p {
+        padding: 0;
+        font-weight: 800;
+        font-size: 14px;
+        line-height: 19px;
+        color: #FFFFFF;
+        text-align: center;
+    }
+}

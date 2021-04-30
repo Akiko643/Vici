@@ -82,11 +82,12 @@
     .pa-lr-#{$i} {
         padding: 0 $i + vw;
     }
-
+    .my-#{$i} {
+        margin: $i + px 0;
+    }
     .pa-s-#{$i} {
         padding: $i + px $i + px $i + px 0;
     }
-
     .ml-v-#{$i} {
         margin-left: $i + vw;
     }
