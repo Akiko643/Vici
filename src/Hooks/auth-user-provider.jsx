@@ -15,7 +15,8 @@ export const AuthUserProvider = ({ children }) => {
     const history = useHistory();
     let { auth, googleProvider } = useFirebase();
     let { createRecord } = useCol('users');
-    let list = ['Education', ]
+    let list = ['Education'];
+    let { dataEducation } = useCol('Education');
     useEffect(() => {
         if (!auth) {
             return;
@@ -97,15 +98,13 @@ export const AuthUserProvider = ({ children }) => {
             })
             .catch((error) => console.log(error.message));
     };
-    const singInWithEmailAndPassword = async ({
-        email,
-        password
-    }) => {
-        await auth.signInWithEmailAndPassword(email, password)
-        .catch((error) => {
-            console.log(error.message)
-        });
-    }
+    const singInWithEmailAndPassword = async ({ email, password }) => {
+        await auth
+            .signInWithEmailAndPassword(email, password)
+            .catch((error) => {
+                console.log(error.message);
+            });
+    };
 
     return (
         <AuthContext.Provider
@@ -114,7 +113,8 @@ export const AuthUserProvider = ({ children }) => {
                 auth,
                 signInWithGmail,
                 signUpWithEmailAndPassword,
-                singInWithEmailAndPassword
+                singInWithEmailAndPassword,
+                dataEducation,
             }}
         >
             {children}
