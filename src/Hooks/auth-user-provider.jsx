@@ -15,6 +15,7 @@ export const AuthUserProvider = ({ children }) => {
     const history = useHistory();
     let { auth, googleProvider } = useFirebase();
     let { createRecord } = useCol('users');
+    let list = ['Education', ]
     useEffect(() => {
         if (!auth) {
             return;
