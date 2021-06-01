@@ -101,7 +101,9 @@
         margin-top: $i + px;
         margin-bottom: $i + px;
     }
-
+    .pa-r-#{$i} {
+        padding-right: $i + px;
+    }
     .ph-#{$i} {
         padding-left: $i + px;
         padding-right: $i + px;
@@ -158,6 +160,14 @@
     .z-#{$i} {
         z-index: $i;
     }
+
+    .h-p-#{$i} {
+        height: $i * 1%;
+    }
+
+    .w-p-#{$i} {
+        width: $i * 1%;
+    }
 }
 
 .op30 {
@@ -180,7 +190,6 @@ body {
     overflow-x: hidden !important;
 }
 
-
 .of-y {
     overflow-y: scroll;
 }
@@ -189,33 +198,6 @@ body {
     overflow: none;
 }
 
-.w10 {
-    width: 10%;
-}
-
-.w15 {
-    width: 15%;
-}
-
-.w50 {
-    width: 50%;
-}
-
-.w75 {
-    width: 70%;
-}
-
-.w100 {
-    width: 100%;
-}
-
-.h60 {
-    height: 60%;
-}
-
-.h100 {
-    height: 100%;
-}
 .hs35 {
     height: 35%;
 }
@@ -228,8 +210,8 @@ body {
 }
 
 .w90 {
-    width: 90%;
-    margin: auto;
+    width: percentage(20/100);
+    // margin: auto;
 }
 
 .mline {
@@ -355,7 +337,7 @@ body {
     }
 }
 
-@for $i from -2000 to 2000 {
+@for $i from 0 to 2000 {
     .bradius-#{$i} {
         border-radius: $i + px;
     }

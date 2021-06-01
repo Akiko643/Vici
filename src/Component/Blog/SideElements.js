@@ -8,7 +8,7 @@ function SideElements({ title, imgsrc, publisher, date, publisherProfile }) {
             style={{ backgroundColor: '#F0F0F0' }}
         >
             <img
-                className='w-130 h100 mr-30'
+                className='w-130 mr-30'
                 src={imgsrc ? imgsrc : defaultImgsrc}
                 alt='blog'
                 style={{ borderRadius: '20px 0 0 20px' }}
