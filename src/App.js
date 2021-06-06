@@ -14,9 +14,8 @@ import './Style/App.css';
 import Intro from './Component/Intro page/Intro';
 import Admin from './Component/Admin/Admin';
 import TopColleges from './Component/Top Colleges/TopColleges';
-import { Education, Test } from './Component';
+import { Education, Test, Blog } from './Component';
 import Interview from './Component/Interview/Interview';
-import Blog from './Component/Blog/Blog';
 
 const App = () => {
     const { user } = AuthStateValue();
@@ -89,7 +88,7 @@ const App = () => {
                             <Test />
                         </Route>
                         <Route path='/blog'>
-                            <Blog />
+                            <Blog   />
                         </Route>
                     </Switch>
                 </TopCollegeProvider>

@@ -37,27 +37,27 @@ export const Education = () => {
                         className="h-150 w100 c-white pl-190 pr"
                         style={{ backgroundImage: `url(${img})` }}
                     >
-                        <div className="bottom-10 fs-48 absolute">
-                            {" "}
+                        <div className="bottom-10 fs-48 absolute uppercase">
                             Education
                         </div>
                     </div>
                     <div className="w100 ph-30 educations">
                         <Carousel
-                            swipeable={false}
-                            draggable={false}
+                            swipeable={true}
+                            draggable={true}
                             showDots={false}
                             responsive={responsive}
                             ssr={true} // means to render carousel on server-side.
                             infinite={false}
                             keyBoardControl={true}
                             containerClass="carousel-container"
-                            removeArrowOnDeviceType={["tablet", "mobile"]}
+                            // removeArrowOnDeviceType={["tablet", "mobile"]}
                             dotListClass="custom-dot-list-style"
                             itemClass="carousel-item-padding-40-px"
                         >
                             {data &&
                                 data.map((dt, index) => {
+                                    console.log(dt);
                                     return (
                                         <Lesson
                                             icon={dt.image}
