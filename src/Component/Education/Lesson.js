@@ -7,7 +7,7 @@ const Lesson = ({ icon, name, path, elements, id }) => {
     const location = useLocation();
     return (
         <div
-            className="h-430 w-430 bradius-20 my-20 flex-center pa-40"
+            className=" bradius-20 ma-20 flex-center pa-40"
             style={{ backgroundColor: "#F5F5F5" }}
         >
             <p className="h-50 fs-36 flex">
