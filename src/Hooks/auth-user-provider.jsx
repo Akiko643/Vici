@@ -49,6 +49,7 @@ export const AuthUserProvider = ({ children }) => {
             gender,
             phoneNumber,
             role,
+            posts: [],
         });
     };
     const signInWithGmail = () => {
@@ -77,15 +78,17 @@ export const AuthUserProvider = ({ children }) => {
                     .then(function () {
                         console.log('Successfully updated username');
                     })
+                    .then(() => {
+                        createNewUser({
+                            ...result.user,
+                            displayName: username,
+                            gender: gender,
+                            phoneNumber: phone,
+                        });
+                    })
                     .catch(function (error) {
                         console.log('gege');
                     });
-                createNewUser({
-                    ...result.user,
-                    displayName: username,
-                    gender: gender,
-                    phoneNumber: phone,
-                });
 
                 // history.push('/');
                 // console.log('hellow world');

@@ -7,9 +7,6 @@ import { useDoc, useCol, useFirebase } from '../Hooks/firebase';
 import { AuthStateValue } from '../Hooks/auth-user-provider';
 const Infos = () => {
     const { informations } = useContext(Context);
-    // const { data } = AuthStateValue();
-    // const { firebase } = useFirebase();
-    // console.log(data, 'data');
     return (
         <div className='w-vw-100 h-vh-100 font-ubuntu'>
             <Navbar />
