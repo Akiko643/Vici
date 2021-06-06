@@ -48,11 +48,13 @@
     // }
 }
 
-@for $i from 0 through 2000 {
+@for $i from 0 through 1060 {
     .h-#{$i} {
         height: $i + px;
     }
-
+    // .hi-#{i} {
+    //     height: $i + px !important;
+    // }
     .w-#{$i} {
         width: $i + px;
     }
@@ -337,7 +339,7 @@ body {
     }
 }
 
-@for $i from 0 to 2000 {
+@for $i from 0 to 200 {
     .bradius-#{$i} {
         border-radius: $i + px;
     }
@@ -471,7 +473,7 @@ body {
     text-align: right;
 }
 
-@for $i from 0 through 600 {
+@for $i from 0 through 100 {
     .brad-#{$i} {
         border-radius: $i + px;
     }
@@ -481,7 +483,7 @@ body {
     }
 }
 
-@for $i from 0 through 600 {
+@for $i from 0 through 100 {
     .gap-#{i} {
         gap: $i + px;
     }
@@ -499,11 +501,6 @@ body {
     background-color: inherit !important;
 }
 
-@for $i from 0 through 3000 {
-    .hi-#{i} {
-        height: $i + px !important;
-    }
-}
 
 .w-fit {
     width: fit-content;

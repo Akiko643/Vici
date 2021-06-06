@@ -26,6 +26,7 @@ navbar {
     justify-content: center;
     position: absolute;
     left: 40%;
+    margin: 0 !important;
 }
 
 .nav-item {
