@@ -1,15 +1,15 @@
-import firebase from "firebase";
-import { useState, useEffect } from "react";
-import "firebase/storage";
+import firebase from 'firebase';
+import { useState, useEffect } from 'react';
+import 'firebase/storage';
 
 const config = {
-    apiKey: "AIzaSyCtSXpHE4lvjfjQ3R03JRTUE1z9K3Iw6Lg",
-    authDomain: "vici-news.firebaseapp.com",
-    projectId: "vici-news",
-    storageBucket: "vici-news.appspot.com",
-    messagingSenderId: "313330293720",
-    appId: "1:313330293720:web:e5df05a37512bc149470ad",
-    measurementId: "G-X17441MMR0",
+    apiKey: 'AIzaSyCtSXpHE4lvjfjQ3R03JRTUE1z9K3Iw6Lg',
+    authDomain: 'vici-news.firebaseapp.com',
+    projectId: 'vici-news',
+    storageBucket: 'vici-news.appspot.com',
+    messagingSenderId: '313330293720',
+    appId: '1:313330293720:web:e5df05a37512bc149470ad',
+    measurementId: 'G-X17441MMR0',
 };
 
 export const useFirebase = () => {
@@ -54,7 +54,6 @@ export const useDoc = (path) => {
         }
         firestore.doc(path).onSnapshot((doc) => {
             setData({ id: doc.id, ...doc.data() });
-            console.log(doc.data(), " data paper");
             // console.log(data, 'data from database', path);
             setLoading(false);
         });
@@ -78,7 +77,7 @@ export const useDoc = (path) => {
                 setData(doc.data());
             })
             .catch(function (error) {
-                console.log("Error getting cached document:", error);
+                console.log('Error getting cached document:', error);
             });
     };
 
@@ -92,7 +91,7 @@ export const useCol = (path, sort = false) => {
     useEffect(() => {
         if (firestore && path) {
             let query = firestore.collection(path);
-            let order = sort ? query.orderBy("createdAt", "asc") : query;
+            let order = sort ? query.orderBy('createdAt', 'asc') : query;
 
             const unsubscribe = order.onSnapshot((querySnapshot) => {
                 setData(
@@ -116,7 +115,8 @@ export const useCol = (path, sort = false) => {
                 .set(
                     {
                         ...data,
-                        updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        updatedAt:
+                            firebase.firestore.FieldValue.serverTimestamp(),
                     },
                     {
                         merge: true,
@@ -126,14 +126,15 @@ export const useCol = (path, sort = false) => {
     };
 
     const createRecord = (id, data) => {
-        if (id === "") {
+        if (id === '') {
             return firestore
                 .collection(path)
                 .doc()
                 .set(
                     {
                         ...data,
-                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        createdAt:
+                            firebase.firestore.FieldValue.serverTimestamp(),
                     },
                     {
                         merge: true,
