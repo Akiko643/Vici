@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useCol, useFirebase } from '../../Hooks/firebase';
+import Editor from './Editor';
+import Upload from './Upload';
 
 const EducationPost = () => {
     const { data, deleteRecord, createRecord, updateRecord } = useCol(
@@ -12,6 +14,8 @@ const EducationPost = () => {
     const { firestore } = useFirebase();
     const [curPost, setCurPost] = useState({});
     const [values, setValues] = useState([]);
+    const [value, setValue] = React.useState('**Experienced coder**');
+    const [header, setHeader] = useState('');
     // var dataTable;
     /*
     0: {id: 09asdfapsdofi}
@@ -48,7 +52,7 @@ const EducationPost = () => {
                 {index ? (
                     <button
                         onClick={() => {
-                            deleteRecord(data[index].id);
+                            deleteRecord(data[index - 1].id);
                         }}
                     >
                         Delete field
@@ -95,8 +99,28 @@ const EducationPost = () => {
                         : 'Create new field'}
                 </button>
             </div>
-            <div>
-                {values.map((data, index) => {
+            <input
+                value={header}
+                placeholder='content header'
+                onChange={(e) => {
+                    setHeader(e.target.value);
+                    if (header === '') {
+                        console.log(header);
+                    }
+                }}
+            ></input>
+            <Editor value={value} setValue={setValue} />
+            {index && header !== '' ? (
+                <Upload
+                    category='Education'
+                    fieldID={data[index - 1].id}
+                    post={{ header, value }}
+                />
+            ) : (
+                <div>select field and header</div>
+            )}
+            {/* <div>
+                {values?.map((data, index) => {
                     let first, second;
                     for (const key in data) {
                         console.log(key);
@@ -107,15 +131,21 @@ const EducationPost = () => {
                         <div className='flex'>
                             {`${first}: `}{' '}
                             <input
-                                onChange={(e) =>
-                                    setValues(...values, values[index][first])
-                                }
-                                value={second}
+                                onChange={(e) => {
+                                    const temp = values[index];
+                                    setValues(
+                                        ...values,
+                                        (temp[first] = e.target.value)
+                                    );
+
+                                    console.log(e.target.value);
+                                }}
+                                value={values[index][first]}
                             />
                         </div>
                     );
                 })}
-            </div>
+            </div> */}
         </div>
     );
 };

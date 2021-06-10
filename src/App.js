@@ -16,6 +16,7 @@ import Admin from './Component/Admin/Admin';
 import TopColleges from './Component/Top Colleges/TopColleges';
 import { Education, Test, Blog } from './Component';
 import Interview from './Component/Interview/Interview';
+import AdminTest from './Component/Admin/AdminTest';
 
 const App = () => {
     const { user } = AuthStateValue();
@@ -42,7 +43,7 @@ const App = () => {
                         </Route>
                         <Route path='/admin'>
                             {curUser?.role === 'admin' ? (
-                                <Admin />
+                                <AdminTest />
                             ) : (
                                 <div> Non admin user </div>
                             )}
@@ -93,7 +94,7 @@ const App = () => {
                             <Test />
                         </Route>
                         <Route path='/blog'>
-                            <Blog   />
+                            <Blog />
                         </Route>
                     </Switch>
                 </TopCollegeProvider>
