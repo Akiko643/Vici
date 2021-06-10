@@ -6,6 +6,24 @@ import { BlogItemComp } from './BlogItemComp';
 import leftchevron from './zuun-chevron.svg';
 import rightchevron from './baruun-chevron.svg';
 export const Blog = () => {
+
+    /*
+    Blog {
+        tag
+        header
+        text
+        desc
+        publisher
+        date
+        image
+        publisherID
+        blogID
+        visit: 0
+        likes: 0
+    }
+    
+    */
+
     const [selectedLPT, setSelectedLPT] = useState(0);
     const [suggestedPageNumber, setSuggestedPageNumber] = useState(1);
     const fakeData = {
