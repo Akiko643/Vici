@@ -17,6 +17,7 @@ function Upload({ path, header, text }) {
                     header,
                     text,
                     publisher: curUser.data.displayName,
+                    publisherID: user.uid,
                 };
                 let { posts } = curUser.data;
                 chapters.push(newPost);
