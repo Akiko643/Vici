@@ -18,7 +18,7 @@ const Infos = () => {
             <div className='flex'>
                 <div className='ma-10'>
                     {/* <Link to="/">Back</Link> */}
-                    <ul className='fs-20 lh-20 list-style-none pa-20 br-default-1 bradius-20'>
+                    <ul className='fs-20 lh-20 list-style-none pa-20 br-default-1 rounded-lg'>
                         {informations.map((info) => {
                             return (
                                 <li className='c-default pb-10 bb-default-1 w-130 ma-4'>

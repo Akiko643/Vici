@@ -45,6 +45,7 @@ const App = () => {
                             {curUser?.role === 'admin' ? (
                                 <AdminTest />
                             ) : (
+                                // <Admin />
                                 <div> Non admin user </div>
                             )}
                         </Route>
