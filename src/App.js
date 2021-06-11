@@ -93,7 +93,7 @@ const App = () => {
                             <Test />
                         </Route>
                         <Route path='/blog'>
-                            <Blog   />
+                            <Blog />
                         </Route>
                     </Switch>
                 </TopCollegeProvider>

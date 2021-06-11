@@ -1,6 +1,7 @@
 import React from 'react'
 import { BlogTemp } from './blog-temp/blogtemp'
 export const Test = () => {
+    //tged ene nemne bh XD
     const data = {
         heading: "Хэрхэн ажлаа хойш тавихаа багасгах вэ?",
         image: "https://images.unsplash.com/photo-1509225770129-fbcf8a696c0b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFub3JhbWF8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",

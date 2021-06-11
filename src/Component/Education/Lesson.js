@@ -15,7 +15,7 @@ const Lesson = ({ icon, name, path, elements, id }) => {
                 <div> {name} </div>
             </p>
             <div className="h-210 w100 flex-col justify-between mt-10">
-                {elements.map((el, index) => {
+                {elements?.map((el, index) => {
                     console.log(el);
                     return (
                         <div className="flex flex-row items-center" key={index}>

@@ -1,6 +1,27 @@
 .blog-container {
     .blog-mid-container {
         width: 1060px;
+        .breadcrumb {
+            font-family: Raleway;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+            margin: 20px 0px;
+            p {
+                margin: 0 10px;
+                // display: flex;
+                // align-items: center;
+                color: #00ACD1;
+            }
+            p:first-of-type {
+                margin-left: 0px;
+            }
+            p:last-of-type {
+                margin-right: 0px;
+                color: black;
+            }
+        }
         .handalt {
             width: 250px;
         }
@@ -30,6 +51,8 @@
             width: 100%;
             border-radius: 10px;
             margin-bottom: 30px;
+            object-fit: contain;
+            background: #CCCCCC;
         }
         .publisher-profile-img {
             width: 40px;

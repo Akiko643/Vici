@@ -24,7 +24,7 @@ export const Info = (props) => {
                         <li className="c-dedault pb-10 bb-border-2 w-200 ma-4 bold">
                             Course Summary
                         </li>
-                        {chapters.map((chapter, index) => {
+                        {chapters?.map((chapter, index) => {
                             return (
                                 <li
                                     className={`c-default pb-10 bb-border-1 w-200 ma-4 pt-10 ${
@@ -33,7 +33,7 @@ export const Info = (props) => {
                                     } pointer`}
                                     onClick={() => setChapterIndex(index)}
                                 >
-                                    {chapter.header}
+                                    {chapter?.header}
                                 </li>
                             );
                         })}
@@ -43,10 +43,10 @@ export const Info = (props) => {
                 </div>
                 <div className="ma-10 pa-50 b-white right-sec br-border-1">
                     {/* <div> */}
-                    <h1 className="">{chapters[chapterIndex].header}</h1>
+                    <h1 className="">{chapters[chapterIndex]?.header}</h1>
                     <p className="fs-20 ln-25">
                         <MDEditor.Markdown
-                            source={chapters[chapterIndex].text}
+                            source={chapters[chapterIndex]?.text}
                         />
                     </p>
                     {/* </div> */}

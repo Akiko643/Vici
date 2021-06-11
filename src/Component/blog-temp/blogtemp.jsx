@@ -1,46 +1,43 @@
 import React from 'react'
+import { useRouteMatch, useHistory } from 'react-router';
+import { useDoc } from '../../Hooks/firebase';
 import './blog-temp.scss'
 export const BlogTemp = (props) => {
-    const { data } = props;
+    let match = useRouteMatch();
+    const doc = useDoc(`/content/contents/Blog/${match.params.blogId}`);
+    const blogData = doc.data; 
+    const history = useHistory();
+    const { data } = useDoc(`users/${blogData?.publisherId}`);
+    const toTime = (timestamp) => {
+        var date = new Date(timestamp?.seconds*1000);
+        return date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
+    }
     return (
         <div className='blog-container w100 flex-center'>
-            <div className='blog-mid-container'>
-                <img src={data.image} className='heading-image'/>
+            <div className='blog-mid-container mt-60'>
+                <div className='flex-row breadcrumb'><p onClick={() => history.push('/')}>Home</p>/<p onClick={() => history.push('/blog')}>Blog</p>/<p onClick={() => history.push(`/blog/${blogData?.category?.name}`)}>{blogData?.category?.name}</p>/<p>{blogData?.header}</p></div>
+                <h1>{blogData?.header}</h1>
+                <img src={blogData?.image} className='heading-image'/>
                 <div className='flex flex-wrap'>
                     <div className='flex-col handalt'>
                         <div className='flex-row'>
-                            <img src={data.publisher_profile} alt={data.publisher} className='publisher-profile-img'/>
+                            <img src={data?.profilePicUrl} alt={data?.displayName} className='publisher-profile-img'/>
                             <div className='flex flex-col'>
                                 <div className='c-smallheading side-heading'>Puplisher:</div>
-                                <p onClick={() => {}} className='publisher-name'>{data.publisher}</p>
+                                <p onClick={() => {}} className='publisher-name'>{data?.displayName}</p>
                             </div>
                         </div>
                         <div className='flex flex-col'>
                             <div className='c-smallheading side-heading'>Хандалт:</div>
-                            <p className='side-accessed'>{data.accessed}</p>
+                            <p className='side-accessed'>{blogData?.visits}</p>
                         </div>
                         <div className='flex flex-col'>
                             <div className='c-smallheading side-heading'>Date:</div>
-                            <p className='side-date'>{data.date}</p>
+                            <p className='side-date'>{toTime(blogData?.createdAt)}</p>
                         </div>
                     </div>
                     <div className='blog-content'>
-                        {
-                            data.body.map((paragraph, index) => {
-                                return (
-                                    <div key={index} className='content-item'>
-                                        <h1 className='content-heading'>{paragraph.heading}</h1>
-                                        {
-                                            paragraph.text.map((text, index) => {
-                                                return (
-                                                    <p key={index} className='content-text'>{text}</p>
-                                                );
-                                            })
-                                        }
-                                    </div>
-                                )
-                            })
-                        }
+                        <p>{blogData?.text}</p>
                     </div>
                 </div>
             </div>

@@ -8,8 +8,10 @@ navbar {
     align-items: center;
     font-size: 1.2rem;
     border-bottom: 1px solid darkgray;
-    position: relative;
+    position: fixed;
     width: 100%;
+    top: 0px;
+    z-index: 5;
 }
 .nav-logo {
     cursor: pointer;

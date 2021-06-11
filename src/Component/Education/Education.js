@@ -56,14 +56,14 @@ export const Education = () => {
                             itemClass="carousel-item-padding-40-px"
                         >
                             {data &&
-                                data.map((dt, index) => {
+                                data?.map((dt, index) => {
                                     console.log(dt);
                                     return (
                                         <Lesson
-                                            icon={dt.image}
-                                            name={dt.name}
-                                            elements={dt.questions}
-                                            id={dt.id}
+                                            icon={dt?.image}
+                                            name={dt?.name}
+                                            elements={dt?.questions}
+                                            id={dt?.id}
                                             key={index}
                                         />
                                     );
@@ -73,13 +73,13 @@ export const Education = () => {
                     </div>
                 </Route>
                 {data &&
-                    data.map((dt, index) => {
+                    data?.map((dt, index) => {
                         return (
-                            <Route exact path={"/education/" + dt.id}>
+                            <Route exact path={"/education/" + dt?.id}>
                                 <Info
-                                    chapters={dt.chapters}
+                                    chapters={dt?.chapters}
                                     key={index}
-                                    name={dt.name}
+                                    name={dt?.name}
                                 />
                             </Route>
                         );

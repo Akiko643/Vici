@@ -11,7 +11,7 @@ function Body() {
     const [isShown, setIsShown] = useState(true);
 
     return (
-        <div className='ph-190 of-x-h'>
+        <div className='ph-190 of-x-h mt-60'>
             <div className='flex items-center justify-between mb-140'>
                 <h1 className='fs-60 w-430'>
                     Walk with us, bla bla bla uria loozon
