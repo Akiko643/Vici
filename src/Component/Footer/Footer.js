@@ -6,7 +6,7 @@ import { FooterElements } from './FooterElements';
 
 function Footer() {
     return (
-        <div className='footer flex h-200 b-footer'>
+        <div className='footer flex b-footer'>
             {FooterElements.map(({ title, path, elements }, index) => {
                 return (
                     <Col>

@@ -14,13 +14,13 @@ import './Style/App.css';
 import Intro from './Component/Intro page/Intro';
 import Admin from './Component/Admin/Admin';
 import TopColleges from './Component/Top Colleges/TopColleges';
-import { Education } from './Component';
+import { Education, Test, Blog } from './Component';
 import Interview from './Component/Interview/Interview';
-import Blog from './Component/Blog/Blog';
 
 const App = () => {
     const { user } = AuthStateValue();
     const { auth } = useFirebase();
+    const curUser = useDoc(`/users/${user?.uid}`).data;
     useEffect(() => {
         if (user) {
             console.log(user.email);
@@ -41,7 +41,11 @@ const App = () => {
                             <SignUpPage />
                         </Route>
                         <Route path='/admin'>
-                            <Admin />
+                            {curUser?.role === 'admin' ? (
+                                <Admin />
+                            ) : (
+                                <div> Non admin user </div>
+                            )}
                         </Route>
                         <Route path='/top-colleges/'>
                             <TopColleges />
@@ -84,6 +88,9 @@ const App = () => {
                         </Route>
                         <Route path='/interview'>
                             <Interview />
+                        </Route>
+                        <Route path='/test'>
+                            <Test />
                         </Route>
                         <Route path='/blog'>
                             <Blog />
