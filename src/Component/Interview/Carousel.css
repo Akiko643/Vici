@@ -1,0 +1,58 @@
+.big-container {
+    width: 100vw;
+    height: 1000px;
+}
+.carousel-container {
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vignette {
+    position: relative;
+    display: inline-block;
+}
+.vignette > React-PLayer {
+    display: block;
+}
+.vignette::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 5rem 5rem rgba(0, 0, 0, 1);
+}
+.image {
+    height: 700px;
+    width: 100vw;
+    z-index: -2;
+}
+.right-arrow {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    color: white;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}
+.left-arrow {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    color: white;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}
+.slide {
+    opacity: 0;
+    transition-duration: 1s ease;
+}
+.slide.active {
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+}

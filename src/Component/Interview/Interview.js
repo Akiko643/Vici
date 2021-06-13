@@ -1,76 +1,37 @@
-import React from 'react';
-import defaultBgImage from '../../Img/INTERVIEW.png';
-import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
-import InterviewArticle from './InterviewArticle';
-import './Interview.css';
-const Interview = ({ bgImg }) => {
+import React from "react";
+import defaultBgImage from "../../Img/INTERVIEW.png";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
+// import Carousel from "react-multi-carousel";
+import Carousel from "./Carousel";
+import "react-multi-carousel/lib/styles.css";
+import { CarouselData } from "./CarouselData";
+import "./Interview.css";
+// import Feed from "./Feed";
+
+const Interview = () => {
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 1,
+            slidesToSlide: 2, // optional, default to 1.
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 1,
+            slidesToSlide: 2, // optional, default to 1.
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            slidesToSlide: 2, // optional, default to 1.
+        },
+    };
     return (
         <div>
             <Navbar />
-            <img
-                src={bgImg ? bgImg : defaultBgImage}
-                className='bg__image w100 h50 bs-contain'
-                alt='Generic'
-            />
-            <div className='search__section'>
-                <div className='search__cont'>
-                    <div className='search__select'>
-                        Country{' '}
-                        <svg
-                            width='15'
-                            height='10'
-                            viewBox='0 0 25 18'
-                            fill='none'
-                            xmlns='http://www.w3.org/2000/svg'
-                        >
-                            <path
-                                d='M12.7474 17L1 1H23.3579L12.7474 17Z'
-                                stroke='black'
-                            />
-                        </svg>
-                    </div>
-                    <div className='search__select'>
-                        University{' '}
-                        <svg
-                            width='15'
-                            height='10'
-                            viewBox='0 0 25 18'
-                            fill='none'
-                            xmlns='http://www.w3.org/2000/svg'
-                        >
-                            <path
-                                d='M12.7474 17L1 1H23.3579L12.7474 17Z'
-                                stroke='black'
-                            />
-                        </svg>
-                    </div>
-                    <div className='search__select'>
-                        Profession{' '}
-                        <svg
-                            width='15'
-                            height='10'
-                            viewBox='0 0 25 18'
-                            fill='none'
-                            xmlns='http://www.w3.org/2000/svg'
-                        >
-                            <path
-                                d='M12.7474 17L1 1H23.3579L12.7474 17Z'
-                                stroke='black'
-                            />
-                        </svg>
-                    </div>
-                </div>
-                <button className='search__button'>Search</button>
-            </div>
-            <feed>
-                <InterviewArticle />
-                <InterviewArticle />
-                <InterviewArticle />
-                <InterviewArticle />
-                <InterviewArticle />
-                <InterviewArticle />
-            </feed>
+            {/* <Carousel slides={CarouselData} />; */}
+            {/* <Feed /> */}
             <Footer />
         </div>
     );
