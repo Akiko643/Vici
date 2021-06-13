@@ -44,6 +44,7 @@ export const Education = () => {
                     <div className='w100 ph-30 educations'>
                         <Carousel
                             swipeable={true}
+                            arrows={false}
                             draggable={true}
                             showDots={false}
                             responsive={responsive}
@@ -51,7 +52,7 @@ export const Education = () => {
                             infinite={false}
                             keyBoardControl={true}
                             containerClass='carousel-container'
-                            removeArrowOnDeviceType={['tablet', 'mobile']}
+                            // removeArrowOnDeviceType={["tablet", "mobile"]}
                             dotListClass='custom-dot-list-style'
                             itemClass='carousel-item-padding-40-px'
                         >

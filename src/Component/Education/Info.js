@@ -3,7 +3,7 @@ import './Info.scss';
 import img from '../../Img/oceans 2.png';
 import Location from '../../Img/Location.svg';
 import Welcome from '../../Img/Welcome.svg';
-import MDEditor from '@uiw/react-md-editor';
+import ReactMarkdown from 'react-markdown';
 
 export const Info = (props) => {
     const { chapters, name } = props;
@@ -43,11 +43,19 @@ export const Info = (props) => {
                 </div>
                 <div className='ma-10 pa-50 b-white right-sec br-border-1'>
                     {/* <div> */}
+<<<<<<< HEAD
                     <h1 className="">{chapters[chapterIndex]?.header}</h1>
                     <p className="fs-20 ln-25">
                         <MDEditor.Markdown
                             source={chapters[chapterIndex]?.text}
                         />
+=======
+                    <h1 className=''>{chapters[chapterIndex]?.header}</h1>
+                    <p className='fs-20 ln-25'>
+                        <ReactMarkdown>
+                            {chapters[chapterIndex]?.text}
+                        </ReactMarkdown>
+>>>>>>> 0275ccb0a5ff501f1626d4b409ea6e920dea880b
                     </p>
                     {/* </div> */}
                 </div>

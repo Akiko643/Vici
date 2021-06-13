@@ -1,14 +1,14 @@
 import React, { useState, useRef } from 'react';
 import { useCol } from '../../Hooks/firebase';
-import MDEditor from '@uiw/react-md-editor';
 import Selector from './Selector';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import EducationPost from './EducationPost';
+import Editor from './Editor';
 
 function Admin() {
     const [value, setValue] = React.useState('**Hello world!!!**');
     return (
-        <div className='h-vh-100 flex pa-30'>
+        <div className='h-vh-100 w-vw-100 flex pa-30'>
             <div className='side-elements w-vw-20 h-p-100 flex-col'>
                 <Link to='/admin/Education'>Education</Link>
                 <Link to='/admin/College prep'>College prep</Link>
@@ -31,11 +31,6 @@ function Admin() {
                     </Route>
                 </Switch>
             </div>
-            {/* <Selector text={value} />
-            <div className="w75">
-                <MDEditor value={value} onChange={setValue} />
-            </div>
-            <MDEditor.Markdown source={value} /> */}
         </div>
     );
 }

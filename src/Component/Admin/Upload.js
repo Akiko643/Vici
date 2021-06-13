@@ -1,12 +1,16 @@
 import React from 'react';
 import { useEffect } from 'react/cjs/react.development';
 import { AuthStateValue } from '../../Hooks/auth-user-provider';
-import { useCol, useDoc } from '../../Hooks/firebase';
+import { useCol, useDoc, useFirebase } from '../../Hooks/firebase';
 
-function Upload({ path, header, text }) {
-    const { data, updateRecord } = useDoc(path);
+function Upload({ category, fieldID, post }) {
+    const { data, updateRecord } = useDoc(
+        `content/contents/${category}/${fieldID}`
+    );
+    const { firestore } = useFirebase();
     const { user } = AuthStateValue();
     const curUser = useDoc(`/users/${user?.uid}`);
+    const id = firestore.collection('temp').doc().id;
     return (
         <button
             className='pa-5'
@@ -14,10 +18,10 @@ function Upload({ path, header, text }) {
                 console.log(data);
                 let { chapters } = data;
                 let newPost = {
-                    header,
-                    text,
+                    header: post.header,
+                    text: post.value,
                     publisher: curUser.data.displayName,
-                    publisherID: user.uid,
+                    publisherID: user?.uid,
                 };
                 let { posts } = curUser.data;
                 chapters.push(newPost);

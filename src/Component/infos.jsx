@@ -18,8 +18,13 @@ const Infos = () => {
             <div className='flex'>
                 <div className='ma-10'>
                     {/* <Link to="/">Back</Link> */}
+<<<<<<< HEAD
                     <ul className='fs-20 lh-20 list-style-none pa-20 br-default-1 bradius-20'>
                         {informations?.map((info) => {
+=======
+                    <ul className='fs-20 lh-20 list-style-none pa-20 br-default-1 rounded-lg'>
+                        {informations.map((info) => {
+>>>>>>> 0275ccb0a5ff501f1626d4b409ea6e920dea880b
                             return (
                                 <li className='c-default pb-10 bb-default-1 w-130 ma-4'>
                                     <Link
