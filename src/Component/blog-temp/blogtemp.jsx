@@ -32,7 +32,7 @@ export const BlogTemp = (props) => {
           </p>
           /<p>{blogData?.header}</p>
         </div>
-        <h1>{blogData?.header}</h1>
+        <h1 className="fs-40">{blogData?.header}</h1>
         <img src={blogData?.image} className="heading-image" />
         <div className="flex flex-wrap">
           <div className="flex-col handalt">
