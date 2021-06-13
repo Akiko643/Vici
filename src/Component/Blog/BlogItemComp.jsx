@@ -74,7 +74,8 @@ export const BlogItemComp = (props) => {
 };
 const BigItem = ({
   id,
-  classStr, index,
+  classStr,
+  index,
   image,
   header,
   category,
@@ -157,7 +158,7 @@ const SmallItem = ({ id, classStr, index, image, header, category }) => {
 };
 const SmallColItem = ({
   id,
-  classStr, 
+  classStr,
   index,
   image,
   header,
