@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { useCol, useFirebase } from "../../Hooks/firebase";
 import { BlogTemp } from "../blog-temp/blogtemp";
 import { BlogItemComp } from "../Blog/BlogItemComp";
-import { SuggestPagination } from '../Blog/SuggestPagination'
+import { SuggestPagination } from "../Blog/SuggestPagination";
 import "./BlogCategoryTemp.scss";
 export const BlogCategoryTemp = () => {
   const match = useRouteMatch();
@@ -44,7 +44,6 @@ const CategoryTemp = () => {
     const docs = snapshot.docs.map((doc) => {
       return { ...doc.data(), id: doc.id };
     });
-    console.log(docs, match.params.categoryId);
     setLastDoc(last);
     setData([...docs]);
     setLoadingMore(false);
@@ -60,7 +59,7 @@ const CategoryTemp = () => {
         .startAfter(lastDoc)
         .limit(5);
       const snapshot = await next.get();
-      
+
       const docs = snapshot.docs.map((doc) => {
         return { ...doc.data(), id: doc.id };
       });
@@ -76,13 +75,13 @@ const CategoryTemp = () => {
     setLoadingMore(false);
   };
   const handlePageClick = async ({ selected: selectedPage }) => {
-    if (selectedPage+1 > pageNumber) {
+    if (selectedPage + 1 > pageNumber) {
       for (let i = pageNumber; i < selectedPage + 1; i++) {
         await loadMore();
       }
     }
-    setPageNumber(selectedPage+1);
-  }
+    setPageNumber(selectedPage + 1);
+  };
   const toCat = async (name) => {
     setIsEnd(false);
     setLoadingMore(false);
@@ -92,7 +91,7 @@ const CategoryTemp = () => {
     await firstLoad(name);
     history.push(`/blog/${name}`);
     // window.location.reload(false);
-  }
+  };
   useEffect(() => {
     firstLoad();
   }, []);
@@ -105,18 +104,24 @@ const CategoryTemp = () => {
   return (
     <div className="category-container">
       <div className="flex-row breadcrumb">
-        <p onClick={() => history.push('/')}>Home</p>/<p onClick={() => history.push('/blog')}>Blog</p>/<p>{match.params.categoryId}</p>
+        <p onClick={() => history.push("/")}>Home</p>/
+        <p onClick={() => history.push("/blog")}>Blog</p>/
+        <p>{match.params.categoryId}</p>
       </div>
       <div className="flex-row">
         <div className="w60">
-          {data.slice((pageNumber-1) * 4 , pageNumber * 4).map((dt) => {
+          {data.slice((pageNumber - 1) * 4, pageNumber * 4).map((dt) => {
             return <BlogItemComp size="medium" data={dt} />;
-          })} 
+          })}
         </div>
         <div className="w30">
           {categories?.data?.map((category, index) => {
             return (
-              <div className="category-item" onClick={() => toCat(category.name)} key={index}>
+              <div
+                className="category-item"
+                onClick={() => toCat(category.name)}
+                key={index}
+              >
                 #{category.name}
               </div>
             );
@@ -124,19 +129,22 @@ const CategoryTemp = () => {
         </div>
       </div>
       {/* <div> */}
-        {/* Pagination */}
-        <ReactPaginate 
-          pageCount={length / 4}
-          previousLabel={"←"}
-          nextLabel={"→"}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination-container"}
-          previousLinkClassName={"pagination-btn"}
-          nextClassName={`${(length % 4 == 0 ? length / 4 : (length - length % 4)/4) < pageNumber  && "disabled-pagination-btn" }`}
-          nextLinkClassName={`pagination-btn`}
-          disabledClassName={"disabled-pagination-btn"}
-          activeClassName={"pagination-btn selected-pagination"}
-         />
+      {/* Pagination */}
+      <ReactPaginate
+        pageCount={length / 4}
+        previousLabel={"←"}
+        nextLabel={"→"}
+        onPageChange={handlePageClick}
+        containerClassName={"pagination-container"}
+        previousLinkClassName={"pagination-btn"}
+        nextClassName={`${
+          (length % 4 == 0 ? length / 4 : (length - (length % 4)) / 4) <
+            pageNumber && "disabled-pagination-btn"
+        }`}
+        nextLinkClassName={`pagination-btn`}
+        disabledClassName={"disabled-pagination-btn"}
+        activeClassName={"pagination-btn selected-pagination"}
+      />
       {/* </div> */}
       <SuggestPagination />
     </div>

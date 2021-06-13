@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
-import { SuggestPagination } from './SuggestPagination'
+import { SuggestPagination } from "./SuggestPagination";
 import "./Blog.scss";
 import { BlogItemComp } from "./BlogItemComp";
 import leftchevron from "./zuun-chevron.svg";
@@ -105,7 +105,7 @@ export const Blog = () => {
     <>
       <Navbar />
       <Switch>
-        <Route path={`${match.path}/:categoryId`} >
+        <Route path={`${match.path}/:categoryId`}>
           <BlogCategoryTemp />
         </Route>
         {/* <Route path={`${match.path}`} */}
@@ -115,9 +115,9 @@ export const Blog = () => {
               <div className="flex-row">
                 <BlogItemComp data={topData[0]} size="big" classStr={"w60"} />
                 <div className="w40 ml-20">
-                  <div className="flex-row justify-between lpt">
+                  <div className="flex-row lpt">
                     <div
-                      className={`pointer ${
+                      className={`pointer mr-50 ${
                         selectedLPT === 0 ? "selected-lpt" : "nt-selected-lpt"
                       }`}
                       onClick={() => topChange(0)}
@@ -125,7 +125,7 @@ export const Blog = () => {
                       LATEST
                     </div>
                     <div
-                      className={`pointer ${
+                      className={`pointer mr-50 ${
                         selectedLPT === 1 ? "selected-lpt" : "nt-selected-lpt"
                       }`}
                       onClick={() => topChange(1)}
@@ -196,7 +196,11 @@ export const Blog = () => {
                   <div className="categories-text">Categories</div>
                   {data?.map((category, index) => {
                     return (
-                      <div className="category-item" key={index} onClick={() => history.push('/blog/' + category.name)}>
+                      <div
+                        className="category-item"
+                        key={index}
+                        onClick={() => history.push("/blog/" + category.name)}
+                      >
                         #{category.name}
                       </div>
                     );
