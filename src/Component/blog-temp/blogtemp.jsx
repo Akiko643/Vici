@@ -25,9 +25,9 @@ export const BlogTemp = (props) => {
     <div className="blog-container w100 flex-center">
       <div className="blog-mid-container mt-60">
         <div className="flex-row breadcrumb">
-          <p onClick={() => history.push("/")}>Home</p>/
-          <p onClick={() => history.push("/blog")}>Blog</p>/
-          <p onClick={() => history.push(`/blog/${blogData?.category?.name}`)}>
+          <p onClick={() => history.push("/")} className='pointer'>Home</p>/
+          <p onClick={() => history.push("/blog")} className='pointer'>Blog</p>/
+          <p onClick={() => history.push(`/blog/${blogData?.category?.name}`)} className='pointer'>
             {blogData?.category?.name}
           </p>
           /<p>{blogData?.header}</p>

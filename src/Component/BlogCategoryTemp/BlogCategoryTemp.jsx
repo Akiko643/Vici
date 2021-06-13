@@ -104,8 +104,8 @@ const CategoryTemp = () => {
   return (
     <div className="category-container">
       <div className="flex-row breadcrumb">
-        <p onClick={() => history.push("/")}>Home</p>/
-        <p onClick={() => history.push("/blog")}>Blog</p>/
+        <p onClick={() => history.push("/")} className='pointer'>Home</p>/
+        <p onClick={() => history.push("/blog")} className='pointer'>Blog</p>/
         <p>{match.params.categoryId}</p>
       </div>
       <div className="flex-row">
@@ -118,7 +118,7 @@ const CategoryTemp = () => {
           {categories?.data?.map((category, index) => {
             return (
               <div
-                className="category-item"
+                className="category-item pointer"
                 onClick={() => toCat(category.name)}
                 key={index}
               >
