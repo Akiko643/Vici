@@ -1,7 +1,6 @@
 @import './variables.scss';
 @import './flex.scss';
 @import './typograph.scss';
-@import 'antd/dist/antd.css';
 
 @function pow($base, $exp) {
     $res: 1;
@@ -339,7 +338,7 @@ body {
     }
 }
 
-@for $i from 0 to 200 {
+@for $i from 0 to 100 {
     .bradius-#{$i} {
         border-radius: $i + px;
     }
@@ -460,7 +459,9 @@ body {
 .ws95 {
     width: 95%;
 }
-
+.w100 {
+    width: 100%;
+}
 .text-center {
     text-align: center;
 }
@@ -481,11 +482,8 @@ body {
     .gap-#{i} {
         gap: $i + px;
     }
-}
-
-@for $i from 0 through 100 {
-    .gap-#{i} {
-        gap: $i + px;
+    .w#{$i} {
+        width: $i * 1%;
     }
 }
 
@@ -500,7 +498,6 @@ body {
     border: none !important;
     background-color: inherit !important;
 }
-
 
 .w-fit {
     width: fit-content;
@@ -538,4 +535,7 @@ a:visited {
 .a-style {
     color: black;
     text-decoration: none !important;
+}
+.pointer {
+    cursor: pointer;
 }

@@ -1,20 +1,33 @@
-import React from "react";
-import { useDoc } from "../../Hooks/firebase";
+import React from 'react';
+import { useEffect } from 'react/cjs/react.development';
+import { AuthStateValue } from '../../Hooks/auth-user-provider';
+import { useCol, useDoc, useFirebase } from '../../Hooks/firebase';
 
-function Upload({ path, header, text }) {
-    const { data, updateRecord } = useDoc(path);
-    // console.log(path);
+function Upload({ category, fieldID, post }) {
+    const { data, updateRecord } = useDoc(
+        `content/contents/${category}/${fieldID}`
+    );
+    const { firestore } = useFirebase();
+    const { user } = AuthStateValue();
+    const curUser = useDoc(`/users/${user?.uid}`);
+    const id = firestore.collection('temp').doc().id;
     return (
         <button
-            className="pa-5"
-            onClick={() => {
+            className='pa-5'
+            onClick={async () => {
+                console.log(data);
                 let { chapters } = data;
-                chapters.push({ header: header, text: text });
-                updateRecord({ chapters: chapters, ...data })
-                    .then((e) => {
-                        console.log("Uploaded! ");
-                    })
-                    .catch((e) => console.log(e.error, "error"));
+                let newPost = {
+                    header: post.header,
+                    text: post.value,
+                    publisher: curUser.data.displayName,
+                    publisherID: user?.uid,
+                };
+                let { posts } = curUser.data;
+                chapters.push(newPost);
+                posts.push(newPost);
+                await updateRecord({ chapters: chapters, ...data });
+                await curUser.updateRecord({ ...curUser.data, posts });
             }}
         >
             Upload

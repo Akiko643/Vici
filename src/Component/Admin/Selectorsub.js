@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useFirebase, useCol, useDoc } from "../../Hooks/firebase";
+import React, { useState } from 'react';
+import { useFirebase, useCol, useDoc } from '../../Hooks/firebase';
 
 function Selectorsub({ path, option, setOption, id, setId }) {
     // console.log("path", path);
@@ -21,8 +21,8 @@ function Selectorsub({ path, option, setOption, id, setId }) {
                 selectedIndex={id}
             >
                 <option disabled selected value>
-                    {" "}
-                    -- select an option --{" "}
+                    {' '}
+                    -- select an option --{' '}
                 </option>
                 {data ? (
                     data.map((d) => {
@@ -31,11 +31,6 @@ function Selectorsub({ path, option, setOption, id, setId }) {
                 ) : (
                     <></>
                 )}
-
-                {/* <option value="Education">Education</option>
-                <option value="Saab">Saab</option>
-                <option value="Fiat">Fiat</option>
-                <option value="Audi">Audi</option> */}
             </select>
         </>
     );
