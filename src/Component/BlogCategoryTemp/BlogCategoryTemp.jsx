@@ -110,8 +110,8 @@ const CategoryTemp = () => {
       </div>
       <div className="flex-row">
         <div className="w60">
-          {data.slice((pageNumber - 1) * 4, pageNumber * 4).map((dt) => {
-            return <BlogItemComp size="medium" data={dt} />;
+          {data.slice((pageNumber - 1) * 4, pageNumber * 4).map((dt, index) => {
+            return <BlogItemComp size="medium" index={index} data={dt} />;
           })}
         </div>
         <div className="w30">

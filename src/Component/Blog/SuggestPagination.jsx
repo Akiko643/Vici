@@ -101,7 +101,7 @@ export const SuggestPagination = () => {
           {
             loadingMore ? (
               <>
-              <div className={`flex-col small-col-item loading-sci`}>
+              <div className={`flex-col small-col-item loading-sci`} key={0}>
                 <div
                   className="image bradius-10 h-180 b-border"
                 />
@@ -115,7 +115,7 @@ export const SuggestPagination = () => {
                   <div className="time w-70"></div>
                 </div>
               </div>
-              <div className={`flex-col small-col-item loading-sci`}>
+              <div className={`flex-col small-col-item loading-sci`} key={1}>
                 <div
                   className="image bradius-10 h-180 b-border"
                 />
@@ -128,7 +128,8 @@ export const SuggestPagination = () => {
                   </div>
                   <div className="time w-70"></div>
                 </div>
-              </div><div className={`flex-col small-col-item loading-sci`}>
+              </div>
+              <div className={`flex-col small-col-item loading-sci`} key={2}>
                 <div
                   className="image bradius-10 h-180 b-border"
                 />
@@ -141,7 +142,8 @@ export const SuggestPagination = () => {
                   </div>
                   <div className="time w-70"></div>
                 </div>
-              </div><div className={`flex-col small-col-item loading-sci`}>
+              </div>
+              <div className={`flex-col small-col-item loading-sci`} key={3}>
                 <div
                   className="image bradius-10 h-180 b-border"
                 />
@@ -159,9 +161,9 @@ export const SuggestPagination = () => {
             ) : (
               data
                 .slice(4 * (suggestedPageNumber - 1), 4 * suggestedPageNumber)
-                  .map((dtw) => {
+                  .map((dtw, index) => {
                     return (
-                      <BlogItemComp data={dtw} size="smallcol" classStr={"w23"} />
+                      <BlogItemComp data={dtw} index={index} size="smallcol" classStr={"w23"} />
                     );
               })
             )
