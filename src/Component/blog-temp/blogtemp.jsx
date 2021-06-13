@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouteMatch, useHistory } from "react-router";
-import { useDoc } from "../../Hooks/firebase";
+import { useCol, useDoc } from "../../Hooks/firebase";
 import "./blog-temp.scss";
 export const BlogTemp = (props) => {
   let match = useRouteMatch();
+  const { updateRecord } = useCol("/content/contents/Blog");
   const doc = useDoc(`/content/contents/Blog/${match.params.blogId}`);
-  const blogData = doc.data;
+  const [blogData, setBlogData] = useState({});
   const history = useHistory();
   const { data } = useDoc(`users/${blogData?.publisherId}`);
   const toTime = (timestamp) => {
     var date = new Date(timestamp?.seconds * 1000);
     return date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
   };
+  const [first, setFirst] = useState(true);
+  useEffect(() => {
+    setBlogData(doc?.data);
+    if (doc?.data?.visits != undefined && first) {
+      doc?.updateRecord({visits: doc?.data?.visits+1})
+      setFirst(false);
+    }
+  }, [doc?.data])
   return (
     <div className="blog-container w100 flex-center">
       <div className="blog-mid-container mt-60">

@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import { useDoc } from "../../Hooks/firebase";
 export const BlogItemComp = (props) => {
-  const { data, size, classStr = "" } = props;
+  const { data, size, classStr = "", index } = props;
   const toSmall = (text) => {
     return text?.split(" ")?.slice(0, 30)?.join(" ") + "...";
   };
@@ -13,6 +13,7 @@ export const BlogItemComp = (props) => {
   if (size === "big") {
     return (
       <BigItem
+        index={index}
         classStr={classStr}
         id={data?.id}
         image={data?.image}
@@ -25,6 +26,7 @@ export const BlogItemComp = (props) => {
   } else if (size === "medium") {
     return (
       <MediumItem
+        index={index}
         classStr={classStr}
         id={data?.id}
         image={data?.image}
@@ -36,6 +38,7 @@ export const BlogItemComp = (props) => {
   } else if (size === "small") {
     return (
       <SmallItem
+        index={index}
         classStr={classStr}
         id={data?.id}
         image={data?.image}
@@ -46,6 +49,7 @@ export const BlogItemComp = (props) => {
   } else if (size === "smallcol") {
     return (
       <SmallColItem
+        index={index}
         classStr={classStr}
         id={data?.id}
         image={data?.image}
@@ -58,6 +62,8 @@ export const BlogItemComp = (props) => {
   }
   return (
     <MediumItem
+      index={index}
+      classStr={classStr}
       id={data?.id}
       image={data?.image}
       header={data?.header}
@@ -68,7 +74,7 @@ export const BlogItemComp = (props) => {
 };
 const BigItem = ({
   id,
-  classStr,
+  classStr, index,
   image,
   header,
   category,
@@ -78,7 +84,7 @@ const BigItem = ({
   const { data } = useDoc(`users/${publisherId}`);
   const history = useHistory();
   return (
-    <div className={`${classStr} flex-col big-item`}>
+    <div className={`${classStr} flex-col big-item`} key={index}>
       <img
         className="image h-430 bradius-10"
         src={image}
@@ -101,10 +107,10 @@ const BigItem = ({
     </div>
   );
 };
-const MediumItem = ({ id, classStr, image, header, category, text }) => {
+const MediumItem = ({ id, classStr, index, image, header, category, text }) => {
   const history = useHistory();
   return (
-    <div className={`${classStr} flex-row medium-item my-10`}>
+    <div className={`${classStr} flex-row medium-item my-10`} key={index}>
       <img
         className="image bradius-10 w55 h-240"
         src={image}
@@ -128,10 +134,10 @@ const MediumItem = ({ id, classStr, image, header, category, text }) => {
     </div>
   );
 };
-const SmallItem = ({ id, classStr, image, header, category }) => {
+const SmallItem = ({ id, classStr, index, image, header, category }) => {
   const history = useHistory();
   return (
-    <div className={`${classStr} flex-row small-item my-10`}>
+    <div className={`${classStr} flex-row small-item my-10`} key={index}>
       <img
         className="image bradius-10 w45 h-120"
         src={image}
@@ -151,7 +157,8 @@ const SmallItem = ({ id, classStr, image, header, category }) => {
 };
 const SmallColItem = ({
   id,
-  classStr,
+  classStr, 
+  index,
   image,
   header,
   category,
@@ -161,7 +168,7 @@ const SmallColItem = ({
   const { data } = useDoc(`users/${publisherId}`);
   const history = useHistory();
   return (
-    <div className={`${classStr} flex-col small-col-item`}>
+    <div className={`${classStr} flex-col small-col-item`} key={index}>
       <img
         className="image bradius-10 h-180"
         src={image}
