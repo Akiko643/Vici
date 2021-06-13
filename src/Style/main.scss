@@ -1,7 +1,6 @@
 @import './variables.scss';
 @import './flex.scss';
 @import './typograph.scss';
-@import 'antd/dist/antd.css';
 
 @function pow($base, $exp) {
     $res: 1;
@@ -499,7 +498,6 @@ body {
     border: none !important;
     background-color: inherit !important;
 }
-
 
 .w-fit {
     width: fit-content;
