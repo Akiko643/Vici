@@ -1,81 +1,118 @@
 .category-container {
-    width: 1060px;
-    margin: 0 calc((100vw - 1060px) / 2);
-    margin-top: 60px;
-    .breadcrumb {
-        font-family: Raleway;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 16px;
-        margin: 20px 0px;
-        padding: 20px 0px;
-        p {
-            margin: 0 10px;
-            // display: flex;
-            // align-items: center;
-            color: #00ACD1;
-        }
-        p:first-of-type {
-            margin-left: 0px;
-        }
-        p:last-of-type {
-            margin-right: 0px;
-            color: black;
-        }
-        border-bottom: 1px solid #c4c4c4;
+  width: 1060px;
+  margin: 0 calc((100vw - 1060px) / 2);
+  margin-top: 60px;
+  .breadcrumb {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 20px 0px;
+    padding: 20px 0px;
+    p {
+      margin: 0 10px;
+      // display: flex;
+      // align-items: center;
+      color: #00acd1;
     }
-    .pagination-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        list-style-type: none;
-        font-family: Nunito;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 19px;
-        li {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            background: #F0F0F0;
-            border-radius: 5px;
-            margin: 0px 5px;
-            a {
-                padding: 3px;
-                color: black !important;
-            }
-        }
-        .selected-pagination {
-            display: flex;
-            background: #FF5555;
-            a {
-                color:#FFFFFF !important;
-            }
-        }
-        .disabled-pagination-btn {
-            opacity: 0;
-            a {
-                cursor: default;
-            }
-        }
+    p:first-of-type {
+      margin-left: 0px;
     }
-}
-.category-item {
-    border-radius: 10px;
-    background: #EFEFEF;
+    p:last-of-type {
+      margin-right: 0px;
+      color: black;
+    }
+    border-bottom: 1px solid #c4c4c4;
+  }
+  .medium-item {
+    .blog-header {
+      font-family: Raleway;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px;
+      display: flex;
+      align-items: center;
+      color: #000000;
+    }
+    .blog-tag {
+      margin: 15px 0px;
+    }
+    .text {
+      // margin: 10px 0px;
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 19px;
+      display: flex;
+      align-items: center;
+    }
+  }
+  .small-item {
+    .blog-header {
+      font-family: Raleway;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 28px;
+      display: flex;
+      align-items: center;
+      color: #000000;
+    }
+  }
+  .pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
     font-family: Nunito;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 19px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    color: #00ACD1;
-    margin: 10px 0px;
-    padding-left: 40px;
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      background: #f0f0f0;
+      border-radius: 5px;
+      margin: 0px 5px;
+      a {
+        padding: 3px;
+        color: black !important;
+      }
+    }
+    .selected-pagination {
+      display: flex;
+      background: #ff5555;
+      a {
+        color: #ffffff !important;
+      }
+    }
+    .disabled-pagination-btn {
+      opacity: 0;
+      a {
+        cursor: default;
+      }
+    }
+  }
+}
+.category-item {
+  border-radius: 10px;
+  background: #efefef;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: #00acd1;
+  margin: 10px 0px;
+  padding-left: 40px;
 }

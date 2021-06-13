@@ -50,7 +50,7 @@ export const SuggestPagination = () => {
 
       setData([...data, ...docs]);
     }
-    setLoadingMore(false);
+    setLoadingMore(false); 
   };
   const what = async (pm) => {
     if (pm == 1) {
@@ -98,13 +98,74 @@ export const SuggestPagination = () => {
         <div>There is no more Suggestion</div>
       ) : (
         <div className="flex-row justify-between">
-          {data
-            .slice(4 * (suggestedPageNumber - 1), 4 * suggestedPageNumber)
-            .map((dtw) => {
-              return (
-                <BlogItemComp data={dtw} size="smallcol" classStr={"w23"} />
-              );
-            })}
+          {
+            loadingMore ? (
+              <>
+              <div className={`flex-col small-col-item loading-sci`}>
+                <div
+                  className="image bradius-10 h-180 b-border"
+                />
+                <div className="blog-tag h-22 c-seablue b-border"></div>
+                <div className="blog-header h-28 b-border"></div>
+                <div className="flex-row my-15">
+                  <div className="publishername flex-row">
+                    <div className="namecircle" />
+                    <div className='b-border w-40'>         </div>
+                  </div>
+                  <div className="time w-70"></div>
+                </div>
+              </div>
+              <div className={`flex-col small-col-item loading-sci`}>
+                <div
+                  className="image bradius-10 h-180 b-border"
+                />
+                <div className="blog-tag h-22 c-seablue b-border"></div>
+                <div className="blog-header h-28 b-border"></div>
+                <div className="flex-row my-15">
+                  <div className="publishername flex-row">
+                    <div className="namecircle" />
+                    <div className='b-border w-40'>         </div>
+                  </div>
+                  <div className="time w-70"></div>
+                </div>
+              </div><div className={`flex-col small-col-item loading-sci`}>
+                <div
+                  className="image bradius-10 h-180 b-border"
+                />
+                <div className="blog-tag h-22 c-seablue b-border"></div>
+                <div className="blog-header h-28 b-border"></div>
+                <div className="flex-row my-15">
+                  <div className="publishername flex-row">
+                    <div className="namecircle" />
+                    <div className='b-border w-40'>         </div>
+                  </div>
+                  <div className="time w-70"></div>
+                </div>
+              </div><div className={`flex-col small-col-item loading-sci`}>
+                <div
+                  className="image bradius-10 h-180 b-border"
+                />
+                <div className="blog-tag h-22 c-seablue b-border"></div>
+                <div className="blog-header h-28 b-border"></div>
+                <div className="flex-row my-15">
+                  <div className="publishername flex-row">
+                    <div className="namecircle" />
+                    <div className='b-border w-40'>         </div>
+                  </div>
+                  <div className="time w-70"></div>
+                </div>
+              </div>
+              </>
+            ) : (
+              data
+                .slice(4 * (suggestedPageNumber - 1), 4 * suggestedPageNumber)
+                  .map((dtw) => {
+                    return (
+                      <BlogItemComp data={dtw} size="smallcol" classStr={"w23"} />
+                    );
+              })
+            )
+          }
         </div>
       )}
     </div>
