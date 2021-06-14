@@ -9,15 +9,16 @@ export const Info = (props) => {
     const { chapters, name } = props;
     const [chapterIndex, setChapterIndex] = useState(0);
     return (
+        <div className='b-background'>
+        <div className='heading'>
+            <img
+                src={img}
+                className='w100 pb-50'
+                alt='Hello world idk img here not loaded'
+            />
+            <h1 className='c-white heading-name'>{name}</h1>
+        </div>
         <div className='flex-col info-container'>
-            <div className='heading'>
-                <img
-                    src={img}
-                    className='w100 pb-50'
-                    alt='Hello world idk img here not loaded'
-                />
-                <h1 className='c-white heading-name'>{name}</h1>
-            </div>
             <div className='flex'>
                 <div className='ma-10 flex flex-col'>
                     <ul className='fs-20 lh-20 list-style-none pa-20'>
@@ -52,6 +53,7 @@ export const Info = (props) => {
                     {/* </div> */}
                 </div>
             </div>
+        </div>
         </div>
     );
 };

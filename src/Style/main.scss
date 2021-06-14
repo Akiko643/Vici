@@ -138,7 +138,7 @@
     }
 
     .mt-#{$i} {
-        margin-top: $i + px;
+        margin-top: $i + px !important;
     }
 
     .ml-#{$i} {
