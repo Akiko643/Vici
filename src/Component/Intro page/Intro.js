@@ -5,7 +5,7 @@ import Body from './Body';
 
 function Intro() {
     return (
-        <div>
+        <div className='relative'>
             <Navbar />
             <Body />
             <Footer />

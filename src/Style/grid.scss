@@ -1,0 +1,13 @@
+.grid {
+    display: grid;
+}
+
+.grid-cols-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+@for $i from 1 through 1000 {
+    .grid-gap-#{$i} {
+        grid-gap: $i + px;
+    }
+}
