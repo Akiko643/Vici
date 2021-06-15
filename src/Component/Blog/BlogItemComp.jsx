@@ -8,7 +8,7 @@ export const BlogItemComp = (props) => {
   };
   const toTime = (timestamp) => {
     var date = new Date(timestamp?.seconds * 1000);
-    return date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
+    return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear();
   };
   if (size === "big") {
     return (

@@ -13,7 +13,7 @@ export const BlogTemp = (props) => {
   const { data } = useDoc(`users/${blogData?.publisherId}`);
   const toTime = (timestamp) => {
     var date = new Date(timestamp?.seconds * 1000);
-    return date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
+    return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear();
   };
   const [first, setFirst] = useState(true);
   useEffect(() => {
