@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import img1 from '../../Img/IntroPageSpace.svg';
 import img2 from '../../Img/IntroPageExplore.svg';
-import Date from './Date';
+import Dates from './Dates';
 import Speakers from './Speakers';
 import './Transition.css';
 import { SuggestPagination } from '../Blog/SuggestPagination';
@@ -26,15 +26,15 @@ function Body() {
                 <img
                     className='absolute hi-1200 l-0 z--1'
                     src='./images/Wave.svg'
-                    alt='img'
+                    alt='wave'
                 />
             </div>
             <div className='mb-140 pr'>
-                <h2 className='fw-600 fs-30'>International exams</h2>
+                <h2 className='fw-600 fs-30 mb-20'>International exams</h2>
                 <div className='flex justify-between'>
-                    <Date exam='SAT Dates'></Date>
-                    <Date exam='IELTS Dates'></Date>
-                    <Date exam='TOEFL Dates'></Date>
+                    <Dates exam='SAT Dates'></Dates>
+                    <Dates exam='IELTS Dates'></Dates>
+                    <Dates exam='TOEFL Dates'></Dates>
                 </div>
             </div>
             <SuggestPagination />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Calendar = () => {
+const Calendar = ({ dates }) => {
     const months = [
         'January',
         'February',
@@ -26,10 +26,21 @@ const Calendar = () => {
             monthdates.push([weekdays[i], 3]);
         }
         for (let i = 0; i < 35; i++) {
-            monthdates.push([
-                date.getDate(),
-                date.getMonth() === mth.getMonth() ? 2 : 1,
-            ]);
+            let state = 1;
+            if (date.getMonth() === mth.getMonth()) {
+                state = 2;
+            }
+            for (let j = 0; j < dates.length; j++) {
+                if (
+                    dates[j].getFullYear() === date.getFullYear() &&
+                    dates[j].getMonth() === date.getMonth() &&
+                    dates[j].getDate() === date.getDate()
+                ) {
+                    if (date.getMonth() === mth.getMonth()) state = 4;
+                    else state = 5;
+                }
+            }
+            monthdates.push([date.getDate(), state]);
             date.setDate(date.getDate() + 1);
         }
         return monthdates;
@@ -78,12 +89,14 @@ const Calendar = () => {
                         <div
                             className={
                                 day[1] === 1
-                                    ? 'op60 w-40 h-40 flex-center'
+                                    ? 'op30 w-40 h-40 flex-center'
                                     : day[1] === 2
                                     ? 'w-40 h-40 flex-center'
                                     : day[1] === 3
                                     ? 'fw-800 w-40 h-40 flex-center'
-                                    : 'circle b-selected w-40 h-40 flex-center'
+                                    : day[1] === 4
+                                    ? 'circle b-selected w-40 h-40 flex-center'
+                                    : 'circle b-selected w-40 h-40 flex-center op30'
                             }
                         >
                             {day[0]}

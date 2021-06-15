@@ -52,7 +52,6 @@ export const Education = () => {
                             infinite={false}
                             keyBoardControl={true}
                             containerClass='carousel-container h-475'
-
                             // removeArrowOnDeviceType={["tablet", "mobile"]}
                             dotListClass='custom-dot-list-style'
                             itemClass='carousel-item-padding-40-px'
@@ -75,7 +74,7 @@ export const Education = () => {
                 {data &&
                     data?.map((dt, index) => {
                         return (
-                            <Route exact path={"/education/" + dt?.id}>
+                            <Route exact path={'/education/' + dt?.id}>
                                 <Info
                                     chapters={dt?.chapters}
                                     key={index}

@@ -6,7 +6,7 @@ import { BlogField, EducationField } from './AdminFields';
 import { BlogPosts, EducationPosts, CollegePrepPosts } from './AdminPosts';
 import Editor from './Editor';
 
-export const Input = ({ basevalue, setbaseValue }) => {
+export const Input = ({ basevalue, setbaseValue, placeholder }) => {
     const [value, setValue] = useState(basevalue);
     return (
         <input
@@ -16,7 +16,7 @@ export const Input = ({ basevalue, setbaseValue }) => {
                 setValue(temp);
                 setbaseValue(temp);
             }}
-            placeholder='type content header'
+            placeholder={placeholder}
         ></input>
     );
 };
@@ -28,6 +28,7 @@ export const BlogOnePost = ({ state, setState }) => {
     console.log(data);
     const [value, setValue] = useState();
     const [header, setHeader] = useState();
+    const [image, setImage] = useState();
     return (
         <div>
             {data && (
@@ -36,6 +37,12 @@ export const BlogOnePost = ({ state, setState }) => {
                         <Input
                             basevalue={data.header}
                             setbaseValue={setHeader}
+                            placeholder='type content header'
+                        ></Input>
+                        <Input
+                            basevalue={data.image}
+                            setbaseValue={setImage}
+                            placeholder='type blog image url'
                         ></Input>
                     </div>
                     <Editor value={data.text} setValue={setValue} />
@@ -48,8 +55,9 @@ export const BlogOnePost = ({ state, setState }) => {
                         let chapters = data;
                         if (value) chapters.text = value;
                         if (header) chapters.header = header;
-                        console.log(chapters);
-                        if (value || header) await updateRecord(chapters);
+                        if (image) chapters.image = image;
+                        if (value || header || image)
+                            await updateRecord(chapters);
                     }}
                 >
                     Save
