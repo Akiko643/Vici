@@ -1,0 +1,93 @@
+.big-container {
+    width: 100vw;
+}
+.carousel-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vignette {
+    position: relative;
+    display: inline-block;
+    position: relative;
+}
+/* .vignette > React-PLayer {
+    display: block;
+} */
+.img {
+    display: block;
+}
+.car-title {
+    font-size: 3rem;
+    color: white;
+    display: block;
+    position: absolute;
+    top: 75%;
+    left: 15%;
+    /* height: 7%;
+    width: 188px; */
+    background-color: black;
+    padding: 0.8rem;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.car-subtitle {
+    color: white;
+    font-size: 3rem;
+    display: block;
+    position: absolute;
+    top: 85%;
+    left: 15%;
+    cursor: pointer;
+}
+.vignette::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 10rem 5rem rgba(0, 0, 0, 1);
+}
+.image {
+    height: 95vh;
+    width: 100vw;
+    z-index: -2;
+}
+.right-arrow {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    color: white;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}
+.left-arrow {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    color: white;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}
+.slide {
+    opacity: 0;
+    transition-duration: 1s ease;
+}
+.slide.active {
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+}
+.vignette {
+    opacity: 1;
+    transition-duration: 0.8s;
+    transform: scale(1.08);
+}
