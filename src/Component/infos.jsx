@@ -17,6 +17,29 @@ const Infos = () => {
     const [ cpData, setCpData ] = useState({});
     const location = useLocation();
     const { data } = useCol(`/content/contents/College-prep/${cpData.id}/chapters`);
+    const implement = (data) => {
+        let side = data;
+        for (let i = 0; i < side.length; i++) {
+            if (side[i].parent != "") {
+                for (let j = 0; j < side.length; j++) {
+                    if (i != j && side[j]?.id == side[i]?.parent) {
+                        if (side[j]?.items) {
+                            side[j]?.items?.push(side[i]);
+                        }else {
+                            side[j].items = [side[i]];
+                        }
+                        side.splice(i, 1);
+                        i--;
+                    }
+                }
+            }
+        }
+        console.log(side);
+        return side;
+    }
+    useEffect(() => {
+        console.log(implement(data));
+    }, [data])
     useEffect(() => {
         setCpData(collegePrep.find(cp => {
             if (cp.name == location.pathname.substring(1, location.pathname.length)) 
