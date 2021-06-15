@@ -59,7 +59,6 @@ export const Education = () => {
                         >
                             {data &&
                                 data?.map((dt, index) => {
-                                    console.log(dt);
                                     return (
                                         <Lesson
                                             icon={dt?.image}

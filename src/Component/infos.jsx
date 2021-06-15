@@ -20,8 +20,17 @@ const Infos = () => {
         `/content/contents/College-prep/${cpData.id}/chapters`
     );
     useEffect(() => {
-        console.log(informations);
-    }, [informations]);
+        setCpData(
+            collegePrep.find((cp) => {
+                if (
+                    cp.name ==
+                    location.pathname.substring(1, location.pathname.length)
+                )
+                    return true;
+            })
+        );
+    }, [collegePrep]);
+    // const { data } = useCol(`/content/contents/College-prep/IBhSmeaGmZHfUMd7rqit`)
     const [chapterIndex, setChapterIndex] = useState(0);
     return (
         <div className='ws100 hs100 font-ubuntu infos b-background'>
@@ -57,7 +66,6 @@ const Infos = () => {
                     <img src={Location} className='svg_images' alt='img' />
                 </div>
                 <div className='ma-10 pa-50 b-white right-sec br-border-1'>
-                    {/* <h1 className=''>{informations[chapterIndex]?.header}</h1> */}
                     <p className='fs-20 ln-25'>
                         <ReactMarkdown>
                             {informations[chapterIndex]?.text}

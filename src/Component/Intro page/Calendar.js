@@ -16,7 +16,7 @@ const Calendar = () => {
         11: 'December',
     };
     const [month, setMonth] = useState(new Date());
-    const []
+    // const []
     console.log(month);
     return (
         <div className='b-white bradius-10'>
