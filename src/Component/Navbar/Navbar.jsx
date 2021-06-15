@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 // import Logo from './Logo'
 import './Navbar.css';
-import { CollegePrepItems } from './CollegePrepItems';
+// import { CollegePrepItems } from './CollegePrepItems';
 import { EducationItems } from './EducationItems';
+
 import Dropdown from './Dropdown';
 import { AuthStateValue } from '../../Hooks/auth-user-provider';
 import { useFirebase } from '../../Hooks/firebase';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Interview } from '../Interview/Interview.js';
+import { useContext } from 'react';
+import { Context } from '../../Providers/contentProvider';
 const Navbar = () => {
     const [click, setClick] = useState(false);
     const [dropdown, setDropdown] = useState(false);
     const { user } = AuthStateValue();
     const { auth } = useFirebase();
-
+    const { collegePrep } = useContext(Context);
     const handleClick = () => setClick(!click);
     const dropdownHover = () => {
         setDropdown(!dropdown);
@@ -71,7 +74,7 @@ const Navbar = () => {
                         onMouseEnter={dropdownHover}
                         onMouseLeave={dropdownHover}
                     >
-                        <Link to='/college-prep' className='nav-links'>
+                        <Link className='nav-links'>
                             College Prep{' '}
                             <svg
                                 width='11'
@@ -86,7 +89,7 @@ const Navbar = () => {
                                 />
                             </svg>
                         </Link>
-                        {dropdown && <Dropdown listName={CollegePrepItems} />}
+                        {dropdown && <Dropdown listName={collegePrep} />}
                     </li>
                     <li className='nav-item'>
                         <Link to='/interview' className='nav-links'>

@@ -1,7 +1,6 @@
 import react from 'react'
 
 function Speakers({person}) {
-    console.log(`../../Img/${person}.png`);
     return(
         <div className="pr mt-20">
             <div className="b-white w-270 h-390 bradius-10 z--1"></div>

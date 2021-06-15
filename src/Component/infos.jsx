@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { cloneElement, useContext, useEffect, useState } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import { Context } from '../Providers/contentProvider';
 import imgrc from '../Img/Rectangle 14.png';
@@ -10,12 +10,20 @@ import img from '../Img/oceans 2.png';
 import Location from '../Img/Location.svg';
 import Welcome from '../Img/Welcome.svg';
 import ReactMarkdown from 'react-markdown';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Infos = () => {
-    const { informations } = useContext(Context);
+    const { informations, collegePrep } = useContext(Context);
+    const [ cpData, setCpData ] = useState({});
+    const location = useLocation();
+    const { data } = useCol(`/content/contents/College-prep/${cpData.id}/chapters`);
     useEffect(() => {
-        console.log(informations)
-    }, [informations])
+        setCpData(collegePrep.find(cp => {
+            if (cp.name == location.pathname.substring(1, location.pathname.length)) 
+                return true;
+        }));
+    }, [collegePrep])
+    // const { data } = useCol(`/content/contents/College-prep/IBhSmeaGmZHfUMd7rqit`)
     const [chapterIndex, setChapterIndex] = useState(0);
     return (
         <div className='ws100 hs100 font-ubuntu infos b-background'>
@@ -33,7 +41,7 @@ const Infos = () => {
                         <li className='c-dedault pb-10 bb-border-2 w-200 ma-4 bold'>
                             Course Summary
                         </li>
-                        {informations?.map((chapter, index) => {
+                        {data?.map((chapter, index) => {
                             return (
                                 <li
                                     className={`c-default pb-10 bb-border-1 w-200 ma-4 pt-10 ${
@@ -51,10 +59,10 @@ const Infos = () => {
                     <img src={Location} className='svg_images' alt='img' />
                 </div>
                 <div className='ma-10 pa-50 b-white right-sec br-border-1'>
-                    <h1 className=''>{informations[chapterIndex]?.header}</h1>
+                    <h1 className=''>{data[chapterIndex]?.header}</h1>
                         <p className='fs-20 ln-25'>
                             <ReactMarkdown>
-                                {informations[chapterIndex]?.text}
+                                {data[chapterIndex]?.text}
                             </ReactMarkdown>
                         </p>
                 </div>

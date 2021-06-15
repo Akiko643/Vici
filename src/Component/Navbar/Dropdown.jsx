@@ -9,12 +9,12 @@ const Dropdown = ({ listName }) => {
                 onClick={() => setClick(!click)}
                 className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}
             >
-                {listName.map((item, index) => {
+                {listName?.map((item, index) => {
                     return (
                         <li key={index}>
                             <Link
-                                className={item.cName}
-                                to={item.path}
+                                className='list-item'
+                                to={`/${item?.name}`}
                                 onClick={() => setClick(false)}
                             >
                                 {item.name}
