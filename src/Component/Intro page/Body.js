@@ -13,7 +13,7 @@ function Body() {
     return (
         <div className='ph-190 of-x-h mt-60'>
             <div className='flex items-center justify-between mb-140'>
-                <h1 className='fs-60 w-430'>
+                <h1 className='fs-45 w-430'>
                     Walk with us, bla bla bla uria loozon
                 </h1>
                 <div>
@@ -21,14 +21,14 @@ function Body() {
                     {/* <img src="./images/IntroPageSpaceGreen.svg" className="h-550"></img> */}
                 </div>
             </div>
+            <div className='of-x-h hi-1200 w100'>
+                <img
+                    className='absolute hi-1200 l-0 z--1'
+                    src='./images/Wave.svg'
+                    alt='img'
+                />
+            </div>
             <div className='mb-140 pr'>
-                <div className='absolute w-vw-100 h-1200 left--190 bottom--650'>
-                    <img
-                        className='absolute hi-1200 left--190 z--1'
-                        src='./images/Wave.svg'
-                        alt='img'
-                    />
-                </div>
                 <h2 className='fw-600 fs-30'>International exams</h2>
                 <div className='flex justify-between'>
                     <Date exam='SAT Dates'></Date>

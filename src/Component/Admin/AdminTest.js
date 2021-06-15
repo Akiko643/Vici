@@ -14,10 +14,10 @@ const AdminTest = () => {
         post: null,
     });
     return (
-        <div className='h-screen p-20'>
+        <div className='h100 pa-50'>
             {state.level !== 0 ? (
                 <div
-                    className='flex'
+                    className='flex items-center'
                     onClick={() => {
                         setState({
                             ...state,
@@ -25,11 +25,8 @@ const AdminTest = () => {
                         });
                     }}
                 >
-                    <img
-                        src='../images/back.svg'
-                        className='h-10 w-10 mb-5 mr-5'
-                    />
-                    <p className='text-3xl'>back</p>
+                    <img src='../images/back.svg' className='h-20 w-20 mr-12' />
+                    <p className='fs-20'>back</p>
                 </div>
             ) : (
                 <></>

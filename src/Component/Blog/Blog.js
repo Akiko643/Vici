@@ -183,7 +183,7 @@ export const Blog = () => {
                   {data?.map((category, index) => {
                     return (
                       <div
-                        className="category-item"
+                        className="category-item pointer"
                         key={index}
                         onClick={() => history.push("/blog/" + category.name)}
                       >

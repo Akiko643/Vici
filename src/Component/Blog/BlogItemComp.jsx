@@ -87,14 +87,14 @@ const BigItem = ({
   return (
     <div className={`${classStr} flex-col big-item`} key={index}>
       <img
-        className="image h-430 bradius-10"
+        className="image h-430 bradius-10 pointer"
         src={image}
         onClick={() => history.push(`/blog/${category.name}/${id}`)}
       />
-      <div className="blog-tag c-seablue">#{category?.name}</div>
+      <div className="blog-tag c-seablue pointer" onClick={() => history.push(`/blog/${category.name}`)}>#{category?.name}</div>
       <div
-        className="blog-header"
-        onClick={() => history.push(`blog/${category.name}/${id}`)}
+        className="blog-header pointer"
+        onClick={() => history.push(`/blog/${category.name}/${id}`)}
       >
         {header}
       </div>
@@ -113,21 +113,21 @@ const MediumItem = ({ id, classStr, index, image, header, category, text }) => {
   return (
     <div className={`${classStr} flex-row medium-item my-10`} key={index}>
       <img
-        className="image bradius-10 w55 h-240"
+        className="image bradius-10 w55 h-240 pointer"
         src={image}
         onClick={() => history.push(`/blog/${category.name}/${id}`)}
       />
       <div className="flex-col w45 ml-20 my-10">
         <div
-          className="blog-header"
-          onClick={() => history.push(`blog/${category.name}/${id}`)}
+          className="blog-header pointer"
+          onClick={() => history.push(`/blog/${category.name}/${id}`)}
         >
           {header}
         </div>
-        <div className="blog-tag c-seablue">#{category?.name}</div>
+        <div className="blog-tag c-seablue pointer" onClick={() => history.push(`/blog/${category.name}`)}>#{category?.name}</div>
         <div
           className="text"
-          onClick={() => history.push(`blog/${category.name}/${id}`)}
+          onClick={() => history.push(`/blog/${category.name}/${id}`)}
         >
           {text}
         </div>
@@ -140,15 +140,15 @@ const SmallItem = ({ id, classStr, index, image, header, category }) => {
   return (
     <div className={`${classStr} flex-row small-item my-10`} key={index}>
       <img
-        className="image bradius-10 w45 h-120"
+        className="image bradius-10 w45 h-120 pointer"
         src={image}
         onClick={() => history.push(`/blog/${category.name}/${id}`)}
       />
       <div className="w55 ma-20">
-        <div className="blog-tag c-seablue">#{category?.name}</div>
+        <div className="blog-tag c-seablue pointer" onClick={() => history.push(`/blog/${category.name}`)}>#{category?.name}</div>
         <div
-          className="blog-header"
-          onClick={() => history.push(`blog/${category.name}/${id}`)}
+          className="blog-header pointer"
+          onClick={() => history.push(`/blog/${category.name}/${id}`)}
         >
           {header}
         </div>
@@ -171,12 +171,12 @@ const SmallColItem = ({
   return (
     <div className={`${classStr} flex-col small-col-item`} key={index}>
       <img
-        className="image bradius-10 h-180"
+        className="image bradius-10 h-180 pointer"
         src={image}
         onClick={() => history.push(`/blog/${category.name}/${id}`)}
       />
-      <div className="blog-tag c-seablue">#{category?.name}</div>
-      <div className="blog-header">{header}</div>
+      <div className="blog-tag c-seablue" onClick={() => history.push(`/blog/${category.name}`)}>#{category?.name}</div>
+      <div className="blog-header pointer" onClick={() => history.push(`/blog/${category.name}`)}>{header}</div>
       <div className="flex-row my-15">
         <div className="publishername flex-row">
           <div className="namecircle" />

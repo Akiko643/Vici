@@ -7,7 +7,7 @@ function onPanelChange(value, mode) {
 function Date({ exam }) {
     return (
         <div>
-            <div className='w-300 br-white-1'></div>
+            <div className='w-300 h-400 b-footer'></div>
         </div>
     );
 }
