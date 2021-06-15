@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Img from "../../Img/article.png";
-import "./Carousel.css";
+import "./Carousel.module.css";
 import { CarouselData } from "./CarouselData.js";
 import rightIcon from "../../Img/RightArrow.svg";
 import leftIcon from "../../Img/LeftArrow.svg";
