@@ -1,10 +1,17 @@
+.flex-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+}
 .card-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 5vw;
     grid-template-rows: 1fr 1fr;
+    column-gap: 5vw;
     row-gap: 5%;
-    margin-bottom: 10%;
+    /* margin-bottom: 10%;
     margin-top: 10%;
-    margin-left: 5%;
+    margin-left: 5%; */
 }

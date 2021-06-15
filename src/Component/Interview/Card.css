@@ -29,9 +29,9 @@
 .active {
     top: 60%;
 }
-.feed-title:hover {
-    /* display: none; */
-}
+/* .feed-title:hover {
+    display: none;
+} */
 .feed-subtitle {
     position: absolute;
     top: 80%;

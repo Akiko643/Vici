@@ -11,7 +11,7 @@
 .vignette {
     position: relative;
     display: inline-block;
-    position: relative;
+    width: 100%;
 }
 /* .vignette > React-PLayer {
     display: block;
