@@ -44,7 +44,7 @@ export const Education = () => {
                     <div className='w100 ph-30 pv-70 educations'>
                         <Carousel
                             swipeable={true}
-                            arrows={false}
+                            arrows={true}
                             draggable={true}
                             showDots={false}
                             responsive={responsive}

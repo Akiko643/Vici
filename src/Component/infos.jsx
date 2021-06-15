@@ -93,11 +93,9 @@ const Infos = () => {
                     <img src={Location} className='svg_images' alt='img' />
                 </div>
                 <div className='ma-10 pa-50 b-white right-sec br-border-1'>
-                    <p className='fs-20 ln-25'>
-                        <ReactMarkdown>
-                            {data[chapterIndex]?.text}
-                        </ReactMarkdown>
-                    </p>
+                    <ReactMarkdown className='fs-20 ln-25'>
+                        {data[chapterIndex]?.text}
+                    </ReactMarkdown>
                 </div>
             </div>
         </div>
