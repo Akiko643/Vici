@@ -18,7 +18,7 @@
     position: absolute;
     margin-bottom: 2%;
     color: white;
-    font-size: 4rem;
+    font-size: 2rem;
     cursor: pointer;
     background-color: black;
     border-radius: 10px;
@@ -26,12 +26,18 @@
     top: 80%;
     left: 10%;
 }
+.active {
+    top: 60%;
+}
+.feed-title:hover {
+    /* display: none; */
+}
 .feed-subtitle {
     position: absolute;
-    top: 60%;
+    top: 80%;
     left: 10%;
     color: white;
-    font-size: 2rem;
+    font-size: 1.275rem;
 }
 
 .card:hover {
