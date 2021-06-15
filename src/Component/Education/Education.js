@@ -51,7 +51,7 @@ export const Education = () => {
                             ssr={true} // means to render carousel on server-side.
                             infinite={false}
                             keyBoardControl={true}
-                            containerClass='carousel-container h-475'
+                            containerClass='carousel-container h-475 justify-normal'
                             // removeArrowOnDeviceType={["tablet", "mobile"]}
                             dotListClass='custom-dot-list-style'
                             itemClass='carousel-item-padding-40-px'
