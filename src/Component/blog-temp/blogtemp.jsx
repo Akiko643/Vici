@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouteMatch, useHistory } from "react-router";
+import ReactMarkdown from 'react-markdown';
+
 import { useCol, useDoc } from "../../Hooks/firebase";
 import "./blog-temp.scss";
 export const BlogTemp = (props) => {
@@ -22,7 +24,7 @@ export const BlogTemp = (props) => {
     }
   }, [doc?.data])
   return (
-    <div className="blog-container w100 flex-center">
+    <div className="blog-container w100 flex justify-center">
       <div className="blog-mid-container">
         <div className="flex-row breadcrumb">
           <p onClick={() => history.push("/")} className='pointer'>Home</p>/
@@ -59,7 +61,9 @@ export const BlogTemp = (props) => {
             </div>
           </div>
           <div className="blog-content">
-            <p>{blogData?.text}</p>
+            <ReactMarkdown className='fs-20 ln-25'>
+              {blogData?.text}
+            </ReactMarkdown>
           </div>
         </div>
       </div>

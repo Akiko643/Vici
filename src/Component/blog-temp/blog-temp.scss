@@ -1,7 +1,9 @@
 .blog-container {
   min-height: calc(100vh - 195px);
+  padding-top: 60.8px;
   .blog-mid-container {
     // width: 1060px;
+    width: calc(100% - 2*11.875rem);
     margin: 0px 11.875rem;
     .breadcrumb {
       font-family: Raleway;
