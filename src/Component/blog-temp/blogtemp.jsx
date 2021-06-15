@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouteMatch, useHistory } from 'react-router';
 import ReactMarkdown from 'react-markdown';
-
 import { useCol, useDoc } from '../../Hooks/firebase';
 import './blog-temp.scss';
 export const BlogTemp = (props) => {
@@ -14,7 +13,12 @@ export const BlogTemp = (props) => {
     const toTime = (timestamp) => {
         var date = new Date(timestamp?.seconds * 1000);
         return (
-            date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear()
+            date.getMonth() +
+            1 +
+            '/' +
+            date.getDate() +
+            '/' +
+            date.getFullYear()
         );
     };
     const [first, setFirst] = useState(true);
@@ -26,7 +30,7 @@ export const BlogTemp = (props) => {
         }
     }, [doc?.data]);
     return (
-        <div className='blog-container w100 flex-center'>
+        <div className='blog-container w100 flex justify-center'>
             <div className='blog-mid-container'>
                 <div className='flex-row breadcrumb'>
                     <p onClick={() => history.push('/')} className='pointer'>
@@ -52,7 +56,6 @@ export const BlogTemp = (props) => {
                 </div>
                 <h1 className='fs-40'>{blogData?.header}</h1>
                 <img src={blogData?.image} className='heading-image' />
-
                 <div className='flex flex-wrap'>
                     <div className='flex-col handalt'>
                         <div className='flex-row mb-5 items-center'>
@@ -89,7 +92,9 @@ export const BlogTemp = (props) => {
                         </div>
                     </div>
                     <div className='blog-content'>
-                        <p>{blogData?.text}</p>
+                        <ReactMarkdown className='fs-20 ln-25'>
+                            {blogData?.text}
+                        </ReactMarkdown>
                     </div>
                 </div>
             </div>
