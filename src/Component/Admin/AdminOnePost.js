@@ -22,9 +22,9 @@ export const Input = ({ basevalue, setbaseValue }) => {
 };
 
 export const BlogOnePost = ({ state, setState }) => {
-    const { user } = AuthStateValue();
-    let { data, updateRecord } = useDoc(`users/${user?.uid}`);
-    data = data?.posts.filter((post) => post.category.name === state.field);
+    const { data, updateRecord } = useDoc(
+        `/content/contents/Blog/${state.post}`
+    );
     console.log(data);
     const [value, setValue] = useState();
     const [header, setHeader] = useState();
@@ -34,11 +34,11 @@ export const BlogOnePost = ({ state, setState }) => {
                 <>
                     <div className='w100 flex justify-center items-center fs-20'>
                         <Input
-                            basevalue={data[state.post].header}
+                            basevalue={data.header}
                             setbaseValue={setHeader}
                         ></Input>
                     </div>
-                    <Editor value={data[state.post].text} setValue={setValue} />
+                    <Editor value={data.text} setValue={setValue} />
                 </>
             )}
             <div className='w100 flex justify-end pa-r-10'>
@@ -46,13 +46,10 @@ export const BlogOnePost = ({ state, setState }) => {
                     className='fs-20 b-whitegray w-100 h-30 bradius-10 flex items-center justify-center justify-self-end'
                     onClick={async () => {
                         let chapters = data;
-                        if (value) chapters[state.post].text = value;
-                        if (header) chapters[state.post].header = header;
+                        if (value) chapters.text = value;
+                        if (header) chapters.header = header;
                         console.log(chapters);
-                        if (value || header)
-                            await updateRecord(chapters[state.post].id, {
-                                chapters,
-                            });
+                        if (value || header) await updateRecord(chapters);
                     }}
                 >
                     Save

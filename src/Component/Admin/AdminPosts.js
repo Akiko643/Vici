@@ -10,23 +10,39 @@ export const CollegePrepPosts = ({ state, setState }) => {
 
 export const BlogPosts = ({ state, setState }) => {
     const { user } = AuthStateValue();
-    let { data, updateRecord } = useDoc(`users/${user?.uid}`);
-
-    data = data?.posts.filter((post) => post.category.id === state.field);
-    // const blogCategory
-    const { firestore } = useFirebase();
     const [header, setHeader] = useState('');
+    const { firestore } = useFirebase();
+    let { data, createRecord, deleteRecord } = useCol(
+        `/content/contents/${state.category}`
+    );
     const category = useDoc(`/content/contents/categories/${state.field}`);
+    data = data?.filter(
+        (post) =>
+            post.category.id === state.field && post.publisherId === user?.uid
+    );
 
     const createPost = async () => {
-        const id = firestore.collection('/content/contents/Blog').doc().id;
+        const id = firestore
+            .collection(`/content/contents/${state.category}`)
+            .doc().id;
+
+        console.log(id);
         const categoryName = category.data.name;
-        const newPost = { category: { id: state.field, name: categoryName } };
+        const newPost = {
+            category: { id: state.field, name: categoryName },
+            header,
+            image: '',
+            likes: 0,
+            visits: 0,
+            publisherId: user?.uid,
+        };
+
+        createRecord(id, newPost);
 
         setState({
             ...state,
             level: 3,
-            post: data.length - 1,
+            post: id,
         });
     };
 
@@ -43,9 +59,10 @@ export const BlogPosts = ({ state, setState }) => {
                                     <div
                                         className='b-green bradius-5 w40 h-40 flex justify-center items-center'
                                         onClick={() => {
+                                            console.log(post.id);
                                             setState({
                                                 ...state,
-                                                post: index,
+                                                post: post.id,
                                                 level: 3,
                                             });
                                         }}
@@ -55,20 +72,7 @@ export const BlogPosts = ({ state, setState }) => {
                                     <div
                                         className='b-secondary bradius-5 w40 h-40 flex justify-center items-center'
                                         onClick={async () => {
-                                            // const { chapters } = data;
-                                            // console.log(chapters, index);
-                                            // for (
-                                            //     let i = index;
-                                            //     i + 1 < chapters.length;
-                                            //     i++
-                                            // ) {
-                                            //     chapters[i] =
-                                            //         chapters[i + 1];
-                                            // }
-                                            // chapters.pop();
-                                            // await updateRecord({
-                                            //     chapters,
-                                            // });
+                                            deleteRecord(post.id);
                                         }}
                                     >
                                         Delete

@@ -59,21 +59,6 @@ export const AdminPosts = ({ state, setState }) => {
     );
 };
 
-export const Input = ({ basevalue, setbaseValue }) => {
-    const [value, setValue] = useState(basevalue);
-    return (
-        <input
-            value={value}
-            onChange={(e) => {
-                const temp = e.target.value;
-                setValue(temp);
-                setbaseValue(temp);
-            }}
-            placeholder='type content header'
-        ></input>
-    );
-};
-
 export const AdminOnePost = ({ state, setState }) => {
     const { category } = state;
     return (
