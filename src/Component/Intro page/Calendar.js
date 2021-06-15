@@ -60,7 +60,7 @@ const Calendar = ({ dates }) => {
                     <img
                         src='./images/back.svg'
                         alt='back-arrow'
-                        className='h-20 w-20 mr-12'
+                        className='h-20 w-20 mr-12 pointer'
                         onClick={() => {
                             let tmp = new Date(month);
                             tmp.setMonth(tmp.getMonth() - 1);
@@ -72,7 +72,7 @@ const Calendar = ({ dates }) => {
                     <img
                         src='./images/next.svg'
                         alt='next-arrow'
-                        className='h-20 w-20 mr-12'
+                        className='h-20 w-20 mr-12 pointer'
                         onClick={() => {
                             let tmp = new Date(month);
                             tmp.setMonth(tmp.getMonth() + 1);
@@ -87,17 +87,18 @@ const Calendar = ({ dates }) => {
                 {days.map((day) => {
                     return (
                         <div
-                            className={
+                            className={`w-40 h-40 flex-center default ${
                                 day[1] === 1
-                                    ? 'op30 w-40 h-40 flex-center'
+                                    ? 'op30'
                                     : day[1] === 2
-                                    ? 'w-40 h-40 flex-center'
+                                    ? ''
                                     : day[1] === 3
-                                    ? 'fw-800 w-40 h-40 flex-center'
+                                    ? 'fw-800'
                                     : day[1] === 4
-                                    ? 'circle b-selected w-40 h-40 flex-center'
-                                    : 'circle b-selected w-40 h-40 flex-center op30'
+                                    ? 'circle b-selected'
+                                    : 'circle b-selected op30'
                             }
+                                `}
                         >
                             {day[0]}
                         </div>

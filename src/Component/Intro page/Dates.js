@@ -8,8 +8,9 @@ function onPanelChange(value, mode) {
 function Dates({ exam }) {
     let tmp = new Date();
     let toefl = [tmp, tmp];
-    let ielts = [tmp, tmp];
-    let sat = [tmp, tmp];
+    let tmp1 = new Date(2021, 5, 16);
+    let ielts = [tmp1, tmp];
+    let sat = [tmp, tmp1];
 
     return (
         <div className='w-320'>
