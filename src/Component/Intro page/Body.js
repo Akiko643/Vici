@@ -5,6 +5,7 @@ import img2 from '../../Img/IntroPageExplore.svg';
 import Date from './Date';
 import Speakers from './Speakers';
 import './Transition.css';
+import { SuggestPagination } from '../Blog/SuggestPagination';
 
 function Body() {
     let speakers = ['John Doe', 'Farmer John', 'Onkar Judge'];
@@ -36,10 +37,7 @@ function Body() {
                     <Date exam='TOEFL Dates'></Date>
                 </div>
             </div>
-            <div className='mb-140 h-381 w100 b-footer c-white'>For You</div>
-            <div className='h-200 w100 b-footer c-white mb-140'>
-                Advertisement
-            </div>
+            <SuggestPagination />
             <div className='mb-140'>
                 <h2 className='fw-600 fs-30'>Latest Speakers</h2>
                 <div className='flex justify-between'>
@@ -51,7 +49,9 @@ function Body() {
             <div className='flex items-center justify-between'>
                 <img src={img2} alt='img' />
                 <div className='w50 flex items-center justify-center flex-col'>
-                    <h1 className='fs-60 w-430 mb-80'>Explore with us</h1>
+                    <h1 className='fs-60 mb-80 text-center w100'>
+                        Explore with us
+                    </h1>
                     <button className='b-secondary nb bradius-10 w-160 h-40 c-white'>
                         Get started
                     </button>

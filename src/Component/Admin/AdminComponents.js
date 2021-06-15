@@ -3,7 +3,8 @@ import Carousel from 'react-multi-carousel';
 import { AuthStateValue } from '../../Hooks/auth-user-provider';
 import { useCol, useDoc, useFirebase } from '../../Hooks/firebase';
 import { BlogField, EducationField } from './AdminFields';
-import { BlogPosts, EducationPosts } from './AdminPosts';
+import { BlogOnePost, EducationOnePost } from './AdminOnePost';
+import { BlogPosts, EducationPosts, CollegePrepPosts } from './AdminPosts';
 import Editor from './Editor';
 
 export const AdminCategory = ({ state, setState }) => {
@@ -51,6 +52,9 @@ export const AdminPosts = ({ state, setState }) => {
             {category === 'Blog' && (
                 <BlogPosts state={state} setState={setState} />
             )}
+            {category === 'College-prep' && (
+                <CollegePrepPosts state={state} setState={setState} />
+            )}
         </div>
     );
 };
@@ -71,50 +75,15 @@ export const Input = ({ basevalue, setbaseValue }) => {
 };
 
 export const AdminOnePost = ({ state, setState }) => {
-    const { data, updateRecord } = useDoc(
-        `content/contents/${state.category}/${state.field}`
-    );
-
-    const [value, setValue] = useState();
-    const [header, setHeader] = useState();
-    // const [chapters, setChapters] = useState();
-    // useEffect(() => {
-    //     if (state && data) {
-    //         setChapters(data.chapters);
-    //         setValue(data.chapters[state.post].text);
-    //     }
-    // }, [state, data]);
-    // if (data) setValue(data.chapters[state.post].text);
+    const { category } = state;
     return (
         <div>
-            {data && (
-                <>
-                    <div className='w100 flex justify-center items-center fs-20'>
-                        <Input
-                            basevalue={data.chapters[state.post].header}
-                            setbaseValue={setHeader}
-                        ></Input>
-                    </div>
-                    <Editor
-                        value={data.chapters[state.post].text}
-                        setValue={setValue}
-                    />
-                </>
+            {category === 'Education' && (
+                <EducationOnePost state={state} setState={setState} />
             )}
-            <div className='w100 flex justify-end pa-r-10'>
-                <div
-                    className='fs-20 b-whitegray w-100 h-30 bradius-10 flex items-center justify-center justify-self-end'
-                    onClick={async () => {
-                        const { chapters } = data;
-                        if (value) chapters[state.post].text = value;
-                        if (header) chapters[state.post].header = header;
-                        console.log(chapters);
-                        if (value || header) await updateRecord({ chapters });
-                    }}
-                >
-                    Save
-                </div>
-            </div>
+            {category === 'Blog' && (
+                <BlogOnePost state={state} setState={setState} />
+            )}
         </div>
     );
 };

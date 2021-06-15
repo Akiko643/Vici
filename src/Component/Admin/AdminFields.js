@@ -7,13 +7,25 @@ import Editor from './Editor';
 export const BlogField = ({ state, setState }) => {
     const { data } = useCol('content/contents/categories');
     // console.log(data);
-    return <div>{data && data.map((dt) => <div onClick={() => {
-        setState({
-            ...state,
-            field: dt.name,
-            level: 2,
-        });
-    }}>{dt.name}</div>)}</div>;
+    return (
+        <div className='flex justify-around'>
+            {data &&
+                data.map((dt) => (
+                    <div
+                        className='pointer w45 h-200 b-footer flex items-center justify-center bradius-20 c-white fs-40 fw-800'
+                        onClick={() => {
+                            setState({
+                                ...state,
+                                field: dt.id,
+                                level: 2,
+                            });
+                        }}
+                    >
+                        {dt.name}
+                    </div>
+                ))}
+        </div>
+    );
 };
 
 export const EducationField = ({ state, setState }) => {

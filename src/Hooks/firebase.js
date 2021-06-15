@@ -62,7 +62,10 @@ export const useDoc = (path) => {
     }, [firestore, path]);
 
     const updateRecord = (data) => {
-        return firebase.firestore().doc(path).set({ ...data }, { merge: true });
+        return firebase
+            .firestore()
+            .doc(path)
+            .update({ ...data }, { merge: true });
     };
 
     const deleteRecord = (path) => {
