@@ -86,10 +86,10 @@
 .slide.active {
     opacity: 1;
     transition-duration: 1s;
-    transform: scale(1.08);
+    transform: scale(0.92);
 }
 .vignette {
     opacity: 1;
     transition-duration: 0.8s;
-    transform: scale(1.08);
+    transform: scale(0.92);
 }
