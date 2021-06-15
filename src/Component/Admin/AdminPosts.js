@@ -103,31 +103,24 @@ export const BlogPosts = ({ state, setState }) => {
 };
 
 export const EducationPosts = ({ state, setState }) => {
-    const { data, deleteRecord, updateRecord } = useDoc(
-        `content/contents/${state.category}/${state.field}`
+    const { data, deleteRecord, updateRecord, createRecord } = useCol(
+        `content/contents/${state.category}/${state.field}/chapters`
     );
-    const { user } = AuthStateValue();
-    // console.log(user);
     const { firestore } = useFirebase();
     const [header, setHeader] = useState('');
-    // console.log(data);
     const createPost = async () => {
-        const id = firestore.collection('temp').doc().id;
-        let { chapters } = data;
-        chapters.push({
-            header,
-            publisher: user.displayName,
-            publisherID: user.uid,
-            text: '',
-        });
-        await updateRecord({
-            chapters,
-        });
+        const id = firestore
+            .collection(
+                `content/contents/${state.category}/${state.field}/chapters`
+            )
+            .doc().id;
+
+        createRecord(id, { header, text: '' });
 
         setState({
             ...state,
             level: 3,
-            post: chapters.length - 1,
+            post: id,
         });
     };
 
@@ -137,8 +130,8 @@ export const EducationPosts = ({ state, setState }) => {
                 <>
                     <div className='fs-20'>Chapters</div>
                     <div className='of-y p-15 h60 br-default-2 bradius-5 mb-100'>
-                        {data.chapters?.map((dt, index) => {
-                            console.log(dt.header);
+                        {data?.map((dt, index) => {
+                            console.log(dt.id);
                             return (
                                 <div className='br-default-2 flex justify-between bradius-5 mv-20 mh-10 ph-20 pv-10 mb-10'>
                                     <div className='fs-20'>{dt.header}</div>
@@ -148,7 +141,7 @@ export const EducationPosts = ({ state, setState }) => {
                                             onClick={() => {
                                                 setState({
                                                     ...state,
-                                                    post: index,
+                                                    post: dt.id,
                                                     level: 3,
                                                 });
                                             }}
@@ -157,21 +150,8 @@ export const EducationPosts = ({ state, setState }) => {
                                         </div>
                                         <div
                                             className='b-secondary bradius-5 w40 h-40 flex justify-center items-center'
-                                            onClick={async () => {
-                                                const { chapters } = data;
-                                                console.log(chapters, index);
-                                                for (
-                                                    let i = index;
-                                                    i + 1 < chapters.length;
-                                                    i++
-                                                ) {
-                                                    chapters[i] =
-                                                        chapters[i + 1];
-                                                }
-                                                chapters.pop();
-                                                await updateRecord({
-                                                    chapters,
-                                                });
+                                            onClick={() => {
+                                                deleteRecord(dt.id);
                                             }}
                                         >
                                             Delete

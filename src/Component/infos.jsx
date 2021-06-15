@@ -14,15 +14,22 @@ import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Infos = () => {
     const { informations, collegePrep } = useContext(Context);
-    const [ cpData, setCpData ] = useState({});
+    const [cpData, setCpData] = useState({});
     const location = useLocation();
-    const { data } = useCol(`/content/contents/College-prep/${cpData.id}/chapters`);
+    const { data } = useCol(
+        `/content/contents/College-prep/${cpData.id}/chapters`
+    );
     useEffect(() => {
-        setCpData(collegePrep.find(cp => {
-            if (cp.name == location.pathname.substring(1, location.pathname.length)) 
-                return true;
-        }));
-    }, [collegePrep])
+        setCpData(
+            collegePrep.find((cp) => {
+                if (
+                    cp.name ==
+                    location.pathname.substring(1, location.pathname.length)
+                )
+                    return true;
+            })
+        );
+    }, [collegePrep]);
     // const { data } = useCol(`/content/contents/College-prep/IBhSmeaGmZHfUMd7rqit`)
     const [chapterIndex, setChapterIndex] = useState(0);
     return (
@@ -37,7 +44,9 @@ const Infos = () => {
             </div>
             <div className='container-idk'>
                 <p className='college'>College</p>
-                <h1 className='headeridk'>{location.pathname.substring(1, location.pathname.length)}</h1>
+                <h1 className='headeridk'>
+                    {location.pathname.substring(1, location.pathname.length)}
+                </h1>
             </div>
             <div className='flex container-idk'>
                 <div className='mv-10 mr-10 flex flex-col'>
@@ -63,11 +72,11 @@ const Infos = () => {
                     <img src={Location} className='svg_images' alt='img' />
                 </div>
                 <div className='ma-10 pa-50 b-white right-sec br-border-1'>
-                        <p className='fs-20 ln-25'>
-                            <ReactMarkdown>
-                                {data[chapterIndex]?.text}
-                            </ReactMarkdown>
-                        </p>
+                    <p className='fs-20 ln-25'>
+                        <ReactMarkdown>
+                            {data[chapterIndex]?.text}
+                        </ReactMarkdown>
+                    </p>
                 </div>
             </div>
         </div>
