@@ -1,5 +1,5 @@
 .big-container {
-    width: 100vw;
+    width: 100%;
 }
 .carousel-container {
     position: relative;
@@ -7,19 +7,21 @@
     justify-content: center;
     align-items: center;
 }
+
 .vignette {
     position: relative;
     display: inline-block;
-    position: relative;
+    width: 100%;
 }
 /* .vignette > React-PLayer {
     display: block;
 } */
-.img {
+.vignette > img {
     display: block;
+    width: 100%;
 }
 .car-title {
-    font-size: 3rem;
+    font-size: 2rem;
     color: white;
     display: block;
     position: absolute;
@@ -38,7 +40,7 @@
 }
 .car-subtitle {
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
     display: block;
     position: absolute;
     top: 85%;
@@ -84,10 +86,10 @@
 .slide.active {
     opacity: 1;
     transition-duration: 1s;
-    transform: scale(1.08);
+    transform: scale(0.92);
 }
 .vignette {
     opacity: 1;
     transition-duration: 0.8s;
-    transform: scale(1.08);
+    transform: scale(0.92);
 }

@@ -7,8 +7,8 @@ function onPanelChange(value, mode) {
 
 function Date({ exam }) {
     return (
-        <div className='w-300'>
-            <h1 className='fs-15 w100 text-center'>{exam}</h1>
+        <div className='w-320'>
+            <h1 className='fs-20 w100 text-center'>{exam}</h1>
             <Calendar />
         </div>
     );
