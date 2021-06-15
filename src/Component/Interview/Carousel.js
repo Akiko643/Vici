@@ -47,9 +47,12 @@ const Carousel = ({ slides }) => {
                                         alt={slide.header}
                                         className="image"
                                     />
+
                                     {/* <ReactPlayer url="https://youtu.be/y2u_-QomGXU"/> */}
                                 </div>
                             )}
+                            <h2 className="car-title">{slide.header}</h2>
+                            <h2 className="car-subtitle">{slide.subheader}</h2>
                         </div>
                     );
                 })}

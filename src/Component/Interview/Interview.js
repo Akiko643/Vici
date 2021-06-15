@@ -1,11 +1,11 @@
 import React from "react";
-import defaultBgImage from "../../Img/INTERVIEW.png";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 // import Carousel from "react-multi-carousel";
 import Carousel from "./Carousel";
 import "react-multi-carousel/lib/styles.css";
 import { CarouselData } from "./CarouselData";
+import Feed from "./Feed.js";
 import "./Interview.css";
 // import Feed from "./Feed";
 
@@ -30,8 +30,8 @@ const Interview = () => {
     return (
         <div>
             <Navbar />
-            {/* <Carousel slides={CarouselData} />; */}
-            {/* <Feed /> */}
+            <Carousel slides={CarouselData} />;
+            <Feed />
             <Footer />
         </div>
     );

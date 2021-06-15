@@ -1,0 +1,41 @@
+.card {
+    position: relative;
+    display: flex;
+    background-color: #e4e4e4;
+    height: 42vh;
+    width: 20vw;
+    border-radius: 10px;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 5%;
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    -o-transition: all 2s ease;
+    transition: all 2s ease;
+    transition-delay: 1s;
+}
+.feed-title {
+    position: absolute;
+    margin-bottom: 2%;
+    color: white;
+    font-size: 4rem;
+    cursor: pointer;
+    background-color: black;
+    border-radius: 10px;
+    padding: 0.5rem;
+    top: 80%;
+    left: 10%;
+}
+.feed-subtitle {
+    position: absolute;
+    top: 60%;
+    left: 10%;
+    color: white;
+    font-size: 2rem;
+}
+
+.card:hover {
+    background-color: none;
+    background-image: linear-gradient(90deg, #fff066 0%, #7ee8ff 100%);
+    cursor: pointer;
+}
