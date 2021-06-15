@@ -35,8 +35,12 @@ const Infos = () => {
                     alt='Hello world idk img here not loaded'
                 />
             </div>
+            <div className='container-idk'>
+                <p className='college'>College</p>
+                <h1 className='headeridk'>{location.pathname.substring(1, location.pathname.length)}</h1>
+            </div>
             <div className='flex container-idk'>
-                <div className='ma-10 flex flex-col'>
+                <div className='mv-10 mr-10 flex flex-col'>
                     <ul className='fs-20 lh-20 list-style-none pv-20 pa-r-20 pl-0'>
                         <li className='c-dedault pb-10 bb-border-2 w-200 ma-4 bold'>
                             Course Summary
@@ -59,7 +63,6 @@ const Infos = () => {
                     <img src={Location} className='svg_images' alt='img' />
                 </div>
                 <div className='ma-10 pa-50 b-white right-sec br-border-1'>
-                    <h1 className=''>{data[chapterIndex]?.header}</h1>
                         <p className='fs-20 ln-25'>
                             <ReactMarkdown>
                                 {data[chapterIndex]?.text}
