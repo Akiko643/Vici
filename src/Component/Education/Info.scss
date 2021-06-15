@@ -1,6 +1,5 @@
 .info-container {
-    width: 1060px;
-    margin: 0px calc((100vw - 1060px) / 2);
+    margin: 0px 11.875rem;
     min-height: calc(100% - 60.8px - 200px);
     background: #F8F8F8;
     padding-bottom: 100px;
@@ -14,7 +13,7 @@
 }
 .right-sec {
     width: calc(100vw - 350px);
-    margin-right: 100px;
+    margin-right: 0px;
 }
 .heading {
     margin-top: 60.8px;
@@ -23,6 +22,6 @@
         position: absolute;
         font-size: 35px;
         top: calc(50% - 40px);
-        left: 100px;
+        left: 11.875rem;
     }
 }

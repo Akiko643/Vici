@@ -41,7 +41,7 @@ export const Education = () => {
                             Education
                         </div>
                     </div>
-                    <div className='w100 ph-30 educations'>
+                    <div className='w100 ph-30 pv-70 educations'>
                         <Carousel
                             swipeable={true}
                             arrows={false}
@@ -51,7 +51,8 @@ export const Education = () => {
                             ssr={true} // means to render carousel on server-side.
                             infinite={false}
                             keyBoardControl={true}
-                            containerClass='carousel-container'
+                            containerClass='carousel-container h-475'
+
                             // removeArrowOnDeviceType={["tablet", "mobile"]}
                             dotListClass='custom-dot-list-style'
                             itemClass='carousel-item-padding-40-px'

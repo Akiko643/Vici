@@ -35,7 +35,7 @@
     }
 
     // margin-top: 40px;
-    padding: 0px calc((100% - 1060px) / 2);
+    padding: 0px 11.875rem;
     .namecircle {
       width: 15px;
       height: 15px;
@@ -175,6 +175,9 @@
       }
     }
   }
+}
+.image {
+  object-fit: cover;
 }
 @media screen and (max-width: 1060px) {
   .blog-body {

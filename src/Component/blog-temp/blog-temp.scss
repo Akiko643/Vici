@@ -1,7 +1,8 @@
 .blog-container {
-  min-height: calc(100vh - 217px);
+  min-height: calc(100vh - 195px);
   .blog-mid-container {
-    width: 1060px;
+    // width: 1060px;
+    margin: 0px 11.875rem;
     .breadcrumb {
       font-family: Raleway;
       font-style: normal;
@@ -56,9 +57,10 @@
       background: #cccccc;
     }
     .publisher-profile-img {
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       margin-right: 10px;
+      border-radius: 10px;
     }
     .side-heading {
       font-family: Raleway;

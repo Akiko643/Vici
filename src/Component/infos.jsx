@@ -29,7 +29,7 @@ const Infos = () => {
             </div>
             <div className='flex container-idk'>
                 <div className='ma-10 flex flex-col'>
-                    <ul className='fs-20 lh-20 list-style-none pa-20'>
+                    <ul className='fs-20 lh-20 list-style-none pv-20 pa-r-20 pl-0'>
                         <li className='c-dedault pb-10 bb-border-2 w-200 ma-4 bold'>
                             Course Summary
                         </li>

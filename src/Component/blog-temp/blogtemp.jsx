@@ -23,7 +23,7 @@ export const BlogTemp = (props) => {
   }, [doc?.data])
   return (
     <div className="blog-container w100 flex-center">
-      <div className="blog-mid-container mt-60">
+      <div className="blog-mid-container">
         <div className="flex-row breadcrumb">
           <p onClick={() => history.push("/")} className='pointer'>Home</p>/
           <p onClick={() => history.push("/blog")} className='pointer'>Blog</p>/
@@ -36,7 +36,7 @@ export const BlogTemp = (props) => {
         <img src={blogData?.image} className="heading-image" />
         <div className="flex flex-wrap">
           <div className="flex-col handalt">
-            <div className="flex-row">
+            <div className="flex-row mb-5 items-center">
               <img
                 src={data?.profilePicUrl}
                 alt={data?.displayName}
