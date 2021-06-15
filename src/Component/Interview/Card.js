@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Fade from 'react-reveal/Fade';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './Card.css';
 const Card = ({ card, index }) => {
     const [show, setShow] = useState(false);
@@ -7,7 +8,7 @@ const Card = ({ card, index }) => {
         setShow(!show);
     };
     return (
-        <div>
+        <Link to='/interviewtest'>
             <div
                 key={index}
                 className='card'
@@ -25,7 +26,7 @@ const Card = ({ card, index }) => {
                     </h2>
                 </Fade>
             </div>
-        </div>
+        </Link>
     );
 };
 
