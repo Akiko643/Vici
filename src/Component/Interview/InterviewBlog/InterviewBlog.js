@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useRouteMatch, useHistory } from "react-router";
 import { useCol, useDoc } from "../../Hooks/firebase";
-import "./blog-temp.scss";
+import "InterviewBlog.css";
+import ReactPlayer from "react-player";
+import PlayerData from "./PlayerData.js";
 export const BlogTemp = (props) => {
     let match = useRouteMatch();
     const { updateRecord } = useCol("/content/contents/Blog");
@@ -50,7 +52,7 @@ export const BlogTemp = (props) => {
                 </div>
                 <h1 className="fs-40">{blogData?.header}</h1>
                 <img src={blogData?.image} className="heading-image" />
-
+                <ReactPlayer src={PlayerData.src} />
                 <div className="flex flex-wrap">
                     <div className="flex-col handalt">
                         <div className="flex-row mb-5 items-center">
