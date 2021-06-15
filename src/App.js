@@ -15,6 +15,7 @@ import TopColleges from './Component/Top Colleges/TopColleges';
 import { Education, Test, Blog } from './Component';
 import Interview from './Component/Interview/Interview';
 import AdminTest from './Component/Admin/AdminTest';
+import { InterviewTest } from './Component/Interview/InterviewBlog/InterviewTest';
 
 const App = () => {
     const { user } = AuthStateValue();
@@ -47,21 +48,17 @@ const App = () => {
                         <div> Non admin user </div>
                     )}
                 </Route>
-                {
-                    collegePrep?.map((dt) => {
-                        return (
-                            <Route path={`/${dt?.name}`}>
-                                {
-                                        dt?.name == 'Top Colleges' ? (
-                                        <TopColleges />
-                                    ) : (
-                                        <Infos />
-                                    )
-                                }
-                            </Route>
-                        )
-                    })
-                }
+                {collegePrep?.map((dt) => {
+                    return (
+                        <Route path={`/${dt?.name}`}>
+                            {dt?.name == 'Top Colleges' ? (
+                                <TopColleges />
+                            ) : (
+                                <Infos />
+                            )}
+                        </Route>
+                    );
+                })}
                 <Route path='/education'>
                     <Education />
                 </Route>
@@ -85,6 +82,9 @@ const App = () => {
                 </Route>
                 <Route path='/interview'>
                     <Interview />
+                </Route>
+                <Route path='/interviewtest'>
+                    <InterviewTest />
                 </Route>
                 <Route path='/test'>
                     <Test />
