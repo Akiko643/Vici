@@ -31,7 +31,7 @@ export const BlogTemp = (props) => {
         }
     }, [doc?.data]);
     return (
-        <div className='blog-container w100 flex justify-center'>
+        <div className='blog-container w100 flex justify-center pb-100'>
             <div className='blog-mid-container'>
                 <div className='flex-row breadcrumb'>
                     <p onClick={() => history.push('/')} className='pointer'>
