@@ -1,4 +1,5 @@
 import react from 'react';
+import { useCol, useDoc } from '../../Hooks/firebase';
 import Calendar from './Calendar';
 
 function onPanelChange(value, mode) {
@@ -6,6 +7,9 @@ function onPanelChange(value, mode) {
 }
 
 function Dates({ exam }) {
+    const satDB = useDoc('/content/contents/Exams/SAT');
+    const toeflDB = useDoc('/content/contents/Exams/TOEFL');
+    const ieltsDB = useDoc('/content/contents/Exams/IELTS');
     let tmp = new Date();
     let satdates = [
             [2021, 7, 28],
@@ -55,7 +59,37 @@ function Dates({ exam }) {
             [2021, 11, 11],
             [2021, 11, 18],
         ],
-        toefldates = [];
+        toefldates = [
+            [2021, 5, 19],
+            [2021, 5, 26],
+            [2021, 6, 3],
+            [2021, 6, 24],
+            [2021, 7, 7],
+            [2021, 7, 21],
+            [2021, 8, 4],
+            [2021, 8, 11],
+            [2021, 8, 18],
+            [2021, 8, 25],
+            [2021, 9, 9],
+            [2021, 9, 16],
+            [2021, 9, 23],
+            [2021, 9, 30],
+            [2021, 10, 6],
+            [2021, 10, 13],
+            [2021, 10, 20],
+        ];
+
+    // const fetchdata = () => {
+
+    // }
+    // satdates.forEach((sat, index) => {
+
+    //     const { data } = satDB;
+    //     // console.log(data);
+    //     data.dates[index] = sat;
+    //     satDB.updateRecord({ dates: data.dates });
+    // });
+
     let toefl = [],
         ielts = [],
         sat = [];
