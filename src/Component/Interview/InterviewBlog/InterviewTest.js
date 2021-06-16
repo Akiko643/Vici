@@ -23,8 +23,8 @@ export const InterviewTest = (props) => {
     };
     const card = {
         image: "https://s2.im.ge/2021/06/13/QDbDY.png",
-        header: "John Doe",
-        subheader: "Director at Famous Company",
+        header: "Mrs. Burmaa",
+        subheader: "Director at Penthouse Holdings",
     };
     return (
         <div>
@@ -40,10 +40,8 @@ export const InterviewTest = (props) => {
                     />
                 </div>
                 <div className="upper__text mt-80">
-                    <h1 className="int__title">John Doe</h1>
-                    <h2 className="int__subtitle">
-                        Director at Famous Company
-                    </h2>
+                    <h1 className="int__title">Just The Two of Us Cover </h1>
+                    <h2 className="int__subtitle">Lucy Ellis</h2>
                     <div className="little__text mt-40">
                         <p className="publisher__name ">
                             <img
