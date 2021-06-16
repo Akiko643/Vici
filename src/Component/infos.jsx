@@ -11,7 +11,7 @@ import Location from "../Img/Location.svg";
 import Welcome from "../Img/Welcome.svg";
 import ReactMarkdown from "react-markdown";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-
+import dropdownchevron from '../Img/dropdownchevron.svg'
 const Infos = () => {
   const { informations, collegePrep } = useContext(Context);
   const [cpData, setCpData] = useState({});
@@ -60,7 +60,7 @@ const Infos = () => {
       <Navbar />
       <div className="heading">
         <img
-          src={imgrc}
+          src={"https://firebasestorage.googleapis.com/v0/b/vici-news.appspot.com/o/oceans%202oceans.png?alt=media&token=876045c7-430b-4397-bf26-795b249ac9ba"}
           className="w100 pb-50"
           alt="Hello world idk img here not loaded"
         />
@@ -109,7 +109,7 @@ const SideDp = ({ index, chapterId, chapter, setChapterId }) => {
             key={index}
         >
             <p
-            className={`c-default pb-10 bb-border-1 w-200 ma-4 pt-10 ${
+            className={`c-default pb-10 bb-border-1 w-200 ma-4 pt-10 flex justify-between pa-r-10 ${
                 chapterId === chapter?.id && "active-chapter"
             } pointer`}
             onClick={() => {
@@ -118,6 +118,9 @@ const SideDp = ({ index, chapterId, chapter, setChapterId }) => {
             }}
             >
             {chapter?.header}
+            {
+              chapter?.items && <img src={dropdownchevron} className={`${open && `active-dp-button`} dp-button`}/>
+            }
             </p>
             {
                 open && (
