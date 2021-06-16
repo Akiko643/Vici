@@ -41,12 +41,7 @@ const App = () => {
                     <SignUpPage />
                 </Route>
                 <Route path='/admin'>
-                    {curUser?.role === 'admin' ? (
-                        <AdminTest />
-                    ) : (
-                        // <Admin />
-                        <div> Non admin user </div>
-                    )}
+                    {curUser?.role === 'admin' && <AdminTest />}
                 </Route>
                 {collegePrep?.map((dt) => {
                     return (
