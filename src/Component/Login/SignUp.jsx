@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
-import { AuthStateValue } from '../../Hooks/auth-user-provider';
+import { AuthContext, AuthStateValue } from '../../Hooks/auth-user-provider';
 import lock from '../../Img/lock.svg';
 import email from '../../Img/email.svg';
 import person from '../../Img/person.svg';
@@ -14,6 +14,7 @@ const SignUp = () => {
         graduateyear: '',
     });
     const { signUpWithEmailAndPassword } = AuthStateValue();
+    const { errorMessage, setErrorMessage } = useContext(AuthContext);
 
     return (
         <>
@@ -23,6 +24,7 @@ const SignUp = () => {
                     value={newuser.email}
                     onChange={(e) => {
                         setUser({ ...newuser, email: e.target.value });
+                        if (errorMessage != '') setErrorMessage('');
                     }}
                     type='text'
                     placeholder='Your email'
@@ -38,6 +40,7 @@ const SignUp = () => {
                         setUser({ ...newuser, username: e.target.value });
                     }}
                     onBlur={() => {
+                        if (errorMessage != '') setErrorMessage('');
                         setUser({
                             ...newuser,
                             username: newuser.username.trim(),
@@ -53,6 +56,7 @@ const SignUp = () => {
                 <input
                     value={newuser.password}
                     onChange={(e) => {
+                        if (errorMessage != '') setErrorMessage('');
                         setUser({ ...newuser, password: e.target.value });
                     }}
                     type='password'
@@ -60,6 +64,7 @@ const SignUp = () => {
                     className='input-field'
                 />
             </div>
+            <div className='w-343 pv-10  c-secondary fw-500'>{errorMessage}</div>
             {/* <div className="label-container">
                     <input
                         value={newuser.phone}
@@ -86,7 +91,7 @@ const SignUp = () => {
                 onClick={(e) => {
                     signUpWithEmailAndPassword(newuser);
                 }}
-                className='signup__button'
+                className='signup__button pointer'
             >
                 Sign Up
             </button>
