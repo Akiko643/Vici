@@ -20,6 +20,61 @@ export const Input = ({ basevalue, setbaseValue, placeholder }) => {
         ></input>
     );
 };
+export const InterviewOnePost = ({ state, setState }) => {
+    const { data, updateRecord } = useDoc(
+        `/content/contents/${state.category}/${state.post}`
+    );
+    console.log(data);
+    const [value, setValue] = useState();
+    const [header, setHeader] = useState();
+    const [image, setImage] = useState();
+    const [video, setVideo] = useState();
+    return (
+        <div>
+            {data && (
+                <>
+                    <div className='w100 flex justify-center items-center fs-20'>
+                        <Input
+                            basevalue={data.header}
+                            setbaseValue={setHeader}
+                            placeholder='type content header'
+                        />
+                        {'   image url:'}
+                        <Input
+                            basevalue={data.image}
+                            setbaseValue={setImage}
+                            placeholder='type blog image URL'
+                        />
+                        {'   video url:'}
+                        <Input
+                            basevalue={data.video}
+                            setbaseValue={setVideo}
+                            placeholder='type video URL'
+                        />
+                    </div>
+                    <Editor value={data.text} setValue={setValue} />
+                </>
+            )}
+            <div className='w100 flex justify-end pa-r-10'>
+                <div
+                    className='fs-20 b-whitegray w-100 h-30 bradius-10 flex items-center justify-center justify-self-end'
+                    onClick={async () => {
+                        let chapters = data;
+                        if (value) chapters.text = value;
+                        if (header) chapters.header = header;
+                        if (image) chapters.image = image;
+                        if (video) chapters.video = video;
+                        if (value || header || image || video)
+                            await updateRecord(chapters);
+                    }}
+                >
+                    Save
+                </div>
+            </div>
+        </div>
+    );
+};
+export const CollegePrepOnePost = ({ state, setState }) => {};
 
 export const BlogOnePost = ({ state, setState }) => {
     const { data, updateRecord } = useDoc(

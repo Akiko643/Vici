@@ -3,6 +3,14 @@ import Carousel from 'react-multi-carousel';
 import { AuthStateValue } from '../../Hooks/auth-user-provider';
 import { useCol, useDoc, useFirebase } from '../../Hooks/firebase';
 import Editor from './Editor';
+import { InterviewPosts } from './AdminPosts';
+
+export const InterviewField = ({ state, setState }) => {
+    // setState({ ...state, level: 2 });
+    return <InterviewPosts state={state} setState={setState} />;
+};
+
+export const CollegePrepField = ({ state, setState }) => {};
 
 export const BlogField = ({ state, setState }) => {
     const { data } = useCol('content/contents/categories');
