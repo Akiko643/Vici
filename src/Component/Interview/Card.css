@@ -29,9 +29,12 @@
 .active {
     top: 60%;
 }
-/* .feed-title:hover {
-    display: none;
-} */
+.card > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
 .feed-subtitle {
     position: absolute;
     top: 80%;

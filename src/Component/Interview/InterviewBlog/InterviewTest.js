@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouteMatch, useHistory } from "react-router";
 import { useCol, useDoc } from "../../../Hooks/firebase";
 import "./InterviewTest.css";
-import ReactPlayer from "react-player/youtube";
+import ReactPlayer from "react-player";
 import PlayerData from "./PlayerData.js";
 import Navbar from "../../Navbar/Navbar";
 import Back from "../../../Img/vector__back.svg";
