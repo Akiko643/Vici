@@ -6,6 +6,13 @@ export const BlogItemComp = (props) => {
   const toSmall = (text) => {
     return text?.split(" ")?.slice(0, 30)?.join(" ") + "...";
   };
+  const scrollToTop = () => {
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+  }
   const toTime = (timestamp) => {
     var date = new Date(timestamp?.seconds * 1000);
     return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear();
@@ -13,6 +20,7 @@ export const BlogItemComp = (props) => {
   if (size === "big") {
     return (
       <BigItem
+        scrollToTop={scrollToTop}
         index={index}
         classStr={classStr}
         id={data?.id}
@@ -26,6 +34,7 @@ export const BlogItemComp = (props) => {
   } else if (size === "medium") {
     return (
       <MediumItem
+        scrollToTop={scrollToTop}
         index={index}
         classStr={classStr}
         id={data?.id}
@@ -38,6 +47,7 @@ export const BlogItemComp = (props) => {
   } else if (size === "small") {
     return (
       <SmallItem
+        scrollToTop={scrollToTop}
         index={index}
         classStr={classStr}
         id={data?.id}
@@ -49,6 +59,7 @@ export const BlogItemComp = (props) => {
   } else if (size === "smallcol") {
     return (
       <SmallColItem
+        scrollToTop={scrollToTop}
         index={index}
         classStr={classStr}
         id={data?.id}
@@ -62,6 +73,7 @@ export const BlogItemComp = (props) => {
   }
   return (
     <MediumItem
+      scrollToTop={scrollToTop}
       index={index}
       classStr={classStr}
       id={data?.id}
@@ -73,6 +85,7 @@ export const BlogItemComp = (props) => {
   );
 };
 const BigItem = ({
+  scrollToTop,
   id,
   classStr,
   index,
@@ -89,12 +102,21 @@ const BigItem = ({
       <img
         className="image h-430 bradius-10 pointer"
         src={image}
-        onClick={() => history.push(`/blog/${category.name}/${id}`)}
+        onClick={() => {
+          history.push(`/blog/${category.name}/${id}`);
+          scrollToTop();
+        }}
       />
-      <div className="blog-tag c-seablue pointer" onClick={() => history.push(`/blog/${category.name}`)}>#{category?.name}</div>
+      <div className="blog-tag c-seablue pointer" onClick={() => {
+        history.push(`/blog/${category.name}`);
+        scrollToTop();
+      }}>#{category?.name}</div>
       <div
         className="blog-header pointer"
-        onClick={() => history.push(`/blog/${category.name}/${id}`)}
+        onClick={() => {
+          history.push(`/blog/${category.name}/${id}`);
+          scrollToTop();
+        }}
       >
         {header}
       </div>
@@ -108,26 +130,39 @@ const BigItem = ({
     </div>
   );
 };
-const MediumItem = ({ id, classStr, index, image, header, category, text }) => {
+const MediumItem = ({
+  scrollToTop, id, classStr, index, image, header, category, text }) => {
   const history = useHistory();
   return (
     <div className={`${classStr} flex-row medium-item my-10`} key={index}>
       <img
         className="image bradius-10 w55 h-240 pointer"
         src={image}
-        onClick={() => history.push(`/blog/${category.name}/${id}`)}
+        onClick={() => {
+          history.push(`/blog/${category.name}/${id}`);
+          scrollToTop();
+        }}
       />
       <div className="flex-col w45 ml-20 my-10">
         <div
           className="blog-header pointer"
-          onClick={() => history.push(`/blog/${category.name}/${id}`)}
+          onClick={() => {
+            history.push(`/blog/${category.name}/${id}`);
+            scrollToTop()
+          }}
         >
           {header}
         </div>
-        <div className="blog-tag c-seablue pointer" onClick={() => history.push(`/blog/${category.name}`)}>#{category?.name}</div>
+        <div className="blog-tag c-seablue pointer" onClick={() => {
+          history.push(`/blog/${category.name}`);
+          scrollToTop()
+        }}>#{category?.name}</div>
         <div
           className="text"
-          onClick={() => history.push(`/blog/${category.name}/${id}`)}
+          onClick={() => {
+            history.push(`/blog/${category.name}/${id}`);
+            scrollToTop()
+          }}
         >
           {text}
         </div>
@@ -135,20 +170,30 @@ const MediumItem = ({ id, classStr, index, image, header, category, text }) => {
     </div>
   );
 };
-const SmallItem = ({ id, classStr, index, image, header, category }) => {
+const SmallItem = ({
+  scrollToTop, id, classStr, index, image, header, category }) => {
   const history = useHistory();
   return (
     <div className={`${classStr} flex-row small-item my-10`} key={index}>
       <img
         className="image bradius-10 w45 h-120 pointer"
         src={image}
-        onClick={() => history.push(`/blog/${category.name}/${id}`)}
+        onClick={() => {
+          history.push(`/blog/${category.name}/${id}`);
+          scrollToTop()
+        }}
       />
       <div className="w55 ma-20">
-        <div className="blog-tag c-seablue pointer" onClick={() => history.push(`/blog/${category.name}`)}>#{category?.name}</div>
+        <div className="blog-tag c-seablue pointer" onClick={() => {
+          history.push(`/blog/${category.name}`);
+          scrollToTop();
+        }}>#{category?.name}</div>
         <div
           className="blog-header pointer"
-          onClick={() => history.push(`/blog/${category.name}/${id}`)}
+          onClick={() => {
+            history.push(`/blog/${category.name}/${id}`);
+            scrollToTop();
+          }}
         >
           {header}
         </div>
@@ -157,6 +202,7 @@ const SmallItem = ({ id, classStr, index, image, header, category }) => {
   );
 };
 const SmallColItem = ({
+  scrollToTop,
   id,
   classStr,
   index,
@@ -173,10 +219,19 @@ const SmallColItem = ({
       <img
         className="image bradius-10 h-180 pointer"
         src={image}
-        onClick={() => history.push(`/blog/${category.name}/${id}`)}
+        onClick={() => {
+          history.push(`/blog/${category.name}/${id}`);
+          scrollToTop();
+        }}
       />
-      <div className="blog-tag c-seablue" onClick={() => history.push(`/blog/${category.name}`)}>#{category?.name}</div>
-      <div className="blog-header pointer" onClick={() => history.push(`/blog/${category.name}`)}>{header}</div>
+      <div className="blog-tag c-seablue" onClick={() => {
+        history.push(`/blog/${category.name}`);
+        scrollToTop();
+      }}>#{category?.name}</div>
+      <div className="blog-header pointer" onClick={() => {
+        history.push(`/blog/${category.name}`);
+        scrollToTop();
+      }}>{header}</div>
       <div className="flex-row my-15">
         <div className="publishername flex-row">
           <div className="namecircle" />
