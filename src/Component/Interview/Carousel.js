@@ -14,13 +14,12 @@ const Carousel = ({ slides }) => {
     const prevSlide = () => {
         setCurrent(current === 0 ? length - 1 : current - 1);
     };
-    console.log(current);
     if (!Array.isArray(slides) || slides.length <= 0) {
         return null;
     }
     return (
         <div className="big-container">
-            <div className="carousel-container">
+            <div className="carousel-container mt-60">
                 <img
                     src={leftIcon}
                     className="left-arrow"

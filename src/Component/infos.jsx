@@ -44,7 +44,7 @@ const Infos = () => {
   useEffect(() => {
     let ds = implement(firstData);
     setIdkChapter(ds);
-  }, [firstData]);
+  }, [firstData, cpData]);
 
   useEffect(() => {
     setCpData(
@@ -53,7 +53,7 @@ const Infos = () => {
           return true;
       })
     );
-  }, [collegePrep]);
+  }, [collegePrep, location.pathname]);
 
   return (
     <div className="ws100 hs100 font-ubuntu infos b-background">
