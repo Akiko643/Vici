@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import Logo from './Logo'
 import './Navbar.css';
 // import { CollegePrepItems } from './CollegePrepItems';
-import { EducationItems } from './EducationItems';
+// import { EducationItems } from './EducationItems';
 
 import Dropdown from './Dropdown';
 import { AuthStateValue } from '../../Hooks/auth-user-provider';
@@ -67,17 +67,13 @@ const Navbar = () => {
                 <div className='menu-icon' onClick={handleClick}>
                     <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                 </div>
-                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                <ul className='nav-menu'>
                     <li className='nav-item'>
                         <Link to='/education' className='nav-links'>
                             Education{' '}
                         </Link>
                     </li>
-                    <li
-                        className='nav-item'
-                        onMouseEnter={dropdownHover}
-                        onMouseLeave={dropdownHover}
-                    >
+                    <li className='nav-item' onClick={dropdownHover}>
                         <Link className='nav-links'>
                             College Prep{' '}
                             <svg
@@ -106,8 +102,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                 </ul>
-
-                <div className='lang-toggle'>
+                <div className='flex w-160 justify-between items-center'>
                     <svg
                         width='48'
                         height='20'
@@ -133,28 +128,26 @@ const Navbar = () => {
                             fill='white'
                         />
                     </svg>
-                </div>
-                {user ? (
-                    <div className={'flex-direction-column'}>
-                        <div className='username-nav' onClick={handleClick}>
-                            {user.displayName}
-                        </div>
-                        {click ? (
-                            <div className='logout-container'>
-                                <div onClick={logout} className='logout-btn'>
+                    {user ? (
+                        <div className='pr username-container flex items-center'>
+                            <div className='username-nav' onClick={handleClick}>
+                                {user.displayName}
+                            </div>
+                            {click && (
+                                <div
+                                    className='logout-container'
+                                    onClick={logout}
+                                >
                                     Logout
                                 </div>
-                                <hr className={'ml-5 mr-5'} />
-                            </div>
-                        ) : (
-                            <></>
-                        )}
-                    </div>
-                ) : (
-                    <Link to='/user-login'>
-                        <button className='join-button'>Join</button>
-                    </Link>
-                )}
+                            )}
+                        </div>
+                    ) : (
+                        <Link to='/user-login'>
+                            <button className='join-button'>Join</button>
+                        </Link>
+                    )}
+                </div>
             </navbar>
         </>
     );

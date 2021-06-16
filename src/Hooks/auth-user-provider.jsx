@@ -5,17 +5,20 @@ import { useHistory } from 'react-router-dom';
 export const AuthContext = createContext({
     user: null,
     ready: false,
+    errorMessage: '',
+    setErrorMessage: () => {}
 });
 
 export const AuthUserProvider = ({ children }) => {
+    const [errorMessage, setErrorMessage] = useState('');
     let [state, setState] = useState({
         ready: false,
         user: null,
     });
-    const history = useHistory();
     let { auth, googleProvider } = useFirebase();
     let { createRecord } = useCol('users');
     let list = ['Education'];
+
     let { dataEducation } = useCol('Education');
     useEffect(() => {
         if (!auth) {
@@ -59,7 +62,9 @@ export const AuthUserProvider = ({ children }) => {
                 // history.push('/');
                 // console.log('hereee');
             })
-            .catch((error) => console.log(error.message));
+            .catch((error) => {
+                setErrorMessage(error.message);
+            });
     };
     const signUpWithEmailAndPassword = ({
         email,
@@ -99,13 +104,17 @@ export const AuthUserProvider = ({ children }) => {
                 // Signed in
                 // ...
             })
-            .catch((error) => console.log(error.message));
+            .catch((error) => {
+                console.log(error.message, "108")
+                setErrorMessage(error.message);
+            });
     };
     const singInWithEmailAndPassword = async ({ email, password }) => {
         await auth
             .signInWithEmailAndPassword(email, password)
             .catch((error) => {
-                console.log(error.message);
+                setErrorMessage(error.message);
+                console.log(error.message, "117");
             });
     };
 
@@ -118,6 +127,8 @@ export const AuthUserProvider = ({ children }) => {
                 signUpWithEmailAndPassword,
                 singInWithEmailAndPassword,
                 dataEducation,
+                errorMessage,
+                setErrorMessage
             }}
         >
             {children}

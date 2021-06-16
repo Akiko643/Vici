@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import img1 from '../../Img/IntroPageSpace.svg';
 import img2 from '../../Img/IntroPageExplore.svg';
-import Date from './Date';
+import Dates from './Dates';
 import Speakers from './Speakers';
 import './Transition.css';
 import { SuggestPagination } from '../Blog/SuggestPagination';
@@ -13,7 +13,7 @@ function Body() {
 
     return (
         <div className='ph-190 of-x-h mt-60'>
-            <div className='flex items-center justify-between mb-140'>
+            <div className='flex items-center justify-between mb-0'>
                 <h1 className='fs-45 w-430'>
                     Walk with us, bla bla bla uria loozon
                 </h1>
@@ -22,19 +22,17 @@ function Body() {
                     {/* <img src="./images/IntroPageSpaceGreen.svg" className="h-550"></img> */}
                 </div>
             </div>
-            <div className='of-x-h hi-1200 w100'>
-                <img
-                    className='absolute hi-1200 l-0 z--1'
-                    src='./images/Wave.svg'
-                    alt='img'
-                />
-            </div>
-            <div className='mb-140 pr'>
-                <h2 className='fw-600 fs-30'>International exams</h2>
+            <img
+                className='absolute w100 l-0 z--1'
+                src='./images/Wave.svg'
+                alt='wave'
+            />
+            <div className='mb-140 pr mt-300'>
+                <h2 className='fw-600 fs-30 mb-20'>International exams</h2>
                 <div className='flex justify-between'>
-                    <Date exam='SAT Dates'></Date>
-                    <Date exam='IELTS Dates'></Date>
-                    <Date exam='TOEFL Dates'></Date>
+                    <Dates exam='SAT Dates'></Dates>
+                    <Dates exam='IELTS Dates'></Dates>
+                    <Dates exam='TOEFL Dates'></Dates>
                 </div>
             </div>
             <SuggestPagination />

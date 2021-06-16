@@ -6,6 +6,14 @@
     .grid-gap-#{$i} {
         grid-gap: $i + px;
     }
+
+    .grid-col-gap-#{$i} {
+        grid-column-gap: $i + px;
+    }
+
+    .grid-row-gap-#{$i} {
+        grid-row-gap: $i + px;
+    }
 }
 
 .grid-cols-2 {

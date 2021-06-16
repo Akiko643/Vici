@@ -184,6 +184,14 @@
     opacity: 30%;
 }
 
+.inter {
+    font-family: 'Inter', sans-serif;
+}
+
+.op60 {
+    opacity: 60%;
+}
+
 body {
     margin: 0 auto;
 }
@@ -547,4 +555,18 @@ a:visited {
 }
 .pointer {
     cursor: pointer;
+}
+.default {
+    cursor: default;
+}
+blockquote {
+    padding: 0 1rem;
+    margin-left: 0 !important;
+    color: #819198;
+    border-left: 0.3rem solid #dce6f0;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 0px;
 }

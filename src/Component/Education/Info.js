@@ -46,9 +46,13 @@ export const Info = (props) => {
                         {/* <div> */}
                         {/* <h1 className=''>{chapters[chapterIndex]?.header}</h1> */}
                         <p className='fs-20 ln-25'>
-                            <ReactMarkdown>
-                                {chapters[chapterIndex]?.text}
-                            </ReactMarkdown>
+                            {
+                                chapters && (
+                                    <ReactMarkdown>
+                                        {chapters[chapterIndex]?.text}
+                                    </ReactMarkdown>
+                                )
+                            } 
                         </p>
                         {/* </div> */}
                     </div>

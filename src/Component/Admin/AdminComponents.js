@@ -2,9 +2,24 @@ import React, { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import { AuthStateValue } from '../../Hooks/auth-user-provider';
 import { useCol, useDoc, useFirebase } from '../../Hooks/firebase';
-import { BlogField, EducationField } from './AdminFields';
-import { BlogOnePost, EducationOnePost } from './AdminOnePost';
-import { BlogPosts, EducationPosts, CollegePrepPosts } from './AdminPosts';
+import {
+    BlogField,
+    EducationField,
+    CollegePrepField,
+    InterviewField,
+} from './AdminFields';
+import {
+    BlogOnePost,
+    EducationOnePost,
+    CollegePrepOnePost,
+    InterviewOnePost,
+} from './AdminOnePost';
+import {
+    BlogPosts,
+    EducationPosts,
+    CollegePrepPosts,
+    InterviewPosts,
+} from './AdminPosts';
 import Editor from './Editor';
 
 export const AdminCategory = ({ state, setState }) => {
@@ -17,6 +32,7 @@ export const AdminCategory = ({ state, setState }) => {
                     <div
                         className='b-seablue h-200 bradius-20 flex items-center justify-center c-white fs-30'
                         onClick={() => {
+                            // console.log(d);
                             setState({ ...state, category: d, level: 1 });
                         }}
                     >
@@ -38,6 +54,12 @@ export const AdminField = ({ state, setState }) => {
             {category === 'Blog' && (
                 <BlogField state={state} setState={setState} />
             )}
+            {category === 'College prep' && (
+                <CollegePrepField state={state} setState={setState} />
+            )}
+            {category === 'Interview' && (
+                <InterviewField state={state} setState={setState} />
+            )}
         </div>
     );
 };
@@ -52,25 +74,13 @@ export const AdminPosts = ({ state, setState }) => {
             {category === 'Blog' && (
                 <BlogPosts state={state} setState={setState} />
             )}
-            {category === 'College-prep' && (
+            {category === 'College prep' && (
                 <CollegePrepPosts state={state} setState={setState} />
             )}
+            {category === 'Interview' && (
+                <InterviewPosts state={state} setState={setState} />
+            )}
         </div>
-    );
-};
-
-export const Input = ({ basevalue, setbaseValue }) => {
-    const [value, setValue] = useState(basevalue);
-    return (
-        <input
-            value={value}
-            onChange={(e) => {
-                const temp = e.target.value;
-                setValue(temp);
-                setbaseValue(temp);
-            }}
-            placeholder='type content header'
-        ></input>
     );
 };
 
@@ -83,6 +93,12 @@ export const AdminOnePost = ({ state, setState }) => {
             )}
             {category === 'Blog' && (
                 <BlogOnePost state={state} setState={setState} />
+            )}
+            {category === 'College prep' && (
+                <CollegePrepOnePost state={state} setState={setState} />
+            )}
+            {category === 'Interview' && (
+                <InterviewOnePost state={state} setState={setState} />
             )}
         </div>
     );

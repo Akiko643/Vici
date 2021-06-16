@@ -44,15 +44,14 @@ export const Education = () => {
                     <div className='w100 ph-30 pv-70 educations'>
                         <Carousel
                             swipeable={true}
-                            arrows={false}
+                            arrows={true}
                             draggable={true}
                             showDots={false}
                             responsive={responsive}
                             ssr={true} // means to render carousel on server-side.
                             infinite={false}
                             keyBoardControl={true}
-                            containerClass='carousel-container h-475'
-
+                            containerClass='carousel-container h-475 justify-normal'
                             // removeArrowOnDeviceType={["tablet", "mobile"]}
                             dotListClass='custom-dot-list-style'
                             itemClass='carousel-item-padding-40-px'
@@ -75,7 +74,7 @@ export const Education = () => {
                 {data &&
                     data?.map((dt, index) => {
                         return (
-                            <Route exact path={"/education/" + dt?.id}>
+                            <Route exact path={'/education/' + dt?.id}>
                                 <Info
                                     chapters={dt?.chapters}
                                     key={index}
