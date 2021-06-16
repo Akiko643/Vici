@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import Logo from './Logo'
 import './Navbar.css';
 // import { CollegePrepItems } from './CollegePrepItems';
-import { EducationItems } from './EducationItems';
+// import { EducationItems } from './EducationItems';
 
 import Dropdown from './Dropdown';
 import { AuthStateValue } from '../../Hooks/auth-user-provider';
