@@ -7,8 +7,7 @@ const Lesson = ({ icon, name, path, elements, id }) => {
   const location = useLocation();
   return (
     <div
-      className=" bradius-20 ma-20 flex-center pa-40"
-      style={{ backgroundColor: "#F5F5F5" }}
+      className=" bradius-20 ma-20 flex-center pa-40 lesson-container" 
     >
       <p className="h-50 fs-36 flex">
         <img className="h-50 w-50 mr-10" src={icon} alt=""></img>
@@ -16,7 +15,6 @@ const Lesson = ({ icon, name, path, elements, id }) => {
       </p>
       <div className="h-210 w100 flex-col justify-between mt-10">
         {elements?.map((el, index) => {
-          console.log(el);
           return (
             <div className="flex flex-row items-center" key={index}>
               <div className="too">

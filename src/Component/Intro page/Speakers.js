@@ -1,26 +1,24 @@
-import react from "react";
+import React, { useEffect, useState } from "react";
+import { useFirebase } from "../../Hooks/firebase";
 import Card from "../Interview/Card";
 const Speakers = () => {
-    const ccard = [
-        {
-            image: "https://s2.im.ge/2021/06/13/QDbDY.png",
-            header: "John Doe",
-            subheader: "Director at Famous Company",
-        },
-        {
-            image: "https://s2.im.ge/2021/06/13/QDcED.png",
-            header: "John Doe",
-            subheader: "Director at Famous Company",
-        },
-        {
-            image: "https://s2.im.ge/2021/06/13/QDgv4.png",
-            header: "John Doe",
-            subheader: "Director at Famous Company",
-        },
-    ];
+    const [cardData, setCardData] = useState([]);
+    const { firebase } = useFirebase();
+    useEffect(async () => {
+        const query = await firebase
+            .firestore()
+            .collection(`/content/contents/Interview`)
+            .orderBy("createdAt", "desc")
+            .limit(3);
+        const snapshot = await query.get();
+        const docs = snapshot.docs.map((doc) => {
+            return { ...doc.data(), id: doc.id };
+        });
+        setCardData(docs);
+    }, []);
     return (
         <div className="flex justify-between flex-column mt-40">
-            {ccard.map((card, index) => {
+            {cardData.map((card, index) => {
                 return <Card card={card} index={index} />;
             })}
         </div>

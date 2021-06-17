@@ -7,6 +7,7 @@ import Editor from './Editor';
 
 function Admin() {
     const [value, setValue] = React.useState('**Hello world!!!**');
+
     return (
         <div className='h-vh-100 w-vw-100 flex pa-30'>
             <div className='side-elements w-vw-20 h-p-100 flex-col'>
