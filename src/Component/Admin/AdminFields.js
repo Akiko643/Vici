@@ -10,7 +10,28 @@ export const InterviewField = ({ state, setState }) => {
     return <InterviewPosts state={state} setState={setState} />;
 };
 
-export const CollegePrepField = ({ state, setState }) => {};
+export const CollegePrepField = ({ state, setState }) => {
+    const { data } = useCol('content/contents/College-prep');
+    return (
+        <div className='flex justify-around'>
+            {data &&
+                data.map((myData) => (
+                    <div
+                        className='pointer w45 h-200 b-footer flex items-center justify-center bradius-20 c-white fs-40 fw-800'
+                        onClick={() => {
+                            setState({
+                                ...state,
+                                field: myData.id,
+                                level: 2,
+                            });
+                        }}
+                    >
+                        {myData.name}
+                    </div>
+                ))}
+        </div>
+    );
+};
 
 export const BlogField = ({ state, setState }) => {
     const { data } = useCol('content/contents/categories');

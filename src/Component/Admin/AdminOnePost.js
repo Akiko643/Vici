@@ -84,7 +84,44 @@ export const InterviewOnePost = ({ state, setState }) => {
         </div>
     );
 };
-export const CollegePrepOnePost = ({ state, setState }) => {};
+export const CollegePrepOnePost = ({ state, setState }) => {
+    const { data, updateRecord } = useDoc(
+        `/content/contents/College-prep/${state.field}/chapters/${state.post}`
+    );
+    console.log(data);
+    const [value, setValue] = useState();
+    const [header, setHeader] = useState();
+    return (
+        <div>
+            {data && (
+                <>
+                    <div className='w100 flex justify-center items-center fs-20'>
+                        {''}
+                        <Input
+                            basevalue={data.header}
+                            setbaseValue={setHeader}
+                            placeholder='type content header'
+                        />
+                    </div>
+                    <Editor value={data.text} setValue={setValue} />
+                </>
+            )}
+            <div className='w100 flex justify-end pa-r-10'>
+                <div
+                    className='fs-20 b-whitegray w-100 h-30 bradius-10 flex items-center justify-center justify-self-end'
+                    onClick={async () => {
+                        let chapters = data;
+                        if (value) chapters.text = value;
+                        if (header) chapters.header = header;
+                        if (value || header) await updateRecord(chapters);
+                    }}
+                >
+                    Save
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export const BlogOnePost = ({ state, setState }) => {
     const { data, updateRecord } = useDoc(
