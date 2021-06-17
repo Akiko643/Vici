@@ -137,6 +137,7 @@ const ChecklistContainer = ({ checklist, userID, chapterID, updateRecord }) => {
     //unfinished save button
     // console.log("checklist loaded");
     const [fullList, setList] = useState(checklist);
+    const [updated, setUpdated] = useState(true);
     return (
         <div>
             {checklist.map((list, index) => {
@@ -146,12 +147,16 @@ const ChecklistContainer = ({ checklist, userID, chapterID, updateRecord }) => {
                         index={index}
                         userID={userID}
                         setList={setList}
+                        updated={updated}
+                        setUpdated={setUpdated}
                     />
                 );
             })}
             <button
+                className={`fw-500 pa-5 ph-10 mt-10 bradius-10 rb pointer ${updated && `b-green c-white`}`}
                 onClick={async () => {
-                    await updateRecord({ checklist: fullList });
+                    if (updated == false) await updateRecord({ checklist: fullList });
+                    setUpdated(true);
                 }}
             >
                 Save
@@ -160,19 +165,21 @@ const ChecklistContainer = ({ checklist, userID, chapterID, updateRecord }) => {
     );
 };
 
-const Checklist = ({ fullList, index, userID, setList }) => {
+const Checklist = ({ fullList, index, userID, setList, updated, setUpdated }) => {
     const [checked, setChecked] = useState(fullList[index].completed);
     return (
-        <div>
+        <div className='fw-600'>
             <input
                 onChange={(e) => {
                     let temp = fullList;
                     temp[index].completed = e.target.checked;
                     setList(temp);
                     setChecked(e.target.checked);
+                    if (updated == true) setUpdated(false);
                 }}
                 checked={checked}
                 type="checkbox"
+                className='mr-5'
             />
             {fullList[index].text};
         </div>
