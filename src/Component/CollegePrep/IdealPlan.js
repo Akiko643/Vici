@@ -1,18 +1,19 @@
 import React, { cloneElement, useContext, useEffect, useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import { Context } from "../Providers/contentProvider";
-import imgrc from "../Img/Rectangle 14.png";
-import Navbar from "./Navbar/Navbar";
-import { useDoc, useCol, useFirebase } from "../Hooks/firebase";
-import { AuthStateValue } from "../Hooks/auth-user-provider";
-import "./infos.scss";
-import img from "../Img/oceans 2.png";
-import Location from "../Img/Location.svg";
-import Welcome from "../Img/Welcome.svg";
+import { Context } from "../../Providers/contentProvider";
+import imgrc from "../../Img/Rectangle 14.png";
+import Navbar from "../Navbar/Navbar";
+import { useDoc, useCol, useFirebase } from "../../Hooks/firebase";
+import { AuthStateValue } from "../../Hooks/auth-user-provider";
+import "../infos.scss";
+import img from "../../Img/oceans 2.png";
+import Location from "../../Img/Location.svg";
+import Welcome from "../../Img/Welcome.svg";
 import ReactMarkdown from "react-markdown";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import dropdownchevron from "../Img/dropdownchevron.svg";
-const Infos = () => {
+import dropdownchevron from "../../Img/dropdownchevron.svg";
+
+const IdealPlan = () => {
     const { informations, collegePrep } = useContext(Context);
     const [cpData, setCpData] = useState({});
     const location = useLocation();
@@ -20,7 +21,8 @@ const Infos = () => {
         `/content/contents/College-prep/${cpData.id}/chapters`
     );
     const { user } = AuthStateValue();
-    const { data, updateRecord } = useDoc(`/users/${user?.uid}`);
+    const { data } = useDoc(`/users/${user?.uid}`);
+    console.log(data?.checklist);
     const [chapterId, setChapterId] = useState("");
     const [idkChapter, setIdkChapter] = useState([]);
 
@@ -124,7 +126,6 @@ const Infos = () => {
                                 checklist={data.checklist}
                                 userID={user.uid}
                                 chapterID={chapterId}
-                                updateRecord={updateRecord}
                             />
                         )}
                 </div>
@@ -133,48 +134,32 @@ const Infos = () => {
     );
 };
 
-const ChecklistContainer = ({ checklist, userID, chapterID, updateRecord }) => {
+const ChecklistContainer = ({ checklist, userID, chapterID }) => {
     //unfinished save button
-    // console.log("checklist loaded");
-    const [fullList, setList] = useState(checklist);
     return (
         <div>
             {checklist.map((list, index) => {
-                return (
-                    <Checklist
-                        fullList={fullList}
-                        index={index}
-                        userID={userID}
-                        setList={setList}
-                    />
-                );
+                return <Checklist index={index} userID={userID} />;
             })}
-            <button
-                onClick={async () => {
-                    await updateRecord({ checklist: fullList });
-                }}
-            >
-                Save
-            </button>
+            {/* <button>Save</button> */}
         </div>
     );
 };
 
-const Checklist = ({ fullList, index, userID, setList }) => {
-    const [checked, setChecked] = useState(fullList[index].completed);
+const Checklist = ({ index, userID }) => {
+    const { data, updateRecord } = useDoc(`/users/${userID}`);
+    const [checked, setChecked] = useState(data?.checklist[index].completed);
     return (
         <div>
             <input
                 onChange={(e) => {
-                    let temp = fullList;
-                    temp[index].completed = e.target.checked;
-                    setList(temp);
                     setChecked(e.target.checked);
                 }}
                 checked={checked}
+                readOnly={true}
                 type="checkbox"
             />
-            {fullList[index].text};
+            {data?.checklist[index].text};
         </div>
     );
 };
@@ -217,4 +202,5 @@ const SideDp = ({ index, chapterId, chapter, setChapterId }) => {
         </li>
     );
 };
-export { Infos };
+
+export default IdealPlan;

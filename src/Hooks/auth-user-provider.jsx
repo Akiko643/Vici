@@ -1,25 +1,25 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import firebase from 'firebase';
-import { useFirebase, useCol, useDoc } from '../Hooks/firebase';
-import { useHistory } from 'react-router-dom';
+import React, { createContext, useContext, useEffect, useState } from "react";
+import firebase from "firebase";
+import { useFirebase, useCol, useDoc } from "../Hooks/firebase";
+import { useHistory } from "react-router-dom";
 export const AuthContext = createContext({
     user: null,
     ready: false,
-    errorMessage: '',
-    setErrorMessage: () => {}
+    errorMessage: "",
+    setErrorMessage: () => {},
 });
 
 export const AuthUserProvider = ({ children }) => {
-    const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState("");
     let [state, setState] = useState({
         ready: false,
         user: null,
     });
     let { auth, googleProvider } = useFirebase();
-    let { createRecord } = useCol('users');
-    let list = ['Education'];
+    let { createRecord } = useCol("users");
+    let list = ["Education"];
 
-    let { dataEducation } = useCol('Education');
+    let { dataEducation } = useCol("Education");
     useEffect(() => {
         if (!auth) {
             return;
@@ -44,7 +44,7 @@ export const AuthUserProvider = ({ children }) => {
         displayName,
         gender,
         phoneNumber,
-        role = 'member',
+        role = "member",
     }) => {
         createRecord(uid, {
             email,
@@ -52,13 +52,62 @@ export const AuthUserProvider = ({ children }) => {
             gender,
             phoneNumber,
             role,
-            posts: [],
+            checklist: [
+                {
+                    text: "Conduct necessary research and choose your top colleges (we recommend choosing six)",
+                    completed: false,
+                },
+                {
+                    text: "Keep note of key deadlines and application fees",
+                    completed: false,
+                },
+                {
+                    text: "Check whether your university requires exams like SAT, IELTS, TOEFL, HSK, TOPIK, AP tests or others",
+                    completed: false,
+                },
+                {
+                    text: "Check whether you have to give an entrance exam",
+                    completed: false,
+                },
+                {
+                    text: "Organize and prepare your personal documents",
+                    completed: false,
+                },
+                {
+                    text: "Decide if you want to apply for early or regular admission ",
+                    completed: false,
+                },
+                {
+                    text: "Apply for financial aid",
+                    completed: false,
+                },
+                {
+                    text: "Make sure your recommendation letters are ready (most schools require two or three)",
+                    completed: false,
+                },
+                {
+                    text: "Start writing your essays/personal statement early and get them proofread",
+                    completed: false,
+                },
+                {
+                    text: "Make sure your recommendation letters are ready (most schools require two or three)",
+                    completed: false,
+                },
+                {
+                    text: "Prepare your high school transcript",
+                    completed: false,
+                },
+                {
+                    text: "Include information on extracurricular activities, programs, volunteer work or jobs you had",
+                    completed: false,
+                },
+            ],
         });
     };
     const signInWithGmail = () => {
         auth.signInWithPopup(googleProvider)
             .then((result) => {
-                createNewUser({ ...result.user, gender: '' });
+                createNewUser({ ...result.user, gender: "" });
                 // history.push('/');
                 // console.log('hereee');
             })
@@ -81,7 +130,7 @@ export const AuthUserProvider = ({ children }) => {
                         displayName: username,
                     })
                     .then(function () {
-                        console.log('Successfully updated username');
+                        console.log("Successfully updated username");
                     })
                     .then(() => {
                         createNewUser({
@@ -92,7 +141,7 @@ export const AuthUserProvider = ({ children }) => {
                         });
                     })
                     .catch(function (error) {
-                        console.log('gege');
+                        console.log("gege");
                     });
 
                 // history.push('/');
@@ -105,7 +154,7 @@ export const AuthUserProvider = ({ children }) => {
                 // ...
             })
             .catch((error) => {
-                console.log(error.message, "108")
+                console.log(error.message, "108");
                 setErrorMessage(error.message);
             });
     };
@@ -128,7 +177,7 @@ export const AuthUserProvider = ({ children }) => {
                 singInWithEmailAndPassword,
                 dataEducation,
                 errorMessage,
-                setErrorMessage
+                setErrorMessage,
             }}
         >
             {children}
