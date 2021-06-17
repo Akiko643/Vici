@@ -14,8 +14,9 @@ function Body() {
     return (
         <div className="ph-190 of-x-h mt-60">
             <div className="flex items-center justify-between mb-0">
-                <h1 className="fs-45 w-430">
-                    Walk with us, bla bla bla uria loozon
+                <h1 className="fs-45 w-500">
+                    Welcome to Vici coaching magazine
+                    <p className='fs-30'>Action. Ambition. Accomplish.</p>
                 </h1>
                 <div>
                     <img src={img1} className="h-550" alt="img" />
