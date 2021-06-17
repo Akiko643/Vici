@@ -229,7 +229,7 @@ const SmallColItem = ({
         scrollToTop();
       }}>#{category?.name}</div>
       <div className="blog-header pointer" onClick={() => {
-        history.push(`/blog/${category.name}`);
+        history.push(`/blog/${category.name}/${id}`);
         scrollToTop();
       }}>{header}</div>
       <div className="flex-row my-15">

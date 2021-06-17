@@ -9,8 +9,7 @@ import { useCol, useDoc } from '../../Hooks/firebase';
 
 export const Info = (props) => {
     const { id, name } = props;
-    const chapters = useCol(`/content/contents/Education/${id}/chapters`).data;
-    console.log(chapters);
+    const chapters = useCol(`/content/contents/Education/${id}/chapters`, true).data;
     const [chapterIndex, setChapterIndex] = useState(0);
     return (
         <div className='b-background'>

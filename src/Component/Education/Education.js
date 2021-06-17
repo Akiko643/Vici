@@ -10,7 +10,7 @@ import { useCol, useDoc } from '../../Hooks/firebase';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 export const Education = () => {
-    const { data } = useCol('content/contents/Education/');
+    const { data } = useCol('content/contents/Education/', true);
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
