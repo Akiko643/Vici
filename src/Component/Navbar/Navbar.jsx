@@ -29,10 +29,17 @@ const Navbar = () => {
             })
             .catch((error) => console.log(error.message));
     };
+    const scrollToTop = () => {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
     return (
         <>
             <navbar>
-                <Link className='nav-logo' to='/'>
+                <Link className='nav-logo' to='/' onClick={() => scrollToTop()}>
                     <svg
                         width='160'
                         height='38'
@@ -69,12 +76,12 @@ const Navbar = () => {
                 </div>
                 <ul className='nav-menu'>
                     <li className='nav-item'>
-                        <Link to='/education' className='nav-links'>
+                        <Link to='/education' className='nav-links' onClick={() => scrollToTop()}>
                             Education{' '}
                         </Link>
                     </li>
                     <li className='nav-item' onClick={dropdownHover}>
-                        <Link className='nav-links'>
+                        <Link className='nav-links' onClick={() => scrollToTop()}>
                             College Prep{' '}
                             <svg
                                 width='11'
@@ -92,12 +99,12 @@ const Navbar = () => {
                         {dropdown && <Dropdown listName={collegePrep} />}
                     </li>
                     <li className='nav-item'>
-                        <Link to='/interview' className='nav-links'>
+                        <Link to='/interview' className='nav-links' onClick={() => scrollToTop()}>
                             Interview
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/blog' className='nav-links'>
+                        <Link to='/blog' className='nav-links' onClick={() => scrollToTop()}>
                             Blog
                         </Link>
                     </li>

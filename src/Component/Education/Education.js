@@ -6,11 +6,11 @@ import img from '../../Img/oceans2.png';
 import './education.scss';
 import { Info } from './Info';
 import { Switch, Route } from 'react-router-dom';
-import { useCol } from '../../Hooks/firebase';
+import { useCol, useDoc } from '../../Hooks/firebase';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 export const Education = () => {
-    const { data } = useCol('content/contents/Education');
+    const { data } = useCol('content/contents/Education/', true);
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -76,7 +76,8 @@ export const Education = () => {
                         return (
                             <Route exact path={'/education/' + dt?.id}>
                                 <Info
-                                    chapters={dt?.chapters}
+                                    id={dt?.id}
+                                    // chapters={dt?.chapters}
                                     key={index}
                                     name={dt?.name}
                                 />

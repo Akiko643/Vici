@@ -5,9 +5,11 @@ import Location from "../../Img/Location.svg";
 import Welcome from "../../Img/Welcome.svg";
 // import Fade from "react-reveal";
 import ReactMarkdown from "react-markdown";
+import { useCol, useDoc } from "../../Hooks/firebase";
 
 export const Info = (props) => {
-    const { chapters, name } = props;
+    const { id, name } = props;
+    const chapters = useCol(`/content/contents/Education/${id}/chapters`, true).data;
     const [chapterIndex, setChapterIndex] = useState(0);
     return (
         <div className="b-background">
@@ -15,7 +17,7 @@ export const Info = (props) => {
                 <img
                     src={img}
                     className="w100 pb-50"
-                    alt="Hello world idk img here not loaded"
+                    alt="No image was loaded."
                 />
                 <h1 className="c-white heading-name">{name}</h1>
             </div>
@@ -23,7 +25,7 @@ export const Info = (props) => {
                 <div className="flex">
                     <div className="ma-10 flex flex-col">
                         <ul className="fs-20 lh-20 list-style-none pa-20">
-                            <li className="c-dedault pb-10 bb-border-2 w-200 ma-4 bold">
+                            <li className="c-default pb-10 bb-border-2 w-200 ma-4 bold">
                                 Course Summary
                             </li>
                             {chapters?.map((chapter, index) => {
@@ -44,21 +46,13 @@ export const Info = (props) => {
                         <img src={Location} className="svg_images" alt="img" />
                     </div>
                     <div className="ma-10 pa-50 b-white right-sec br-border-1">
-                        {/* <div> */}
-                        {/* <h1 className=''>{chapters[chapterIndex]?.header}</h1> */}
                         <p className="fs-20 ln-25">
                             {chapters && (
-                                // <Fade bottom>
-                                //     <ReactMarkdown>
-                                //         {chapters[chapterIndex]?.text}
-                                //     </ReactMarkdown>
-                                // </Fade>
                                 <ReactMarkdown>
                                     {chapters[chapterIndex]?.text}
                                 </ReactMarkdown>
                             )}
                         </p>
-                        {/* </div> */}
                     </div>
                 </div>
             </div>

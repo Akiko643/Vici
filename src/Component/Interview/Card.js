@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Fade from "react-reveal/Fade";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./Card.css";
 const Card = ({ card, index }) => {
     const [show, setShow] = useState(false);
+    const history = useHistory();
     const handleHover = () => {
         setShow(!show);
     };

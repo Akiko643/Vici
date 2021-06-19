@@ -49,6 +49,11 @@
                 letter-spacing: 0em;
                 text-align: left;
             }
+            code {
+                word-break: break-word;
+                display: inline-block;
+                white-space: normal;
+            }
         }
         .heading-image {
             height: 300px;
