@@ -10,23 +10,31 @@ const Card = ({ card, index }) => {
         setShow(!show);
     };
     return (
-        <Link to="/interviewtest">
-            <div
-                key={index}
-                className="card"
-                onMouseEnter={handleHover}
-                onMouseLeave={handleHover}
-            >
-                <img src={card.image} alt={card.header} />
-                <Fade bottom collapse when={show}>
-                    <h2 className="feed-subtitle">{card.subheader}</h2>
-                </Fade>
+        <div
+            onClick={() => {
+                history.push(`/interview/${card.id}`);
+                window.scroll({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            }}
+            key={index}
+            className="card"
+            onMouseEnter={handleHover}
+            onMouseLeave={handleHover}
+        >
+            <img src={card.image} alt={card.header} className="w100" />
+            <Fade bottom collapse when={show}>
+                <h2 className="feed-subtitle">{card.subheader}</h2>
+            </Fade>
 
-                <div>
-                    <h2 className="feed-title">{card.header}</h2>
-                </div>
-            </div>
-        </Link>
+            <Fade bottom collapse when={show}>
+                <h2 className={show ? "feed-title active" : "feed-title"}>
+                    {card.header}
+                </h2>
+            </Fade>
+        </div>
     );
 };
 
