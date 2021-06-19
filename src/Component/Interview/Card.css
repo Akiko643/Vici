@@ -26,9 +26,9 @@
     top: 80%;
     left: 10%;
 }
-.active {
+/* .active {
     top: 60%;
-}
+} */
 .card > img {
     height: 100%;
     width: 100%;
@@ -37,7 +37,7 @@
 }
 .feed-subtitle {
     position: absolute;
-    top: 80%;
+    top: 60%;
     left: 10%;
     color: white;
     font-size: 1.275rem;
