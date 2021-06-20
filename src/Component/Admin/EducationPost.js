@@ -1,12 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
+import { useContext } from 'react/cjs/react.development';
 import { useCol, useFirebase } from '../../Hooks/firebase';
+import { Context } from '../../Providers/contentProvider';
 import Editor from './Editor';
 import Upload from './Upload';
 
 const EducationPost = () => {
+    const { language} = useContext(Context);
     const { data, deleteRecord, createRecord, updateRecord } = useCol(
-        'content/contents/Education'
+        'content/contents/Education',
+        language
     );
     const [index, setIndex] = useState();
     const [fieldVisible, setFieldVisible] = useState(false);

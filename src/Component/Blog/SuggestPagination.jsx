@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./SuggestPagination.scss";
 import { BlogItemComp } from "./BlogItemComp";
 import leftchevron from "./zuun-chevron.svg";
 import rightchevron from "./baruun-chevron.svg";
 import { useFirebase } from "../../Hooks/firebase";
 import { useTranslation } from 'react-i18next';
+import { Context } from "../../Providers/contentProvider";
 export const SuggestPagination = () => {
+  const { language } = useContext(Context)
   const [suggestedPageNumber, setSuggestedPageNumber] = useState(1);
   const { firebase } = useFirebase();
   const [data, setData] = useState([]);
@@ -19,6 +21,7 @@ export const SuggestPagination = () => {
     const first = await firebase
       .firestore()
       .collection("/content/contents/Blog")
+      .where('language', '==', language)
       .orderBy(`createdAt`, "desc")
       .limit(4);
     const snapshot = await first.get();
@@ -36,6 +39,7 @@ export const SuggestPagination = () => {
       const next = await firebase
         .firestore()
         .collection("/content/contents/Blog")
+        .where('language', '==', language)
         .orderBy("createdAt", "desc")
         .startAfter(lastDoc)
         .limit(4);
@@ -73,6 +77,14 @@ export const SuggestPagination = () => {
       );
     }
   };
+  useEffect(async () => {
+    setNumberSug(0);
+    setData([]);
+    setIsEnd(false);
+    setLoadingMore(false);
+    setLastDoc(null);
+    await firstLoad();
+  }, [language])
   useEffect(async () => {
     await firstLoad();
   }, []);

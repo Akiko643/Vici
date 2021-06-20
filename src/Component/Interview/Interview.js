@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 // import Carousel from "react-multi-carousel";
@@ -10,21 +10,23 @@ import "./Interview.css";
 import { useRouteMatch } from "react-router-dom";
 import { InterviewTest } from "./InterviewBlog/InterviewTest";
 import { useFirebase } from "../../Hooks/firebase";
+import { Context } from "../../Providers/contentProvider";
 // import Feed from "./Feed";
 
 const Interview = () => {
     const match = useRouteMatch();
     const [carouselData, setCarouselData] = useState([]);
     const { firebase } = useFirebase();
+    const { language } = useContext(Context)
     useEffect(async () => {
-        const query = await firebase.firestore().collection(`/content/contents/Interview`).orderBy('createdAt', 'desc').limit(6);
+        const query = await firebase.firestore().collection(`/content/contents/Interview`).where('language', '==', language).orderBy('createdAt', 'desc').limit(6);
         const snapshot = await query.get();
         const docs = snapshot.docs.map((doc) => {
             return { ...doc.data(), id: doc.id };
         });
         console.log(docs)
         setCarouselData(docs);
-    }, [])
+    }, [language])
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
