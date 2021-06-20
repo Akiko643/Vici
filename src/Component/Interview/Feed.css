@@ -7,9 +7,7 @@
     padding: 8%;
 }
 .card-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    column-gap: 7vw;
-    row-gap: 8%;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
 }

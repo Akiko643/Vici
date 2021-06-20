@@ -6,9 +6,15 @@
 .slide {
     opacity: 0;
     transition-duration: 1s ease;
+    transform: scale(0.9);
+    /* display: none; */
+    /* width: 0; */
+    overflow: hidden;
 }
 .slide.active {
+    width: 100%;
     opacity: 1;
     transition-duration: 1s;
-    transform: scale(1.08);
+    transform: scale(1);
+    display: block;
 }
