@@ -2,10 +2,10 @@ export const translationMn = {
     education : "Боловсрол",
     interview: "Ярилцлага",
     blog: "Нийтлэл",
-    collegeprep: "Их сургуулийн бэлтгэл",
-    welcome: "Vici сэтгүүлд тавтай морил",
+    collegeprep: "Их сургууль",
+    welcome: "Welcome to Vici coaching magazine",
     // welcome2: "Тууштай байдал. Хүсэл тэмүүлэл. Зорилгодоо хүр.",
-    welcome2: "Хүс. Тэмүүл. Зорилгодоо хүр",
+    welcome2: "Action. Ambition. Accomplish.",
     internationalExams: "Олон улсын шалгалт",
     examdates: "шалгалтын өдрүүд",
     forYou: "Таньд зориулав",
@@ -35,5 +35,7 @@ export const translationMn = {
     latest: 'Сүүлийн үеийн',
     popular: 'Алдартай',
     trending: 'Тренд',
-    categories: 'Ангиллууд'
+    categories: 'Ангиллууд',
+    aboutUs: 'Бидний тухай',
+    followUs: 'Биднийг дагаарай'
 }
