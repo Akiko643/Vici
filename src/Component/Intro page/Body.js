@@ -1,28 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import img1 from "../../Img/IntroPageSpace.svg";
-import img2 from "../../Img/IntroPageExplore.svg";
 import Dates from "./Dates";
 import Speakers from "./Speakers";
 import "./Transition.css";
 import { SuggestPagination } from "../Blog/SuggestPagination";
-import { useTranslation } from 'react-i18next';
-
+import { useTranslation } from "react-i18next";
+import { useTransition, animated, config } from "react-spring";
+import Astronaut from "./Astronaut";
+import img1 from "../../Img/Grouppink.svg";
+import img2 from "../../Img/Groupgreen.svg";
+import img3 from "../../Img/IntroPageExplore.svg";
 function Body() {
-    let speakers = ["John Doe", "Farmer John", "Onkar Judge"];
-    const [isShown, setIsShown] = useState(true);
     const { t } = useTranslation();
     return (
         <div className="ph-190 of-x-h mt-60">
-            <div className="flex items-center justify-between mb-0">
+            <div className="flex items-center justify-between mb-165 mt-165">
                 <h1 className="fs-45 w-500">
-                    {t('welcome')}
-                    <p className='fs-30'>{t('welcome2')}</p>
+                    {t("welcome")}
+                    <p className="fs-30">{t("welcome2")}</p>
                 </h1>
-                <div>
-                    <img src={img1} className="h-550" alt="img" />
-                    {/* <img src="./images/IntroPageSpaceGreen.svg" className="h-550"></img> */}
-                </div>
+                <Astronaut i1={img1} i2={img2} />
             </div>
             <img
                 className="absolute w100 l-0 z--1"
@@ -30,7 +27,9 @@ function Body() {
                 alt="wave"
             />
             <div className="mb-140 pr mt-300">
-                <h2 className="fw-600 fs-30 mb-20">{t("internationalExams")}</h2>
+                <h2 className="fw-600 fs-30 mb-20">
+                    {t("internationalExams")}
+                </h2>
                 <div className="flex justify-between">
                     <Dates exam={`SAT ${t("examdates")}`}></Dates>
                     <Dates exam={`IELTS ${t("examdates")}`}></Dates>
@@ -40,11 +39,6 @@ function Body() {
             <SuggestPagination />
             <div className="mb-140">
                 <h2 className="fw-600 fs-30 mt-60">{t("latestSpeakers")}</h2>
-                {/* <div className="flex justify-between">
-                    {speakers.map((speaker) => (
-                        <Speakers person={speaker}></Speakers>
-                    ))}
-                </div> */}
                 <Speakers />
             </div>
             {/* <div className="flex items-center justify-between">
