@@ -11,13 +11,14 @@ export const InterviewField = ({ state, setState }) => {
 };
 
 export const CollegePrepField = ({ state, setState }) => {
+    console.log('here');
     const { data } = useCol('content/contents/College-prep');
     return (
-        <div className='flex justify-around'>
+        <div className=' grid grid-cols-3 grid-rows-2 grid-gap-30'>
             {data &&
                 data.map((myData) => (
                     <div
-                        className='pointer w45 h-200 b-footer flex items-center justify-center bradius-20 c-white fs-40 fw-800'
+                        className='pointer h-200 b-footer flex items-center justify-center bradius-20 c-white fs-40 fw-800'
                         onClick={() => {
                             setState({
                                 ...state,
