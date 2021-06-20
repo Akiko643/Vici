@@ -1,14 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import Navbar from "./Component/Navbar/Navbar";
 import SignUpPage from "./Component/Login/SignUpPage";
-import "./Style/main.scss";
 import { Infos } from "./Component/infos";
 import { useCol, useDoc, useFirebase } from "./Hooks/firebase";
 import { AuthStateValue, AuthUserProvider } from "./Hooks/auth-user-provider";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Context } from "./Providers/contentProvider";
 
-import "./Style/App.css";
+import { Context } from "./Providers/contentProvider";
 import Intro from "./Component/Intro page/Intro";
 import Admin from "./Component/Admin/Admin";
 import TopColleges from "./Component/Top Colleges/TopColleges";
@@ -18,20 +16,24 @@ import AdminTest from "./Component/Admin/AdminTest";
 import { InterviewTest } from "./Component/Interview/InterviewBlog/InterviewTest";
 import IdealPlan from "./Component/CollegePrep/IdealPlan";
 
+import "./Style/App.css";
+import "./Style/main.scss";
+
+import './i18';
+
 const App = () => {
     const { user } = AuthStateValue();
     const { auth } = useFirebase();
     const curUser = useDoc(`/users/${user?.uid}`).data;
     const { data } = useCol("/users");
     const { collegePrep } = useContext(Context);
-    // console.log("app.js", collegePrep)
     useEffect(() => {
         if (user) {
             console.log(user.email);
         }
     }, []);
     return (
-        <Router>
+        <Router> 
             <Switch>
                 <Route exact path="/">
                     <Intro />

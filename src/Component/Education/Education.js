@@ -9,7 +9,9 @@ import { Switch, Route } from 'react-router-dom';
 import { useCol, useDoc } from '../../Hooks/firebase';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { useTranslation } from 'react-i18next';
 export const Education = () => {
+    const { t } = useTranslation();
     const { data } = useCol('content/contents/Education/', true);
     const responsive = {
         desktop: {
@@ -38,7 +40,7 @@ export const Education = () => {
                         style={{ backgroundImage: `url(${img})` }}
                     >
                         <div className='bottom-10 fs-48 absolute uppercase'>
-                            Education
+                            {t('education')}
                         </div>
                     </div>
                     <div className='w100 ph-30 pv-70 educations'>

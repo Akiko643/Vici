@@ -13,10 +13,12 @@ import {
   useParams,
   useHistory,
 } from "react-router";
+import { useTranslation } from "react-i18next";
 // import { BlogTemp } from "../blog-temp/blogtemp";
 import { useCol, useDoc, useFirebase } from "../../Hooks/firebase";
 import { BlogCategoryTemp } from "../BlogCategoryTemp/BlogCategoryTemp";
 export const Blog = () => {
+  const { t } = useTranslation();
   const [selectedLPT, setSelectedLPT] = useState(0);
   const match = useRouteMatch();
   const { firebase } = useFirebase();
@@ -92,14 +94,14 @@ export const Blog = () => {
               <div className="flex-row">
                 <BlogItemComp data={topData[0]} size="big" classStr={"w60"} />
                 <div className="w40 ml-20">
-                  <div className="flex-row lpt">
+                  <div className="flex-row lpt uppercase">
                     <div
                       className={`pointer mr-50 ${
                         selectedLPT === 0 ? "selected-lpt" : "nt-selected-lpt"
                       }`}
                       onClick={() => topChange(0)}
                     >
-                      LATEST
+                      {t('latest')}
                     </div>
                     <div
                       className={`pointer mr-50 ${
@@ -107,7 +109,7 @@ export const Blog = () => {
                       }`}
                       onClick={() => topChange(1)}
                     >
-                      POPULAR
+                      {t('popular')}
                     </div>
                     <div
                       className={`pointer ${
@@ -115,7 +117,7 @@ export const Blog = () => {
                       }`}
                       onClick={() => topChange(2)}
                     >
-                      TRENDING
+                      {t('trending')}
                     </div>
                   </div>
                   <BlogItemComp
@@ -179,7 +181,7 @@ export const Blog = () => {
                   />
                 </div>
                 <div className="w40">
-                  <div className="categories-text">Categories</div>
+                  <div className="categories-text">{t('categories')}</div>
                   {data?.map((category, index) => {
                     return (
                       <div

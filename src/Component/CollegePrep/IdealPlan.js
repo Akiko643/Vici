@@ -12,8 +12,9 @@ import Welcome from "../../Img/Welcome.svg";
 import ReactMarkdown from "react-markdown";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import dropdownchevron from "../../Img/dropdownchevron.svg";
-
+import { useTranslation } from "react-i18next";
 const IdealPlan = () => {
+    const { t } = useTranslation();
     const { informations, collegePrep } = useContext(Context);
     const [cpData, setCpData] = useState({});
     const location = useLocation();
@@ -22,7 +23,6 @@ const IdealPlan = () => {
     );
     const { user } = AuthStateValue();
     const { data } = useDoc(`/users/${user?.uid}`);
-    console.log(data?.checklist);
     const [chapterId, setChapterId] = useState("");
     const [idkChapter, setIdkChapter] = useState([]);
 
@@ -77,7 +77,7 @@ const IdealPlan = () => {
                 />
             </div>
             <div className="container-idk">
-                <p className="college">College</p>
+                <p className="college">{t('college')}</p>
                 <h1 className="headeridk">
                     {location.pathname.substring(1, location.pathname.length)}
                 </h1>
@@ -86,7 +86,7 @@ const IdealPlan = () => {
                 <div className="mv-10 mr-10 flex flex-col">
                     <ul className="fs-20 lh-20 list-style-none pv-20 pa-r-20 pl-0">
                         <li className="c-dedault pb-10 bb-border-2 w-200 ma-4 bold">
-                            Course Summary
+                            {t('courseSummary')}
                         </li>
                         {idkChapter.map((chapter, index) => {
                             return (
