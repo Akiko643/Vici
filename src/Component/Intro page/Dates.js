@@ -107,7 +107,7 @@ function Dates({ exam }) {
 
     return (
         <div className='w-320'>
-            {exam && <h1 className='fs-20 w100 text-center'>{exam}</h1>}
+            {exam && <h1 className='fs-22 w100 text-center mb-20'>{exam}</h1>}
             <Calendar
                 dates={
                     exam === 'TOEFL Dates'

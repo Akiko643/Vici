@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Calendar = ({ dates }) => {
+    const { t } = useTranslation();
     const months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
+        t('january'),
+        t('february'),
+        t('march'),
+        t('april'),
+        t('may'),
+        t('june'),
+        t('july'),
+        t('august'),
+        t('september'),
+        t('october'),
+        t('november'),
+        t('december'),
     ];
 
-    const weekdays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+    
+    const weekdays = [t('mo'), t('tu'), t('we'), t('th'), t('fr'), t('sa'), t('su')];
     const findDays = (mth) => {
         let date = new Date(mth);
         date.setDate(1);

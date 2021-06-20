@@ -78,3 +78,15 @@ navbar {
     border: none;
     color: white;
 }
+.languageBtn {
+    transition: all 0.4s;
+    position: absolute;
+    top: -2px;
+    transition-delay: 0.2s;
+}
+.mnLanguageBtn {
+    left: 14px !important;
+}
+.enLanguageBtn {
+    left: 0px;
+}
