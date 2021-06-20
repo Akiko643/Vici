@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouteMatch, useHistory } from "react-router";
 import { useCol, useDoc, useFirebase } from "../../../Hooks/firebase";
 import ReactMarkdown from "react-markdown";
-
+import { useTranslation } from "react-i18next";
 import "./InterviewTest.css";
 import ReactPlayer from "react-player";
 import PlayerData from "./PlayerData.js";
@@ -10,8 +10,10 @@ import Navbar from "../../Navbar/Navbar";
 import Back from "../../../Img/vector__back.svg";
 import Card from "../Card";
 import Footer from "../../Footer/Footer";
+
 export const InterviewTest = () => {
-    let match = useRouteMatch();
+    const { t } = useTranslation();
+    const match = useRouteMatch();
     const history = useHistory();
     const { data: doc } = useDoc(
         `/content/contents/Interview/${match.params.interviewId}`
@@ -80,7 +82,7 @@ export const InterviewTest = () => {
                     <ReactMarkdown>{doc?.text}</ReactMarkdown>
                 </div>
                 <hr className="mt-45 w-vw-66" />
-                <h1 className="latest__speakers  mt-40">Latest Speakers</h1>
+                <h1 className="latest__speakers  mt-40">{t('latestSpeakers')}</h1>
                 <div className="w-vw-66 mt-40 lower__container">
                     {cardData.map((card, index) => {
                         return <Card card={card} index={index} />;

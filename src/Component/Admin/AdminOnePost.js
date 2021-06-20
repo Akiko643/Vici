@@ -84,13 +84,27 @@ export const InterviewOnePost = ({ state, setState }) => {
         </div>
     );
 };
+
 export const CollegePrepOnePost = ({ state, setState }) => {
+    const chapters = useCol(
+        `/content/contents/College-prep/${state.field}/chapters`
+    );
     const { data, updateRecord } = useDoc(
         `/content/contents/College-prep/${state.field}/chapters/${state.post}`
     );
-    console.log(data);
+    // console.log(data);
     const [value, setValue] = useState();
     const [header, setHeader] = useState();
+    const [option, setOption] = useState('');
+
+    const getParent = (array, parentid) => {
+        console.log(array);
+        return array?.find((cur) => {
+            if (cur.id === parentid) {
+                return true;
+            }
+        });
+    };
     return (
         <div>
             {data && (
@@ -102,6 +116,32 @@ export const CollegePrepOnePost = ({ state, setState }) => {
                             setbaseValue={setHeader}
                             placeholder='type content header'
                         />
+                        <select
+                            className='pa-5'
+                            onChange={(e) => {
+                                setOption(e.target.value);
+                            }}
+                            // value={option}
+                        >
+                            {data.parent === '' && (
+                                <option disabled selected value>
+                                    {' '}
+                                    -- select an option --{' '}
+                                </option>
+                            )}
+                            {chapters?.data.map((d) => {
+                                console.log(d);
+                                console.log(data);
+                                return (
+                                    <option
+                                        value={d.id}
+                                        selected={d.id === data.parent}
+                                    >
+                                        {d.header}
+                                    </option>
+                                );
+                            })}
+                        </select>
                     </div>
                     <Editor value={data.text} setValue={setValue} />
                 </>
@@ -113,7 +153,9 @@ export const CollegePrepOnePost = ({ state, setState }) => {
                         let chapters = data;
                         if (value) chapters.text = value;
                         if (header) chapters.header = header;
-                        if (value || header) await updateRecord(chapters);
+                        if (option) chapters.parent = option;
+                        if (value || header || option)
+                            await updateRecord(chapters);
                     }}
                 >
                     Save
@@ -193,10 +235,8 @@ export const EducationOnePost = ({ state, setState }) => {
                 <div
                     className='fs-20 b-whitegray w-100 h-30 bradius-10 flex items-center justify-center justify-self-end'
                     onClick={async () => {
-                        // const { chapters } = data;
                         if (value) data.text = value;
                         if (header) data.header = header;
-                        // console.log(chapters);
                         if (value || header) await updateRecord(data);
                     }}
                 >

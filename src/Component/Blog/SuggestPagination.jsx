@@ -4,6 +4,7 @@ import { BlogItemComp } from "./BlogItemComp";
 import leftchevron from "./zuun-chevron.svg";
 import rightchevron from "./baruun-chevron.svg";
 import { useFirebase } from "../../Hooks/firebase";
+import { useTranslation } from 'react-i18next';
 export const SuggestPagination = () => {
   const [suggestedPageNumber, setSuggestedPageNumber] = useState(1);
   const { firebase } = useFirebase();
@@ -12,6 +13,7 @@ export const SuggestPagination = () => {
   const [loadingMore, setLoadingMore] = useState(false);
   const [lastDoc, setLastDoc] = useState(null);
   const [numberSug, setNumberSug] = useState(0);
+  const { t } = useTranslation();
   const firstLoad = async () => {
     setLoadingMore(true);
     const first = await firebase
@@ -77,7 +79,7 @@ export const SuggestPagination = () => {
   return (
     <div className="flex-col mt-20 mb-20">
       <div className="flex justify-between mb-25">
-        <div className="foryou">For you</div>
+        <div className="foryou">{t("forYou")}</div>
         <div className="sug-p-number justify-between">
           <img
             className={`pointer ${suggestedPageNumber === 1 && "disabledbtn"}`}
@@ -86,7 +88,7 @@ export const SuggestPagination = () => {
               suggestedPageNumber !== 1 && (what(0), setIsEnd(false))
             }
           />
-          {"Page " + suggestedPageNumber}
+          {`${t('page')} ` + suggestedPageNumber}
           <img
             className={`pointer ${isEnd && "disabledbtn"}`}
             src={rightchevron}

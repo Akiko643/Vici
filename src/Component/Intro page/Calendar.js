@@ -1,30 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import i18n from "i18next";
 
 const Calendar = ({ dates }) => {
+    const { t } = useTranslation();
     const months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
+        t('january'),
+        t('february'),
+        t('march'),
+        t('april'),
+        t('may'),
+        t('june'),
+        t('july'),
+        t('august'),
+        t('september'),
+        t('october'),
+        t('november'),
+        t('december'),
     ];
 
-    const weekdays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+    
+    const weekdays = [t('mo'), t('tu'), t('we'), t('th'), t('fr'), t('sa'), t('su')];
     const findDays = (mth) => {
         let date = new Date(mth);
         date.setDate(1);
         while (date.getDay() !== 1) date.setDate(date.getDate() - 1);
         let monthdates = [];
-        for (let i = 0; i < 7; i++) {
-            monthdates.push([weekdays[i], 3]);
-        }
         for (let i = 0; i < 35; i++) {
             let state = 1;
             if (date.getMonth() === mth.getMonth()) {
@@ -36,8 +37,8 @@ const Calendar = ({ dates }) => {
                     dates[j].getMonth() === date.getMonth() &&
                     dates[j].getDate() === date.getDate()
                 ) {
-                    if (date.getMonth() === mth.getMonth()) state = 4;
-                    else state = 5;
+                    if (date.getMonth() === mth.getMonth()) state = 3;
+                    else state = 4;
                 }
             }
             monthdates.push([date.getDate(), state]);
@@ -47,7 +48,6 @@ const Calendar = ({ dates }) => {
     };
     const [month, setMonth] = useState(new Date());
     const [days, setDays] = useState(findDays(month));
-
     return (
         <div className='b-white bradius-25 pa-20 inter'>
             <div className='flex w100 justify-between items-center mb-20'>
@@ -84,7 +84,16 @@ const Calendar = ({ dates }) => {
                 </div>
             </div>
             <div className='grid grid-cols-7 text-center grid-col-gap-0 fs-16 fw-600'>
-                {days.map((day) => {
+                {weekdays?.map((day) => {
+                    return (
+                        <div
+                            className='w-40 h-40 flex-center default fw-800'
+                        >
+                            {day}
+                        </div>
+                    );
+                })}
+                {days?.map((day) => {
                     return (
                         <div
                             className={`w-40 h-40 flex-center default ${
@@ -93,8 +102,6 @@ const Calendar = ({ dates }) => {
                                     : day[1] === 2
                                     ? ''
                                     : day[1] === 3
-                                    ? 'fw-800'
-                                    : day[1] === 4
                                     ? 'circle b-selected'
                                     : 'circle b-selected op30'
                             }

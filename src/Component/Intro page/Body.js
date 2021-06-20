@@ -6,17 +6,18 @@ import Dates from "./Dates";
 import Speakers from "./Speakers";
 import "./Transition.css";
 import { SuggestPagination } from "../Blog/SuggestPagination";
+import { useTranslation } from 'react-i18next';
 
 function Body() {
     let speakers = ["John Doe", "Farmer John", "Onkar Judge"];
     const [isShown, setIsShown] = useState(true);
-
+    const { t } = useTranslation();
     return (
         <div className="ph-190 of-x-h mt-60">
             <div className="flex items-center justify-between mb-0">
                 <h1 className="fs-45 w-500">
-                    Welcome to Vici coaching magazine
-                    <p className='fs-30'>Action. Ambition. Accomplish.</p>
+                    {t('welcome')}
+                    <p className='fs-30'>{t('welcome2')}</p>
                 </h1>
                 <div>
                     <img src={img1} className="h-550" alt="img" />
@@ -29,16 +30,16 @@ function Body() {
                 alt="wave"
             />
             <div className="mb-140 pr mt-300">
-                <h2 className="fw-600 fs-30 mb-20">International exams</h2>
+                <h2 className="fw-600 fs-30 mb-20">{t("internationalExams")}</h2>
                 <div className="flex justify-between">
-                    <Dates exam="SAT Dates"></Dates>
-                    <Dates exam="IELTS Dates"></Dates>
-                    <Dates exam="TOEFL Dates"></Dates>
+                    <Dates exam={`SAT ${t("examdates")}`}></Dates>
+                    <Dates exam={`IELTS ${t("examdates")}`}></Dates>
+                    <Dates exam={`TOEFL ${t("examdates")}`}></Dates>
                 </div>
             </div>
             <SuggestPagination />
             <div className="mb-140">
-                <h2 className="fw-600 fs-30 mt-60">Latest Speakers</h2>
+                <h2 className="fw-600 fs-30 mt-60">{t("latestSpeakers")}</h2>
                 {/* <div className="flex justify-between">
                     {speakers.map((speaker) => (
                         <Speakers person={speaker}></Speakers>
@@ -46,7 +47,7 @@ function Body() {
                 </div> */}
                 <Speakers />
             </div>
-            <div className="flex items-center justify-between">
+            {/* <div className="flex items-center justify-between">
                 <img src={img2} alt="img" />
                 <div className="w50 flex items-center justify-center flex-col">
                     <h1 className="fs-60 mb-80 text-center w100">
@@ -56,7 +57,7 @@ function Body() {
                         Get started
                     </button>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

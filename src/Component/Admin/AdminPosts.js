@@ -63,6 +63,7 @@ export const InterviewPosts = ({ state, setState }) => {
                                     <div
                                         className='b-secondary bradius-5 w40 h-40 flex justify-center items-center'
                                         onClick={async () => {
+                                            alert('deleted');
                                             await deleteRecord(post.id);
                                         }}
                                     >
@@ -149,6 +150,7 @@ export const CollegePrepPosts = ({ state, setState }) => {
                                     <div
                                         className='b-secondary bradius-5 w40 h-40 flex justify-center items-center'
                                         onClick={async () => {
+                                            alert('deleted');
                                             deleteRecord(post.id);
                                         }}
                                     >
