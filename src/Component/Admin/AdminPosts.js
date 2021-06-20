@@ -4,6 +4,23 @@ import Carousel from 'react-multi-carousel';
 import { AuthStateValue } from '../../Hooks/auth-user-provider';
 import { useCol, useDoc, useFirebase } from '../../Hooks/firebase';
 
+const LangToggle = ({ lang }) => {
+    // const [language, changeLanguage] = useState('en');
+    return (
+        <div
+            className={`w-48 h-24 b-white c-default bradius-12 br-default-2 pr`}
+        >
+            <div
+                className={`flex-center fs-16 h-24 w-30 b-default c-white bradius-12 ph-5  languageBtn ${
+                    lang == 'mn' ? 'mnLanguageBtn' : 'enLanguageBtn'
+                }`}
+            >
+                {lang}
+            </div>
+        </div>
+    );
+};
+
 export const InterviewPosts = ({ state, setState }) => {
     const { user } = AuthStateValue();
     const [header, setHeader] = useState('');
@@ -25,6 +42,7 @@ export const InterviewPosts = ({ state, setState }) => {
             likes: 0,
             text: '',
             visits: 0,
+            language: 'en',
             publisherId: user?.uid,
         };
 
@@ -47,6 +65,7 @@ export const InterviewPosts = ({ state, setState }) => {
                             <div className='br-default-2 flex justify-between bradius-5 mv-20 mh-10 ph-20 pv-10 mb-10'>
                                 <div className='fs-20'>{post.header}</div>
                                 <div className='flex w33 justify-around'>
+                                    <LangToggle lang={post.language} />
                                     <div
                                         className='b-green bradius-5 w40 h-40 flex justify-center items-center'
                                         onClick={() => {
@@ -63,8 +82,8 @@ export const InterviewPosts = ({ state, setState }) => {
                                     <div
                                         className='b-secondary bradius-5 w40 h-40 flex justify-center items-center'
                                         onClick={async () => {
-                                            alert('deleted');
                                             await deleteRecord(post.id);
+                                            alert('deleted');
                                         }}
                                     >
                                         Delete
@@ -102,6 +121,8 @@ export const CollegePrepPosts = ({ state, setState }) => {
     const { user } = AuthStateValue();
     const [header, setHeader] = useState('');
     const { firestore } = useFirebase();
+    const [language, changeLanguage] = useState('en');
+
     let { data, createRecord, deleteRecord } = useCol(
         `/content/contents/College-prep/${state.field}/chapters`
     );
@@ -115,6 +136,7 @@ export const CollegePrepPosts = ({ state, setState }) => {
             header,
             text: '',
             parent: '',
+            language: 'en',
         };
         createRecord(id, newPost);
         setState({
@@ -134,6 +156,7 @@ export const CollegePrepPosts = ({ state, setState }) => {
                             <div className='br-default-2 flex justify-between bradius-5 mv-20 mh-10 ph-20 pv-10 mb-10'>
                                 <div className='fs-20'>{post.header}</div>
                                 <div className='flex w33 justify-around'>
+                                    <LangToggle lang={post.language} />
                                     <div
                                         className='b-green bradius-5 w40 h-40 flex justify-center items-center'
                                         onClick={() => {
@@ -150,8 +173,8 @@ export const CollegePrepPosts = ({ state, setState }) => {
                                     <div
                                         className='b-secondary bradius-5 w40 h-40 flex justify-center items-center'
                                         onClick={async () => {
-                                            alert('deleted');
                                             deleteRecord(post.id);
+                                            alert('delete');
                                         }}
                                     >
                                         Delete
@@ -189,6 +212,7 @@ export const BlogPosts = ({ state, setState }) => {
     const { user } = AuthStateValue();
     const [header, setHeader] = useState('');
     const { firestore } = useFirebase();
+    const tag = useDoc(`/content/contents/categories/${state.field}`);
     let { data, createRecord, deleteRecord } = useCol(
         `/content/contents/${state.category}`
     );
@@ -203,16 +227,17 @@ export const BlogPosts = ({ state, setState }) => {
             .collection(`/content/contents/${state.category}`)
             .doc().id;
 
-        console.log(id);
         const categoryName = category.data.name;
         const newPost = {
             category: { id: state.field, name: categoryName },
             header,
             image: '',
+            language: 'en',
             likes: 0,
             visits: 0,
             publisherId: user?.uid,
         };
+        tag.updateRecord({ ...tag.data, length: tag.data.length + 1 });
 
         createRecord(id, newPost);
 
@@ -233,6 +258,7 @@ export const BlogPosts = ({ state, setState }) => {
                             <div className='br-default-2 flex justify-between bradius-5 mv-20 mh-10 ph-20 pv-10 mb-10'>
                                 <div className='fs-20'>{post.header}</div>
                                 <div className='flex w33 justify-around'>
+                                    <LangToggle lang={post.language} />
                                     <div
                                         className='b-green bradius-5 w40 h-40 flex justify-center items-center'
                                         onClick={() => {
@@ -250,6 +276,7 @@ export const BlogPosts = ({ state, setState }) => {
                                         className='b-secondary bradius-5 w40 h-40 flex justify-center items-center'
                                         onClick={async () => {
                                             deleteRecord(post.id);
+                                            alert('delete');
                                         }}
                                     >
                                         Delete
@@ -296,7 +323,8 @@ export const EducationPosts = ({ state, setState }) => {
             )
             .doc().id;
 
-        createRecord(id, { header, text: '' });
+        const newPost = { header, text: '', language: 'en' };
+        createRecord(id, newPost);
 
         setState({
             ...state,
@@ -317,6 +345,7 @@ export const EducationPosts = ({ state, setState }) => {
                                 <div className='br-default-2 flex justify-between bradius-5 mv-20 mh-10 ph-20 pv-10 mb-10'>
                                     <div className='fs-20'>{dt.header}</div>
                                     <div className='flex w33 justify-around'>
+                                        <LangToggle lang={dt.language} />
                                         <div
                                             className='b-green bradius-5 w40 h-40 flex justify-center items-center'
                                             onClick={() => {
@@ -333,6 +362,7 @@ export const EducationPosts = ({ state, setState }) => {
                                             className='b-secondary bradius-5 w40 h-40 flex justify-center items-center'
                                             onClick={() => {
                                                 deleteRecord(dt.id);
+                                                alert('deleted');
                                             }}
                                         >
                                             Delete
