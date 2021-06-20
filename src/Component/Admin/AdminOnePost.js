@@ -98,7 +98,8 @@ export const CollegePrepOnePost = ({ state, setState }) => {
     const [option, setOption] = useState('');
 
     const getParent = (array, parentid) => {
-        return array.find((cur) => {
+        console.log(array);
+        return array?.find((cur) => {
             if (cur.id === parentid) {
                 return true;
             }
@@ -122,25 +123,23 @@ export const CollegePrepOnePost = ({ state, setState }) => {
                             }}
                             // value={option}
                         >
-                            {data.parent === '' ? (
+                            {data.parent === '' && (
                                 <option disabled selected value>
                                     {' '}
                                     -- select an option --{' '}
                                 </option>
-                            ) : (
-                                <option
-                                    value={getParent(chapters, data.parent)}
-                                >
-                                    {getParent(chapters, data.parent)}
-                                </option>
                             )}
                             {chapters?.data.map((d) => {
                                 console.log(d);
-                                if (d.header !== data.header) {
-                                    return (
-                                        <option value={d}>{d.header}</option>
-                                    );
-                                }
+                                console.log(data);
+                                return (
+                                    <option
+                                        value={d.id}
+                                        selected={d.id === data.parent}
+                                    >
+                                        {d.header}
+                                    </option>
+                                );
                             })}
                         </select>
                     </div>
@@ -154,7 +153,9 @@ export const CollegePrepOnePost = ({ state, setState }) => {
                         let chapters = data;
                         if (value) chapters.text = value;
                         if (header) chapters.header = header;
-                        if (value || header) await updateRecord(chapters);
+                        if (option) chapters.parent = option;
+                        if (value || header || option)
+                            await updateRecord(chapters);
                     }}
                 >
                     Save
