@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import { Switch, useRouteMatch, Route } from 'react-router';
 import { useHistory } from 'react-router-dom';
+import { useContext } from 'react/cjs/react.development';
 import { useCol, useFirebase } from '../../Hooks/firebase';
+import { Context } from '../../Providers/contentProvider';
 import { BlogTemp } from '../blog-temp/blogtemp';
 import { BlogItemComp } from '../Blog/BlogItemComp';
 import { SuggestPagination } from '../Blog/SuggestPagination';
@@ -21,6 +23,7 @@ export const BlogCategoryTemp = () => {
     );
 };
 const CategoryTemp = () => {
+    const { language } = useContext(Context);
     let match = useRouteMatch();
     const { firebase } = useFirebase();
     const [data, setData] = useState([]);
@@ -28,7 +31,7 @@ const CategoryTemp = () => {
     const [loadingMore, setLoadingMore] = useState(false);
     const [lastDoc, setLastDoc] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
-    const categories = useCol('content/contents/categories');
+    const categories = useCol('content/contents/categories', language, false);
     const [length, setLength] = useState(0);
     const history = useHistory();
     const firstLoad = async (name) => {
@@ -126,7 +129,7 @@ const CategoryTemp = () => {
                     {categories?.data?.map((category, index) => {
                         return (
                             <div
-                                className='category-item'
+                                className='category-item pointer'
                                 onClick={() => toCat(category.name)}
                                 key={index}
                             >
