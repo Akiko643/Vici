@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import firebase from "firebase";
 import { useFirebase, useCol, useDoc } from "../Hooks/firebase";
 import { useHistory } from "react-router-dom";
+import { Context } from "../Providers/contentProvider";
 export const AuthContext = createContext({
     user: null,
     ready: false,
@@ -10,16 +11,17 @@ export const AuthContext = createContext({
 });
 
 export const AuthUserProvider = ({ children }) => {
+    const { language } = useContext(Context);
     const [errorMessage, setErrorMessage] = useState("");
     let [state, setState] = useState({
         ready: false,
         user: null,
     });
     let { auth, googleProvider } = useFirebase();
-    let { createRecord } = useCol("users");
+    let { createRecord } = useCol("");
     let list = ["Education"];
 
-    let { dataEducation } = useCol("Education");
+    let { dataEducation } = useCol("Education", language);
     useEffect(() => {
         if (!auth) {
             return;

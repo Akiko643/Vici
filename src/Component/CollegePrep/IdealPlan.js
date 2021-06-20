@@ -15,7 +15,7 @@ import dropdownchevron from "../../Img/dropdownchevron.svg";
 import { useTranslation } from "react-i18next";
 const IdealPlan = () => {
     const { t } = useTranslation();
-    const { informations, collegePrep } = useContext(Context);
+    const { collegePrep } = useContext(Context);
     const [cpData, setCpData] = useState({});
     const location = useLocation();
     const { data: firstData } = useCol(

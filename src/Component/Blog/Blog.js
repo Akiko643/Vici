@@ -17,19 +17,23 @@ import { useTranslation } from "react-i18next";
 // import { BlogTemp } from "../blog-temp/blogtemp";
 import { useCol, useDoc, useFirebase } from "../../Hooks/firebase";
 import { BlogCategoryTemp } from "../BlogCategoryTemp/BlogCategoryTemp";
+import { useContext } from "react/cjs/react.development";
+import { Context } from "../../Providers/contentProvider";
 export const Blog = () => {
   const { t } = useTranslation();
+  const { language } = useContext(Context);
   const [selectedLPT, setSelectedLPT] = useState(0);
   const match = useRouteMatch();
   const { firebase } = useFirebase();
   // const [first, setFirst] = useState(true);
   const [topData, setTopData] = useState([]);
   const history = useHistory();
-  const { data } = useCol("content/contents/categories");
+  const { data } = useCol("content/contents/categories", language);
   const getLatest = async () => {
     let latestData = await firebase
       .firestore()
       .collection("content/contents/Blog")
+      .where('language', '==', language)
       .orderBy("createdAt", "desc")
       .limit(10)
       .get();
@@ -44,6 +48,7 @@ export const Blog = () => {
       .firestore()
       .collection("content/contents/Blog")
       .orderBy("visits", "desc")
+      .where('language', '==', language)
       .orderBy("createdAt", "desc")
       .limit(10)
       .get();
@@ -58,6 +63,7 @@ export const Blog = () => {
       .firestore()
       .collection("content/contents/Blog")
       .orderBy("likes", "desc")
+      .where('language', '==', language)
       .orderBy("createdAt", "desc")
       .limit(10)
       .get();
@@ -77,6 +83,10 @@ export const Blog = () => {
     }
     setSelectedLPT(ind);
   };
+  useEffect(async () => {
+    setTopData([]);
+    await getLatest();
+  }, [language])
   useEffect(async () => {
     await getLatest();
   }, []);
@@ -149,36 +159,13 @@ export const Blog = () => {
               <div className="line" />
               <div className="flex-row">
                 <div className="w60">
-                  <BlogItemComp
-                    index={0}
-                    data={topData[5]}
-                    size="medium"
-                    classStr={"w100"}
-                  />
-                  <BlogItemComp
-                    index={1}
-                    data={topData[6]}
-                    size="medium"
-                    classStr={"w100"}
-                  />
-                  <BlogItemComp
-                    index={2}
-                    data={topData[7]}
-                    size="medium"
-                    classStr={"w100"}
-                  />
-                  <BlogItemComp
-                    index={3}
-                    data={topData[8]}
-                    size="medium"
-                    classStr={"w100"}
-                  />
-                  <BlogItemComp
-                    index={4}
-                    data={topData[9]}
-                    size="medium"
-                    classStr={"w100"}
-                  />
+                  {
+                    topData.slice(5).map((topdt, index) => {
+                      return (
+                        <BlogItemComp index={index} data={topdt} size="medium" classStr={"w100"}/>
+                      );
+                    })
+                  }
                 </div>
                 <div className="w40">
                   <div className="categories-text">{t('categories')}</div>

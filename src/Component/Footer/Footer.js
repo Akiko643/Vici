@@ -10,12 +10,14 @@ function Footer() {
             {FooterElements.map(({ title, path, elements }, index) => {
                 return (
                     <Col>
-                        <Link to={path} className='nounderline'>
+                        {/* <Link to={path} className='nounderline'> */}
+                        <Link to='/' className='nounderline'>
                             <h1 className='header' key={`${index}`}>
                                 {title}
                             </h1>
                             {elements.map((el, indexx) => (
-                                <Link to={el.path} className='nounderline'>
+                                //<Link to={el.path} className='nounderline'>
+                                <Link to='/' className='nounderline'>
                                     <div
                                         className='el'
                                         key={`${index}-${indexx}`}

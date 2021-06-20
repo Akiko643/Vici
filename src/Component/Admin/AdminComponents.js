@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Carousel from 'react-multi-carousel';
 import { AuthStateValue } from '../../Hooks/auth-user-provider';
 import { useCol, useDoc, useFirebase } from '../../Hooks/firebase';
+import { Context } from '../../Providers/contentProvider';
 import {
     BlogField,
     EducationField,
@@ -86,6 +87,7 @@ export const AdminPosts = ({ state, setState }) => {
 
 export const AdminOnePost = ({ state, setState }) => {
     const { category } = state;
+
     return (
         <div>
             {category === 'Education' && (

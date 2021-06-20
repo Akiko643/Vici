@@ -25,7 +25,7 @@ const App = () => {
     const { user } = AuthStateValue();
     const { auth } = useFirebase();
     const curUser = useDoc(`/users/${user?.uid}`).data;
-    const { data } = useCol("/users");
+    // const { data } = useCol("/users");
     const { collegePrep } = useContext(Context);
     useEffect(() => {
         if (user) {

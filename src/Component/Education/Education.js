@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import Lesson from './Lesson';
@@ -10,9 +10,11 @@ import { useCol, useDoc } from '../../Hooks/firebase';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { useTranslation } from 'react-i18next';
+import { Context } from '../../Providers/contentProvider';
 export const Education = () => {
     const { t } = useTranslation();
-    const { data } = useCol('content/contents/Education/', true);
+    const { language } = useContext(Context);
+    const { data } = useCol('content/contents/Education/', language,true);
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },

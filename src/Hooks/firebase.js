@@ -86,16 +86,16 @@ export const useDoc = (path) => {
 
     return { data, loading, updateRecord, deleteRecord, readAgain };
 };
-
-export const useCol = (path, sort = false) => {
+export const useCol = (path, language = null, sort = false) => {
     const { firestore } = useFirebase();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        if (firestore && path) {
+        if (firestore && path && path !== '') {
+            console.log(language)
             let query = firestore.collection(path);
+            if (language) query = query.where('language', "==", language);
             let order = sort ? query.orderBy('createdAt', 'asc') : query;
-
             const unsubscribe = order.onSnapshot((querySnapshot) => {
                 setData(
                     querySnapshot.docs.map((doc) => ({
@@ -108,7 +108,7 @@ export const useCol = (path, sort = false) => {
 
             return () => unsubscribe();
         }
-    }, [firestore, path, sort]);
+    }, [firestore, path, sort, language]);
 
     const updateRecord = (id, data) => {
         if (firestore)
