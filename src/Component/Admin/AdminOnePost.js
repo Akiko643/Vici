@@ -28,8 +28,8 @@ const LangToggle = ({ language, changeLanguage }) => {
         <div
             className={`w-48 h-24 b-white c-default bradius-12 br-default-2 pointer pr`}
             onClick={() => {
-                // changeLanguage(lang === 'en' ? 'mn' : 'en');
-                // setLang(lang === 'en' ? 'mn' : 'en');
+                changeLanguage(lang === 'en' ? 'mn' : 'en');
+                setLang(lang === 'en' ? 'mn' : 'en');
             }}
         >
             <div

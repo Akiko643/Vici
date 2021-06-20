@@ -4,6 +4,7 @@ import { AuthStateValue } from '../../Hooks/auth-user-provider';
 import { useCol, useDoc, useFirebase } from '../../Hooks/firebase';
 import Editor from './Editor';
 import { InterviewPosts } from './AdminPosts';
+import Lesson from '../Education/Lesson';
 
 export const InterviewField = ({ state, setState }) => {
     // setState({ ...state, level: 2 });
@@ -80,98 +81,64 @@ export const EducationField = ({ state, setState }) => {
     };
 
     return (
-        <Carousel
-            swipeable={true}
-            arrows={true}
-            draggable={true}
-            showDots={false}
-            responsive={responsive}
-            ssr={true} // means to render carousel on server-side.
-            infinite={false}
-            keyBoardControl={true}
-            containerClass='carousel-container h-475 justify-normal'
-            // removeArrowOnDeviceType={["tablet", "mobile"]}
-            dotListClass='custom-dot-list-style'
-            itemClass='carousel-item-padding-40-px'
-        >
-            {data?.map((dt) => {
-                return (
-                    <div
-                        className='rounded-lg ma-20 flex-center pa-40'
-                        style={{ backgroundColor: '#F5F5F5' }}
-                    >
-                        <p className='h-50 fs-36 flex'>
-                            <img
-                                className='h-50 w-50 mr-10'
-                                src={dt.image}
-                                alt=''
-                            ></img>
-                            <div> {dt.name} </div>
-                        </p>
-                        <div className='h-210 w100 flex-col justify-between mt-10'>
-                            {dt.questions &&
-                                dt.questions.map((el, index) => {
-                                    console.log(el);
-                                    return (
-                                        <div
-                                            className='flex flex-row items-center'
-                                            key={index}
-                                        >
-                                            <div className='too'>
-                                                <p>{index + 1}</p>
-                                            </div>
-                                            {el}
-                                        </div>
-                                    );
-                                })}
-                        </div>
-                        <div className='w100 flex-center mt-20 mb-20'>
-                            <div
-                                className='w-130 h-30 text-center bradius-10 b-secondary flex-center c-white pointer'
-                                onClick={() => {
-                                    setState({
-                                        ...state,
-                                        field: dt.id,
-                                        level: 2,
-                                    });
-                                }}
-                            >
-                                Select
-                            </div>
-                        </div>
-                    </div>
-                );
-            })}
-            <div
-                className='rounded-lg ma-20 flex-center pa-40'
-                style={{ backgroundColor: '#F5F5F5' }}
+        <div className='w100 ph-30 pv-70 educations'>
+            <Carousel
+                swipeable={true}
+                arrows={true}
+                draggable={true}
+                showDots={false}
+                responsive={responsive}
+                ssr={true} // means to render carousel on server-side.
+                infinite={false}
+                keyBoardControl={true}
+                containerClass='carousel-container h-475 justify-normal'
+                // removeArrowOnDeviceType={["tablet", "mobile"]}
+                dotListClass='custom-dot-list-style'
+                itemClass='carousel-item-padding-40-px'
             >
-                <p className='h-50 fs-36 flex'>
-                    <img
-                        className='h-50 w-50 mr-10'
-                        src='./images/plus.svg'
-                        alt=''
-                    ></img>
-                    <div>Add new</div>
-                </p>
-                <div className='h-210 w100 flex-col justify-between mt-10'>
-                    <input />
-                </div>
-                <div className='w100 flex-center mt-20 mb-20'>
-                    <div
-                        className='w-130 h-30 text-center bradius-10 b-secondary flex-center c-white pointer'
-                        onClick={() => {
-                            setState({
-                                ...state,
-                                field: 12,
-                                level: 2,
-                            });
-                        }}
-                    >
-                        Select
+                {data &&
+                    data?.map((dt, index) => {
+                        return (
+                            <Lesson
+                                icon={dt?.image}
+                                name={dt?.name}
+                                elements={dt?.questions}
+                                id={dt?.id}
+                                key={index}
+                            />
+                        );
+                    })}
+                <div
+                    className='rounded-lg ma-20 flex-center pa-40'
+                    style={{ backgroundColor: '#F5F5F5' }}
+                >
+                    <p className='h-50 fs-36 flex'>
+                        <img
+                            className='h-50 w-50 mr-10'
+                            src='./images/plus.svg'
+                            alt=''
+                        ></img>
+                        <div>Add new</div>
+                    </p>
+                    <div className='h-210 w100 flex-col justify-between mt-10'>
+                        <input />
+                    </div>
+                    <div className='w100 flex-center mt-20 mb-20'>
+                        <div
+                            className='w-130 h-30 text-center bradius-10 b-secondary flex-center c-white pointer'
+                            onClick={() => {
+                                setState({
+                                    ...state,
+                                    field: 12,
+                                    level: 2,
+                                });
+                            }}
+                        >
+                            Select
+                        </div>
                     </div>
                 </div>
-            </div>
-        </Carousel>
+            </Carousel>
+        </div>
     );
 };
