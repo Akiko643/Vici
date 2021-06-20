@@ -2,7 +2,7 @@ export const translationEn =  {
     education : "Education",
     interview: "Interview",
     blog: "Blog",
-    collegeprep: "College Preparation",
+    collegeprep: "College",
     welcome: "Welcome to Vici coaching magazine",
     welcome2: "Action. Ambition. Accomplish.",
     internationalExams: "International exams",
@@ -34,5 +34,7 @@ export const translationEn =  {
     latest: 'Latest',
     popular: 'Popular',
     trending: 'Trending',
-    categories: 'Categories'
+    categories: 'Categories',
+    aboutUs: 'About Us',
+    followUs: 'Follow Us'
 }
