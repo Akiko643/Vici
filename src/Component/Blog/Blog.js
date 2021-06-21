@@ -10,12 +10,11 @@ import {
   Switch,
   Route,
   useRouteMatch,
-  useParams,
   useHistory,
 } from "react-router";
 import { useTranslation } from "react-i18next";
 // import { BlogTemp } from "../blog-temp/blogtemp";
-import { useCol, useDoc, useFirebase } from "../../Hooks/firebase";
+import { useCol, useFirebase } from "../../Hooks/firebase";
 import { BlogCategoryTemp } from "../BlogCategoryTemp/BlogCategoryTemp";
 import { useContext } from "react/cjs/react.development";
 import { Context } from "../../Providers/contentProvider";
@@ -74,21 +73,27 @@ export const Blog = () => {
     setTopData(trendingData);
   };
   const topChange = async (ind) => {
-    if (ind == 0) {
+    if (ind === 0) {
       await getLatest();
-    } else if (ind == 1) {
+    } else if (ind === 1) {
       await getPopular();
-    } else if (ind == 2) {
+    } else if (ind === 2) {
       await getTrending();
     }
     setSelectedLPT(ind);
   };
-  useEffect(async () => {
-    setTopData([]);
-    await getLatest();
+  useEffect(() => {
+    const doSomething = async () => {
+      setTopData([]);
+      await getLatest();
+    } 
+    doSomething();
   }, [language])
-  useEffect(async () => {
-    await getLatest();
+  useEffect(() => {
+    const doSomething = async () => {
+      await getLatest();
+    }
+    doSomething();
   }, []);
   return (
     <>

@@ -14,7 +14,7 @@ import { Context } from '../../Providers/contentProvider';
 export const Education = () => {
     const { t } = useTranslation();
     const { language } = useContext(Context);
-    const { data } = useCol('content/contents/Education/', language,true);
+    const { data } = useCol('content/contents/Education/', language, true);
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },

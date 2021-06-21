@@ -1,6 +1,11 @@
 .footer {
-    padding: 10px;
-    padding-left: 60px;
+    // padding-top: 10px;
+    .icon {
+        margin: 8px;
+    }
+    .allright {
+        background: #373737;
+    }
 }
 
 .nounderline {
@@ -11,7 +16,7 @@
     font-size: 18px;
     font-weight: bold;
     color: #ffffff;
-    margin-bottom: 7px;
+    margin-bottom: 20px;
 }
 
 .el {
@@ -20,4 +25,8 @@
     font-weight: lighter;
     color: #c0c0c0;
     margin-bottom: 5px;
+}
+.col {
+    display: flex;
+    flex-direction: column;
 }

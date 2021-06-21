@@ -92,7 +92,6 @@ export const useCol = (path, language = null, sort = false) => {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         if (firestore && path && path !== '') {
-            console.log(language)
             let query = firestore.collection(path);
             if (language) query = query.where('language', "==", language);
             let order = sort ? query.orderBy('createdAt', 'asc') : query;

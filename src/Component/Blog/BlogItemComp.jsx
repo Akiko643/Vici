@@ -102,6 +102,7 @@ const BigItem = ({
       <img
         className="image h-430 bradius-10 pointer"
         src={image}
+        alt={header}
         onClick={() => {
           history.push(`/blog/${category.name}/${id}`);
           scrollToTop();
@@ -138,6 +139,7 @@ const MediumItem = ({
       <img
         className="image bradius-10 w55 h-240 pointer"
         src={image}
+        alt={header}
         onClick={() => {
           history.push(`/blog/${category.name}/${id}`);
           scrollToTop();
@@ -178,6 +180,7 @@ const SmallItem = ({
       <img
         className="image bradius-10 w45 h-120 pointer"
         src={image}
+        alt={header}
         onClick={() => {
           history.push(`/blog/${category.name}/${id}`);
           scrollToTop()
@@ -219,6 +222,7 @@ const SmallColItem = ({
       <img
         className="image bradius-10 h-180 pointer"
         src={image}
+        alt={header}
         onClick={() => {
           history.push(`/blog/${category.name}/${id}`);
           scrollToTop();
