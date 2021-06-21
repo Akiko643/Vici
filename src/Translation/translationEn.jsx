@@ -1,14 +1,14 @@
-export const translationEn =  {
-    education : "Education",
-    interview: "Interview",
-    blog: "Blog",
-    collegeprep: "College",
-    welcome: "Welcome to Vici coaching magazine",
-    welcome2: "Action. Ambition. Accomplish.",
-    internationalExams: "International exams",
-    examdates: "exam dates",
-    forYou: "For you",
-    latestSpeakers: "Latest Speakers",
+export const translationEn = {
+    education: 'Education',
+    interview: 'Interview',
+    blog: 'Blog',
+    collegeprep: 'College',
+    welcome: 'Welcome to Vici coaching magazine',
+    welcome2: 'Ambition. Action. Accomplish.',
+    internationalExams: 'International exams',
+    examdates: 'exam dates',
+    forYou: 'For you',
+    latestSpeakers: 'Latest Speakers',
     january: 'January',
     february: 'February',
     march: 'March',
@@ -36,5 +36,5 @@ export const translationEn =  {
     trending: 'Trending',
     categories: 'Categories',
     aboutUs: 'About Us',
-    followUs: 'Follow Us'
-}
+    followUs: 'Follow Us',
+};
