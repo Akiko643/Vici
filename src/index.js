@@ -7,12 +7,12 @@ import { TopCollegeProvider } from './Providers/TopCollegeProvider';
 import { Provider } from './Providers/contentProvider';
 ReactDOM.render(
     <React.StrictMode>
-            <Provider>
-        <AuthUserProvider>
+        <Provider>
+            <AuthUserProvider>
                 <TopCollegeProvider>
                     <App />
                 </TopCollegeProvider>
-        </AuthUserProvider>
+            </AuthUserProvider>
         </Provider>
 
     </React.StrictMode>,

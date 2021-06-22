@@ -4,7 +4,7 @@ import { useCol } from '../Hooks/firebase';
 import i18n from 'i18next'
 export const Context = createContext({
     collegePrep: [],
-    language: [],
+    language: "",
     changeLanguage: () => {},
 });
 export const Provider = ({ children }) => {

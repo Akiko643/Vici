@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import { SuggestPagination } from "./SuggestPagination";
@@ -16,7 +16,6 @@ import { useTranslation } from "react-i18next";
 // import { BlogTemp } from "../blog-temp/blogtemp";
 import { useCol, useFirebase } from "../../Hooks/firebase";
 import { BlogCategoryTemp } from "../BlogCategoryTemp/BlogCategoryTemp";
-import { useContext } from "react/cjs/react.development";
 import { Context } from "../../Providers/contentProvider";
 export const Blog = () => {
   const { t } = useTranslation();
