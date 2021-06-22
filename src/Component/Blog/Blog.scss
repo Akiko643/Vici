@@ -35,7 +35,7 @@
     }
 
     // margin-top: 40px;
-    padding: 0px 11.875rem;
+    padding: 0px 190px;
     .namecircle {
       width: 15px;
       height: 15px;
@@ -179,8 +179,8 @@
 .image {
   object-fit: cover;
 }
-@media screen and (max-width: 1060px) {
+@media screen and (max-width: 1200px) {
   .blog-body {
-    padding: 0;
+    padding: 0 50px !important;
   }
 }

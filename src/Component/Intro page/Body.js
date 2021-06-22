@@ -13,7 +13,7 @@ import img3 from "../../Img/IntroPageExplore.svg";
 function Body() {
     const { t } = useTranslation();
     return (
-        <div className="ph-190 of-x-h mt-60">
+        <div className="ph-190 of-x-h mt-60 intro-body">
             <div className="flex items-center justify-between mb-165 mt-165">
                 <h1 className="fs-45 w-500">
                     {t("welcome")}

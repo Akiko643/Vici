@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import i18n from "i18next";
-
 const Calendar = ({ dates }) => {
     const { t } = useTranslation();
     const months = [
@@ -87,7 +85,7 @@ const Calendar = ({ dates }) => {
                 {weekdays?.map((day) => {
                     return (
                         <div
-                            className='w-40 h-40 flex-center default fw-800'
+                            className='calendar-node w-40 h-40 flex-center default fw-800'
                         >
                             {day}
                         </div>
@@ -96,7 +94,7 @@ const Calendar = ({ dates }) => {
                 {days?.map((day) => {
                     return (
                         <div
-                            className={`w-40 h-40 flex-center default ${
+                            className={`calendar-node w-40 h-40 flex-center default ${
                                 day[1] === 1
                                     ? 'op30'
                                     : day[1] === 2

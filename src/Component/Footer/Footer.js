@@ -24,7 +24,7 @@ const Footer = () => {
     }
     return (
         <div className='footer flex flex-col b-footer pt-10'>
-            <div className='flex justify-between ph-190 pb-10'>
+            <div className='flex justify-between ph-190 pb-10 footer-item'>
                 <Col>
                     <h1 className="header default">{t('followUs')}</h1>
                     <div>
@@ -63,7 +63,7 @@ const Footer = () => {
                     <h1 className='header default'>{t('aboutUs')}</h1>
                 </Col>
             </div>
-            <div className='flex-center c-white allright pv-5'>
+            <div className='flex-center c-white allright pv-5 footer-item'>
                 ALL RIGHTS RESERVED ©2021 VICI
             </div>
         </div>

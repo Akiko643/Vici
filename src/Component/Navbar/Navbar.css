@@ -90,3 +90,9 @@ navbar {
 .enLanguageBtn {
     left: 0px;
 }
+@media screen and (max-width: 1200px) {
+    navbar {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}

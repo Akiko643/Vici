@@ -85,7 +85,7 @@ const Infos = () => {
             <div className="flex container-idk">
                 <div className="mv-10 mr-10 flex flex-col">
                     <ul className="fs-20 lh-20 list-style-none pv-20 pa-r-20 pl-0">
-                        <li className="c-dedault pb-10 bb-border-2 w-200 ma-4 bold">
+                        <li className="c-dedault pb-10 bb-border-2 w-200 ma-4 bold side-item">
                             {t('courseSummary')}
                         </li>
                         {idkChapter.map((chapter, index) => {
@@ -191,7 +191,7 @@ const Checklist = ({ fullList, index, userID, setList, updated, setUpdated }) =>
 const SideDp = ({ index, chapterId, chapter, setChapterId }) => {
     const [open, setOpen] = useState(false);
     return (
-        <li className={`c-default w-200 ma-4 pt-10 pointer`} key={index}>
+        <li className={`c-default w-200 ma-4 pt-10 pointer side-item`} key={index}>
             <p
                 className={`c-default pb-10 bb-border-1 w-200 ma-4 pt-10 flex justify-between pa-r-10 ${
                     chapterId === chapter?.id && "active-chapter"

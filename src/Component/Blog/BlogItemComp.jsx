@@ -145,7 +145,7 @@ const MediumItem = ({
           scrollToTop();
         }}
       />
-      <div className="flex-col w45 ml-20 my-10">
+      <div className="flex-col w45 mh-20 my-10">
         <div
           className="blog-header pointer"
           onClick={() => {

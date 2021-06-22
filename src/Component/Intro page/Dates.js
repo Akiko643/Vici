@@ -1,7 +1,7 @@
 import react from 'react';
 import { useCol, useDoc } from '../../Hooks/firebase';
 import Calendar from './Calendar';
-
+import './calendar.scss'
 function onPanelChange(value, mode) {
     console.log(value, mode);
 }
@@ -106,7 +106,7 @@ function Dates({ exam }) {
         );
 
     return (
-        <div className='w-320'>
+        <div className='w-320 calendar'>
             {exam && <h1 className='fs-22 w100 text-center mb-20'>{exam}</h1>}
             <Calendar
                 dates={
