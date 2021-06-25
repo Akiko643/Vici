@@ -6,10 +6,8 @@ import { useTranslation } from "react-i18next";
 import "./InterviewTest.css";
 import ReactPlayer from "react-player";
 import PlayerData from "./PlayerData.js";
-import Navbar from "../../Navbar/Navbar";
 import Back from "../../../Img/vector__back.svg";
 import Card from "../Card";
-import Footer from "../../Footer/Footer";
 
 export const InterviewTest = () => {
     const { t } = useTranslation();
@@ -46,7 +44,6 @@ export const InterviewTest = () => {
     }, []);
     return (
         <div>
-            <Navbar />
             <div className="interview__container pa-vw-10 pr">
                 <img
                     src={Back}
@@ -89,7 +86,6 @@ export const InterviewTest = () => {
                     })}
                 </div>
             </div>
-            <Footer />
         </div>
     );
 };

@@ -77,7 +77,7 @@
     }
 
     .pl-#{$i} {
-        padding-left: $i + px;
+        padding-left: $i + px !important;
     }
     .pa-t-#{$i} {
         padding: $i + px 0;

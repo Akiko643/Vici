@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import Navbar from '../Navbar/Navbar';
 import Country from './Country';
 
 import { Switch, Route, Link } from 'react-router-dom';
@@ -16,7 +15,6 @@ function TopColleges() {
     const { informations } = useContext(Context);
     return (
         <div>
-            <Navbar />
             <div className='ph-96 pv-32'>
                 <div>
                     <h3 className='fw-400'>College</h3>

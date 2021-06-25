@@ -23,8 +23,8 @@ const Footer = () => {
         });
     }
     return (
-        <div className='footer flex flex-col b-footer pt-10'>
-            <div className='flex justify-between ph-190 pb-10 footer-item'>
+        <div className='footer flex flex-col b-footer'>
+            <div className='flex justify-between ph-190 pb-10 footer-item top-footer'>
                 <Col>
                     <h1 className="header default">{t('followUs')}</h1>
                     <div>

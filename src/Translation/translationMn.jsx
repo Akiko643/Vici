@@ -37,5 +37,7 @@ export const translationMn = {
     trending: 'Тренд',
     categories: 'Ангиллууд',
     aboutUs: 'Бидний тухай',
-    followUs: 'Биднийг дага'
+    followUs: 'Биднийг дага',
+    signin: 'Нэвтрэх',
+    logout: 'Гарах'
 }

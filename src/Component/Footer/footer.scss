@@ -1,9 +1,10 @@
 .footer {
-    // padding-top: 10px;
+    padding-top: 10px;
     .icon {
         margin: 8px;
     }
     .allright {
+        font-size: 12px;
         background: #373737;
     }
 }
@@ -38,4 +39,11 @@
         }
     }
 }
-  
+@media screen and (max-width: 950px) {
+    .footer {
+        padding-top: 0 !important;
+    }
+    .top-footer {
+        display: none !important;
+    }
+}

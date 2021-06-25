@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 // import Carousel from "react-multi-carousel";
 import Carousel from "./Carousel";
 import { Switch, Route } from 'react-router'
@@ -51,10 +49,8 @@ const Interview = () => {
                     <InterviewTest />
                 </Route>
                 <Route path={`${match.path}`}>
-                    <Navbar />
                     <Carousel slides={carouselData} />
                     <Feed />
-                    <Footer />
                 </Route>
             </Switch>
         </>

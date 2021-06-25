@@ -12,11 +12,13 @@ import { Education, Test, Blog } from "./Component";
 import Interview from "./Component/Interview/Interview";
 import AdminTest from "./Component/Admin/AdminTest";
 import { InterviewTest } from "./Component/Interview/InterviewBlog/InterviewTest";
-
+import Footer from './Component/Footer/Footer'
 import "./Style/App.css";
 import "./Style/main.scss";
 
 import './i18';
+import Navbar from "./Component/Navbar/Navbar";
+import { Sidebar } from "./Component/sidebar/sidebar"
 
 const App = () => {
     const { user } = AuthStateValue();
@@ -24,6 +26,8 @@ const App = () => {
     const { collegePrep } = useContext(Context);
     return (
         <Router> 
+            <Navbar />
+            <Sidebar />
             <Switch>
                 <Route exact path="/">
                     <Intro />
@@ -82,6 +86,7 @@ const App = () => {
                     <Blog />
                 </Route>
             </Switch>
+            <Footer />
         </Router>
     );
 };

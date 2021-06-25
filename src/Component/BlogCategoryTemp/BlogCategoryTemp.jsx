@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ReactPaginate from 'react-paginate';
-import { Switch, useRouteMatch, Route } from 'react-router';
-import { useHistory } from 'react-router-dom';
-import { useContext } from 'react/cjs/react.development';
+import { useHistory, Switch, useRouteMatch, Route } from 'react-router-dom';
 import { useCol, useFirebase } from '../../Hooks/firebase';
 import { Context } from '../../Providers/contentProvider';
 import { BlogTemp } from '../blog-temp/blogtemp';

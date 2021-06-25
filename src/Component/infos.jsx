@@ -2,7 +2,6 @@ import React, { cloneElement, useContext, useEffect, useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import { Context } from "../Providers/contentProvider";
 import imgrc from "../Img/Rectangle 14.png";
-import Navbar from "./Navbar/Navbar";
 import { useDoc, useCol, useFirebase } from "../Hooks/firebase";
 import { AuthStateValue } from "../Hooks/auth-user-provider";
 import "./infos.scss";
@@ -66,7 +65,6 @@ const Infos = () => {
 
     return (
         <div className="ws100 hs100 font-ubuntu infos b-background">
-            <Navbar />
             <div className="heading">
                 <img
                     src={

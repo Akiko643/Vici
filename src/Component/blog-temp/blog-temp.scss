@@ -143,3 +143,13 @@
         width: 100% !important;
     }
 }
+@media screen and (max-width: 600px) {
+    .blog-mid-container {
+        width: 100% !important;
+        // padding: 20px;
+        margin: 0px 20px !important;
+    }
+    .heading-image {
+        height: 200px !important;
+    }
+}

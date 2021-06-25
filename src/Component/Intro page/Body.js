@@ -14,7 +14,7 @@ function Body() {
     const { t } = useTranslation();
     return (
         <div className="ph-190 of-x-h mt-60 intro-body">
-            <div className="flex items-center justify-between mb-165 mt-165">
+            <div className="flex items-center justify-between mb-165 mt-165 flex-wrap">
                 <h1 className="fs-45 w-500">
                     {t("welcome")}
                     <p className="fs-30">{t("welcome2")}</p>

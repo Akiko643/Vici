@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
 import { SuggestPagination } from "./SuggestPagination";
 import "./Blog.scss";
 import { BlogItemComp } from "./BlogItemComp";
@@ -95,104 +93,100 @@ export const Blog = () => {
     doSomething();
   }, []);
   return (
-    <>
-      <Navbar />
-      <Switch>
-        <Route path={`${match.path}/:categoryId`}>
-          <BlogCategoryTemp />
-        </Route>
-        {/* <Route path={`${match.path}`} */}
-        <Route path={match.path}>
-          <div className="blog-body-container">
-            <div className="blog-body mb-60">
-              <div className="flex-row">
-                <BlogItemComp data={topData[0]} size="big" classStr={"w60"} />
-                <div className="w40 ml-20">
-                  <div className="flex-row lpt uppercase">
-                    <div
-                      className={`pointer mr-50 ${
-                        selectedLPT === 0 ? "selected-lpt" : "nt-selected-lpt"
-                      }`}
-                      onClick={() => topChange(0)}
-                    >
-                      {t('latest')}
-                    </div>
-                    <div
-                      className={`pointer mr-50 ${
-                        selectedLPT === 1 ? "selected-lpt" : "nt-selected-lpt"
-                      }`}
-                      onClick={() => topChange(1)}
-                    >
-                      {t('popular')}
-                    </div>
-                    <div
-                      className={`pointer ${
-                        selectedLPT === 2 ? "selected-lpt" : "nt-selected-lpt"
-                      }`}
-                      onClick={() => topChange(2)}
-                    >
-                      {t('trending')}
-                    </div>
+    <Switch>
+      <Route path={`${match.path}/:categoryId`}>
+        <BlogCategoryTemp />
+      </Route>
+      {/* <Route path={`${match.path}`} */}
+      <Route path={match.path}>
+        <div className="blog-body-container">
+          <div className="blog-body mb-60">
+            <div className="flex-row">
+              <BlogItemComp data={topData[0]} size="big" classStr={"w60"} />
+              <div className="w40 ml-20">
+                <div className="flex-row lpt uppercase flex-wrap">
+                  <div
+                    className={`pointer mr-50 ${
+                      selectedLPT === 0 ? "selected-lpt" : "nt-selected-lpt"
+                    }`}
+                    onClick={() => topChange(0)}
+                  >
+                    {t('latest')}
                   </div>
-                  <BlogItemComp
-                    index={0}
-                    data={topData[1]}
-                    size="small"
-                    classStr={"w100"}
-                  />
-                  <BlogItemComp
-                    index={1}
-                    data={topData[2]}
-                    size="small"
-                    classStr={"w100"}
-                  />
-                  <BlogItemComp
-                    index={2}
-                    data={topData[3]}
-                    size="small"
-                    classStr={"w100"}
-                  />
-                  <BlogItemComp
-                    index={3}
-                    data={topData[4]}
-                    size="small"
-                    classStr={"w100"}
-                  />
+                  <div
+                    className={`pointer mr-50 ${
+                      selectedLPT === 1 ? "selected-lpt" : "nt-selected-lpt"
+                    }`}
+                    onClick={() => topChange(1)}
+                  >
+                    {t('popular')}
+                  </div>
+                  <div
+                    className={`pointer ${
+                      selectedLPT === 2 ? "selected-lpt" : "nt-selected-lpt"
+                    }`}
+                    onClick={() => topChange(2)}
+                  >
+                    {t('trending')}
+                  </div>
                 </div>
+                <BlogItemComp
+                  index={0}
+                  data={topData[1]}
+                  size="small"
+                  classStr={"w100"}
+                />
+                <BlogItemComp
+                  index={1}
+                  data={topData[2]}
+                  size="small"
+                  classStr={"w100"}
+                />
+                <BlogItemComp
+                  index={2}
+                  data={topData[3]}
+                  size="small"
+                  classStr={"w100"}
+                />
+                <BlogItemComp
+                  index={3}
+                  data={topData[4]}
+                  size="small"
+                  classStr={"w100"}
+                />
               </div>
-              <div className="line" />
-              <div className="flex-row">
-                <div className="w60">
-                  {
-                    topData.slice(5).map((topdt, index) => {
-                      return (
-                        <BlogItemComp index={index} data={topdt} size="medium" classStr={"w100"}/>
-                      );
-                    })
-                  }
-                </div>
-                <div className="w40">
-                  <div className="categories-text">{t('categories')}</div>
-                  {data?.map((category, index) => {
-                    return (
-                      <div
-                        className="category-item pointer"
-                        key={index}
-                        onClick={() => history.push("/blog/" + category.name)}
-                      >
-                        #{category.name}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-              <div className="line" />
-              <SuggestPagination />
             </div>
+            <div className="line" />
+            <div className="flex-row">
+              <div className="w60">
+                {
+                  topData.slice(5).map((topdt, index) => {
+                    return (
+                      <BlogItemComp index={index} data={topdt} size="medium" classStr={"w100"}/>
+                    );
+                  })
+                }
+              </div>
+              <div className="w40">
+                <div className="categories-text">{t('categories')}</div>
+                {data?.map((category, index) => {
+                  return (
+                    <div
+                      className="category-item pointer"
+                      key={index}
+                      onClick={() => history.push("/blog/" + category.name)}
+                    >
+                      #{category.name}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="line" />
+            <SuggestPagination />
           </div>
-        </Route>
-      </Switch>
-      <Footer />
-    </>
+        </div>
+      </Route>
+    </Switch>
   );
 };

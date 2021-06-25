@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-import Footer from '../Footer/Footer';
-import Navbar from '../Navbar/Navbar';
 import Lesson from './Lesson';
 import img from '../../Img/oceans2.png';
 import './education.scss';
@@ -34,7 +32,6 @@ export const Education = () => {
     };
     return (
         <>
-            <Navbar />
             <Switch>
                 <Route exact path='/education'>
                     <div
@@ -89,7 +86,6 @@ export const Education = () => {
                         );
                     })}
             </Switch>
-            <Footer />
         </>
     );
 };

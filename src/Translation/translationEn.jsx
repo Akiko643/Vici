@@ -37,4 +37,6 @@ export const translationEn = {
     categories: 'Categories',
     aboutUs: 'About Us',
     followUs: 'Follow Us',
+    signin: 'Sign In',
+    logout: 'Sign Out'
 };
