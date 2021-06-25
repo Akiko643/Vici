@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.d34f82bf.chunk.css",
-    "main.js": "/static/js/main.1970844c.chunk.js",
-    "main.js.map": "/static/js/main.1970844c.chunk.js.map",
+    "main.css": "/static/css/main.bb617ce5.chunk.css",
+    "main.js": "/static/js/main.b96e20e6.chunk.js",
+    "main.js.map": "/static/js/main.b96e20e6.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.09df2e41.js",
     "runtime-main.js.map": "/static/js/runtime-main.09df2e41.js.map",
     "static/css/2.b7023fb4.chunk.css": "/static/css/2.b7023fb4.chunk.css",
-    "static/js/2.52e7522a.chunk.js": "/static/js/2.52e7522a.chunk.js",
-    "static/js/2.52e7522a.chunk.js.map": "/static/js/2.52e7522a.chunk.js.map",
+    "static/js/2.782cd0ad.chunk.js": "/static/js/2.782cd0ad.chunk.js",
+    "static/js/2.782cd0ad.chunk.js.map": "/static/js/2.782cd0ad.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.b7023fb4.chunk.css.map": "/static/css/2.b7023fb4.chunk.css.map",
-    "static/css/main.d34f82bf.chunk.css.map": "/static/css/main.d34f82bf.chunk.css.map",
-    "static/js/2.52e7522a.chunk.js.LICENSE.txt": "/static/js/2.52e7522a.chunk.js.LICENSE.txt",
+    "static/css/main.bb617ce5.chunk.css.map": "/static/css/main.bb617ce5.chunk.css.map",
+    "static/js/2.782cd0ad.chunk.js.LICENSE.txt": "/static/js/2.782cd0ad.chunk.js.LICENSE.txt",
     "static/media/Groupgreen.18135819.svg": "/static/media/Groupgreen.18135819.svg",
     "static/media/Grouppink.445cc6e3.svg": "/static/media/Grouppink.445cc6e3.svg",
     "static/media/Instagraminstagram.0a42e3ea.svg": "/static/media/Instagraminstagram.0a42e3ea.svg",
@@ -29,19 +29,22 @@
     "static/media/email.390308a5.svg": "/static/media/email.390308a5.svg",
     "static/media/lock.45d73024.svg": "/static/media/lock.45d73024.svg",
     "static/media/logo.b72b2afd.svg": "/static/media/logo.b72b2afd.svg",
+    "static/media/menu.5c477d79.svg": "/static/media/menu.5c477d79.svg",
     "static/media/oceans 2.e129c826.png": "/static/media/oceans 2.e129c826.png",
     "static/media/oceans2.72874dfa.png": "/static/media/oceans2.72874dfa.png",
     "static/media/person.a68af069.svg": "/static/media/person.a68af069.svg",
     "static/media/styles.css": "/static/media/revicons.e8746a62.woff",
+    "static/media/sideclose.808f8d45.svg": "/static/media/sideclose.808f8d45.svg",
     "static/media/Lesson.scss": "/static/media/unnamed.80170f4d.jpg",
     "static/media/vector__back.ea4b7268.svg": "/static/media/vector__back.ea4b7268.svg",
+    "static/media/vici.31fd8ac9.svg": "/static/media/vici.31fd8ac9.svg",
     "static/media/zuun-chevron.23cffca3.svg": "/static/media/zuun-chevron.23cffca3.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.09df2e41.js",
     "static/css/2.b7023fb4.chunk.css",
-    "static/js/2.52e7522a.chunk.js",
-    "static/css/main.d34f82bf.chunk.css",
-    "static/js/main.1970844c.chunk.js"
+    "static/js/2.782cd0ad.chunk.js",
+    "static/css/main.bb617ce5.chunk.css",
+    "static/js/main.b96e20e6.chunk.js"
   ]
 }

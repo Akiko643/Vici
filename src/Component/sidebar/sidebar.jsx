@@ -84,22 +84,24 @@ export const Sidebar = () => {
             </div>
             <div className='w100 flex-center'>
                 {user ? (
-                    <div className='pr username-container flex items-center'>
-                        <div className='username-nav pl-0'>
-                            {user.displayName}
+                    <>
+                        <div className='pr username-container flex items-center'>
+                            <div className='username-nav pl-0'>
+                                {user.displayName}
+                            </div>
                         </div>
-                    </div>
+                        <div
+                            className='bradius-10 b-secondary c-white pv-10 ph-20'
+                            onClick={logout}
+                        >
+                            {t('logout')}
+                        </div>
+                    </>
                 ) : (
                     <Link to='/user-login'>
                         <button className='join-button'>{t('signin')}</button>
                     </Link>
                 )}
-                    <div
-                        className='bradius-10 b-secondary c-white pv-10 ph-20'
-                        onClick={logout}
-                    >
-                        {t('logout')}
-                    </div>
                 <div className={`w-48 h-24 b-white c-default bradius-12 br-default-2 pointer pr mt-20`} onClick={changeLanguage}>
                     <div className={`flex-center fs-16 h-24 w-30 b-default c-white bradius-12 ph-5  languageBtn ${language == 'mn' ? "mnLanguageBtn" : "enLanguageBtn"}`}>
                         {language}
