@@ -8,8 +8,9 @@ import { AuthStateValue } from '../../Hooks/auth-user-provider'
 import { useFirebase } from '../../Hooks/firebase'
 import { Link } from 'react-router-dom'
 import dropdownchevron from "../../Img/dropdownchevron.svg";
-import { GoogleAuth } from 'google-auth-library'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import blackFb from '../../Img/black-fb.svg'
+import blackInsta from '../../Img/black-insta.svg' 
 export const Sidebar = () => {
     const history = useHistory();
     const { t } = useTranslation()
@@ -91,7 +92,7 @@ export const Sidebar = () => {
                             </div>
                         </div>
                         <div
-                            className='bradius-10 b-secondary c-white pv-10 ph-20'
+                            className='bradius-10 b-secondary c-white pv-10 ph-20 pointer'
                             onClick={logout}
                         >
                             {t('logout')}
@@ -102,7 +103,15 @@ export const Sidebar = () => {
                         <button className='join-button'>{t('signin')}</button>
                     </Link>
                 )}
-                <div className={`w-48 h-24 b-white c-default bradius-12 br-default-2 pointer pr mt-20`} onClick={changeLanguage}>
+                <div className='flex flex-row justify-evenly w100 ph-85 pv-20'>
+                    <a href="https://www.facebook.com/Vici-Coaching-Magazine-101731985486129">
+                        <img src={blackFb} />                    
+                    </a>
+                    <a href="https://www.instagram.com/vici.mag/">
+                        <img src={blackInsta} />                    
+                    </a>
+                </div>
+                <div className={`w-48 h-24 b-white c-default bradius-12 br-default-2 pointer pr`} onClick={changeLanguage}>
                     <div className={`flex-center fs-16 h-24 w-30 b-default c-white bradius-12 ph-5  languageBtn ${language == 'mn' ? "mnLanguageBtn" : "enLanguageBtn"}`}>
                         {language}
                     </div>
