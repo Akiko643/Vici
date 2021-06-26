@@ -7,10 +7,10 @@ const Lesson = ({ icon, name, path, elements, id }) => {
     const location = useLocation();
     return (
         <div className=' bradius-20 ma-20 flex-center pa-40 lesson-container'>
-            <p className='h-50 fs-36 flex'>
+            <div className='h-50 fs-36 flex'>
                 <img className='h-50 w-50 mr-10' src={icon} alt=''></img>
                 <div> {name} </div>
-            </p>
+            </div>
             <div className='h-210 w100 flex-col mt-10'>
                 {elements?.map((el, index) => {
                     return (

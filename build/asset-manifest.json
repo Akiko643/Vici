@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.bb617ce5.chunk.css",
-    "main.js": "/static/js/main.5c7750d6.chunk.js",
-    "main.js.map": "/static/js/main.5c7750d6.chunk.js.map",
+    "main.js": "/static/js/main.5d3431d9.chunk.js",
+    "main.js.map": "/static/js/main.5d3431d9.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.09df2e41.js",
     "runtime-main.js.map": "/static/js/runtime-main.09df2e41.js.map",
     "static/css/2.b7023fb4.chunk.css": "/static/css/2.b7023fb4.chunk.css",
-    "static/js/2.782cd0ad.chunk.js": "/static/js/2.782cd0ad.chunk.js",
-    "static/js/2.782cd0ad.chunk.js.map": "/static/js/2.782cd0ad.chunk.js.map",
+    "static/js/2.cd6ac676.chunk.js": "/static/js/2.cd6ac676.chunk.js",
+    "static/js/2.cd6ac676.chunk.js.map": "/static/js/2.cd6ac676.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.b7023fb4.chunk.css.map": "/static/css/2.b7023fb4.chunk.css.map",
     "static/css/main.bb617ce5.chunk.css.map": "/static/css/main.bb617ce5.chunk.css.map",
-    "static/js/2.782cd0ad.chunk.js.LICENSE.txt": "/static/js/2.782cd0ad.chunk.js.LICENSE.txt",
+    "static/js/2.cd6ac676.chunk.js.LICENSE.txt": "/static/js/2.cd6ac676.chunk.js.LICENSE.txt",
     "static/media/Groupgreen.18135819.svg": "/static/media/Groupgreen.18135819.svg",
     "static/media/Grouppink.445cc6e3.svg": "/static/media/Grouppink.445cc6e3.svg",
     "static/media/Instagraminstagram.0a42e3ea.svg": "/static/media/Instagraminstagram.0a42e3ea.svg",
@@ -24,6 +24,8 @@
     "static/media/Welcome.d7a8e465.svg": "/static/media/Welcome.d7a8e465.svg",
     "static/media/article.4bc27b64.png": "/static/media/article.4bc27b64.png",
     "static/media/baruun-chevron.14b207da.svg": "/static/media/baruun-chevron.14b207da.svg",
+    "static/media/black-fb.b7ed976a.svg": "/static/media/black-fb.b7ed976a.svg",
+    "static/media/black-insta.68a9cadf.svg": "/static/media/black-insta.68a9cadf.svg",
     "static/media/close.128fabe4.svg": "/static/media/close.128fabe4.svg",
     "static/media/dropdownchevron.f2bf39c0.svg": "/static/media/dropdownchevron.f2bf39c0.svg",
     "static/media/email.390308a5.svg": "/static/media/email.390308a5.svg",
@@ -43,8 +45,8 @@
   "entrypoints": [
     "static/js/runtime-main.09df2e41.js",
     "static/css/2.b7023fb4.chunk.css",
-    "static/js/2.782cd0ad.chunk.js",
+    "static/js/2.cd6ac676.chunk.js",
     "static/css/main.bb617ce5.chunk.css",
-    "static/js/main.5c7750d6.chunk.js"
+    "static/js/main.5d3431d9.chunk.js"
   ]
 }

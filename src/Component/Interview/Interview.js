@@ -22,7 +22,6 @@ const Interview = () => {
         const docs = snapshot.docs.map((doc) => {
             return { ...doc.data(), id: doc.id };
         });
-        console.log(docs)
         setCarouselData(docs);
     }, [language])
     const responsive = {
