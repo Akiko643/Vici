@@ -9,6 +9,7 @@ import { Context } from "../../Providers/contentProvider";
 export const SuggestPagination = () => {
     const { language } = useContext(Context);
     const [suggestedPageNumber, setSuggestedPageNumber] = useState(1);
+    const [number, setNumber] = useState(4);
     const { firebase } = useFirebase();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -37,6 +38,17 @@ export const SuggestPagination = () => {
             );
         }
     };
+    window.addEventListener('resize', () => {
+        if (900 < window.innerWidth) {
+            setNumber(4);
+        }else if (700 <= window.innerWidth && window.innerWidth <= 900) {
+            setNumber(3);
+        }else if (450 <= window.innerWidth && window.innerWidth < 700) {
+            setNumber(2);
+        }else {
+            setNumber(1);
+        }
+    })
     useEffect(async () => {
         setData([]);
         await firstLoad();
@@ -60,22 +72,22 @@ export const SuggestPagination = () => {
                     <img
                         className={`pointer ${
                             suggestedPageNumber ===
-                                Math.ceil(data.length / 4) && "disabledbtn"
+                                Math.ceil(data.length / number) && "disabledbtn"
                         }`}
                         src={rightchevron}
                         onClick={() =>
                             suggestedPageNumber !==
-                                Math.ceil(data.length / 4) && what(1)
+                                Math.ceil(data.length / number) && what(1)
                         }
                     />
                 </div>
             </div>
             <div className="flex-row justify-between">
                 {loading ? (
-                    <>
+                    [...Array(number)].map((e, i) => (
                         <div
-                            className={`flex-col small-col-item loading-sci`}
-                            key={0}
+                            className={`flex-col small-col-item loading-sci ${number == 4 ? 'w23' : number == 3 ? 'w30' : 'w46'}`}
+                            key={i}
                         >
                             <div className="image bradius-10 h-180 b-border" />
                             <div className="blog-tag h-22 c-seablue b-border"></div>
@@ -87,58 +99,13 @@ export const SuggestPagination = () => {
                                 </div>
                                 <div className="time w-70"></div>
                             </div>
-                        </div>
-                        <div
-                            className={`flex-col small-col-item loading-sci`}
-                            key={1}
-                        >
-                            <div className="image bradius-10 h-180 b-border" />
-                            <div className="blog-tag h-22 c-seablue b-border"></div>
-                            <div className="blog-header h-28 b-border"></div>
-                            <div className="flex-row my-15">
-                                <div className="publishername flex-row">
-                                    <div className="namecircle" />
-                                    <div className="b-border w-40"> </div>
-                                </div>
-                                <div className="time w-70"></div>
-                            </div>
-                        </div>
-                        <div
-                            className={`flex-col small-col-item loading-sci`}
-                            key={2}
-                        >
-                            <div className="image bradius-10 h-180 b-border" />
-                            <div className="blog-tag h-22 c-seablue b-border"></div>
-                            <div className="blog-header h-28 b-border"></div>
-                            <div className="flex-row my-15">
-                                <div className="publishername flex-row">
-                                    <div className="namecircle" />
-                                    <div className="b-border w-40"> </div>
-                                </div>
-                                <div className="time w-70"></div>
-                            </div>
-                        </div>
-                        <div
-                            className={`flex-col small-col-item loading-sci`}
-                            key={3}
-                        >
-                            <div className="image bradius-10 h-180 b-border" />
-                            <div className="blog-tag h-22 c-seablue b-border"></div>
-                            <div className="blog-header h-28 b-border"></div>
-                            <div className="flex-row my-15">
-                                <div className="publishername flex-row">
-                                    <div className="namecircle" />
-                                    <div className="b-border w-40"> </div>
-                                </div>
-                                <div className="time w-70"></div>
-                            </div>
-                        </div>
-                    </>
+                        </div>   
+                    ))
                 ) : (
                     data
                         .slice(
-                            4 * (suggestedPageNumber - 1),
-                            4 * suggestedPageNumber
+                            number * (suggestedPageNumber - 1),
+                            number * suggestedPageNumber
                         )
                         .map((dtw, index) => {
                             return (
@@ -146,7 +113,7 @@ export const SuggestPagination = () => {
                                     data={dtw}
                                     index={index}
                                     size="smallcol"
-                                    classStr={"w23"}
+                                    classStr={number == 4 ? 'w23' : number == 3 ? 'w30' : 'w46'}
                                 />
                             );
                         })
