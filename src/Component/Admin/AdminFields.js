@@ -4,7 +4,8 @@ import { AuthStateValue } from '../../Hooks/auth-user-provider';
 import { useCol, useDoc, useFirebase } from '../../Hooks/firebase';
 import Editor from './Editor';
 import { InterviewPosts } from './AdminPosts';
-import Lesson from '../Education/Lesson';
+// import Lesson from '../Education/Lesson';
+import '../Education/Lesson.scss';
 
 export const InterviewField = ({ state, setState }) => {
     // setState({ ...state, level: 2 });
@@ -59,6 +60,49 @@ export const BlogField = ({ state, setState }) => {
     );
 };
 
+const Lesson = ({ icon, name, path, elements, id, state, setState }) => {
+    // const history = useHistory();
+    // const location = useLocation();
+    return (
+        <div className=' bradius-20 ma-20 flex-center pa-40 lesson-container'>
+            <div className='h-50 fs-36 flex'>
+                <img className='h-50 w-50 mr-10' src={icon} alt=''></img>
+                <div> {name} </div>
+            </div>
+            <div className='h-210 w100 flex-col mt-10'>
+                {elements?.map((el, index) => {
+                    return (
+                        <div
+                            className='h-45 flex flex-row items-center'
+                            key={index}
+                        >
+                            <div className='too'>
+                                <p>{index + 1}</p>
+                            </div>
+                            {el}
+                        </div>
+                    );
+                })}
+            </div>
+            <div className='w100 flex-center mt-20 mb-20'>
+                <div
+                    className='w-130 h-45 text-center bradius-10 b-secondary flex-center c-white pointer'
+                    // onClick={() => history.push(location.pathname + '/' + id)}
+                    onClick={() => {
+                        setState({
+                            ...state,
+                            field: id,
+                            level: 2,
+                        });
+                    }}
+                >
+                    Edit
+                </div>
+            </div>
+        </div>
+    );
+};
+
 export const EducationField = ({ state, setState }) => {
     const { data } = useCol(`content/contents/${state.category}`);
     console.log(data);
@@ -105,10 +149,12 @@ export const EducationField = ({ state, setState }) => {
                                 elements={dt?.questions}
                                 id={dt?.id}
                                 key={index}
+                                state={state}
+                                setState={setState}
                             />
                         );
                     })}
-                <div
+                {/* <div
                     className='rounded-lg ma-20 flex-center pa-40'
                     style={{ backgroundColor: '#F5F5F5' }}
                 >
@@ -137,7 +183,7 @@ export const EducationField = ({ state, setState }) => {
                             Select
                         </div>
                     </div>
-                </div>
+                </div> */}
             </Carousel>
         </div>
     );
