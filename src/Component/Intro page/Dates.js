@@ -1,16 +1,20 @@
-import react from 'react';
-import { useCol, useDoc } from '../../Hooks/firebase';
-import Calendar from './Calendar';
-import './calendar.scss'
+import react from "react";
+import { useCol, useDoc } from "../../Hooks/firebase";
+import Calendar from "./Calendar";
+import "./calendar.scss";
+import { useTranslation } from "react-i18next";
+
 function onPanelChange(value, mode) {
     console.log(value, mode);
 }
 
 function Dates({ exam }) {
-    const satDB = useDoc('/content/contents/Exams/SAT');
-    const toeflDB = useDoc('/content/contents/Exams/TOEFL');
-    const ieltsDB = useDoc('/content/contents/Exams/IELTS');
+    const satDB = useDoc("/content/contents/Exams/SAT");
+    const toeflDB = useDoc("/content/contents/Exams/TOEFL");
+    const ieltsDB = useDoc("/content/contents/Exams/IELTS");
     let tmp = new Date();
+    const { t } = useTranslation();
+
     let satdates = [
             [2021, 7, 28],
             [2021, 9, 2],
@@ -106,15 +110,15 @@ function Dates({ exam }) {
         );
 
     return (
-        <div className='w-320 calendar'>
-            {exam && <h1 className='fs-22 w100 text-center mb-20'>{exam}</h1>}
+        <div className="w-320 calendar">
+            {exam && (
+                <h1 className="fs-22 w100 text-center mb-20">
+                    {exam + ` ${t("examdates")}`}
+                </h1>
+            )}
             <Calendar
                 dates={
-                    exam === 'TOEFL Dates'
-                        ? toefl
-                        : exam === 'IELTS Dates'
-                        ? ielts
-                        : sat
+                    exam === "TOEFL" ? toefl : exam === "IELTS" ? ielts : sat
                 }
             />
         </div>
