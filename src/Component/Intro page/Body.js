@@ -31,9 +31,9 @@ function Body() {
                     {t("internationalExams")}
                 </h2>
                 <div className="flex justify-between">
-                    <Dates exam={`SAT ${t("examdates")}`}></Dates>
-                    <Dates exam={`IELTS ${t("examdates")}`}></Dates>
-                    <Dates exam={`TOEFL ${t("examdates")}`}></Dates>
+                    <Dates exam={`SAT`}></Dates>
+                    <Dates exam={`IELTS`}></Dates>
+                    <Dates exam={`TOEFL`}></Dates>
                 </div>
             </div>
             <SuggestPagination />
