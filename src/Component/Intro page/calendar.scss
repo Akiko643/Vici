@@ -1,9 +1,10 @@
 .calendar {
-    margin: 0px 5px;
+  margin: 0px 5px;
 }
 @media screen and (max-width: 1400px) {
-    .calendar-node {
-        width: 20px !important;
-        height: 25px !important;
-    }
+  .calendar-node {
+    width: 25px !important;
+    height: 25px !important;
+    margin: 1px;
+  }
 }
