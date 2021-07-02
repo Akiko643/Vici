@@ -109,8 +109,8 @@ const CategoryTemp = () => {
                 <p onClick={() => history.push('/blog')} className='pointer'>Blog</p>/
                 <p>{match.params.categoryId}</p>
             </div>
-            <div className='flex-row'>
-                <div className='w60'>
+            <div className='flex-row cat-mid'>
+                <div className='w60 category-section'>
                     {data
                         .slice((pageNumber - 1) * 4, pageNumber * 4)
                         .map((dt, index) => {
@@ -123,7 +123,7 @@ const CategoryTemp = () => {
                             );
                         })}
                 </div>
-                <div className='w30'>
+                <div className='w40 category-section'>
                     {categories?.data?.map((category, index) => {
                         return (
                             <div

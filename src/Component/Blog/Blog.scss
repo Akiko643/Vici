@@ -184,7 +184,25 @@
     padding: 0 50px !important;
   }
 }
-
+@media screen and (max-width: 900px) {
+  .blog-body-top {
+    flex-direction: column !important;
+  }
+  .blog-body-top-item {
+    width: 100% !important;
+    margin-left: 0px !important;
+  }
+  .blog-body-top-item-second {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1.5px solid #c4c4c4;
+  }
+  .blog-body-mid {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-direction: column;
+  }
+}
 @media screen and (max-width: 600px) {
   .blog-body {
     padding: 0px 10px !important;

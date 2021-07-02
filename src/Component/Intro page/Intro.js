@@ -1,12 +1,8 @@
-import React from 'react';
-import Body from './Body';
+import React from "react";
+import Body from "./Body";
 
 function Intro() {
-    return (
-        <div className='relative'>
-            <Body />
-        </div>
-    );
+  return <Body />;
 }
 
 export default Intro;
