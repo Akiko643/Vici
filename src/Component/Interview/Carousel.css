@@ -1,11 +1,11 @@
-.big-container {
-    width: 100%;
-}
 .carousel-container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: calc(100vh - 3.8rem);
+    /* height: 90vh; */
 }
 
 .vignette {
@@ -20,6 +20,9 @@
     display: block;
     width: 100%;
 }
+.title__container {
+    width: 60vw;
+}
 .car-title {
     font-size: 2rem;
     color: white;
@@ -27,8 +30,7 @@
     position: absolute;
     top: 75%;
     left: 15%;
-    /* height: 7%;
-    width: 188px; */
+
     background-color: black;
     padding: 0.8rem;
     border-radius: 10px;
@@ -45,6 +47,7 @@
     position: absolute;
     top: 85%;
     left: 15%;
+    width: 70%;
     cursor: pointer;
 }
 .vignette::after {
@@ -88,4 +91,26 @@
 }
 .vignette {
     opacity: 1;
+}
+@media screen and (max-width: 1024px) {
+    .right-arrow {
+        display: none;
+    }
+    .left-arrow {
+        display: none;
+    }
+    .car-title {
+        font-size: 1.8rem;
+    }
+    .car-subtitle {
+        font-size: 1.8rem;
+    }
+}
+@media screen and (max-width: 600px) {
+    .car-title {
+        font-size: 1.3rem;
+    }
+    .car-subtitle {
+        font-size: 1.3rem;
+    }
 }
