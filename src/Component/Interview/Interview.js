@@ -43,6 +43,7 @@ const Interview = () => {
     };
     return (
         <>
+            <Navbar />
             <Switch>
                 <Route path={`${match.path}/:interviewId`}>
                     <InterviewTest />

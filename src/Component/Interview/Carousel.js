@@ -19,7 +19,7 @@ const Carousel = ({ slides }) => {
         return null;
     }
     return (
-        <div className="big-container">
+        <div className="big-container ">
             <div className="carousel-container mt-60">
                 <img
                     src={leftIcon}
