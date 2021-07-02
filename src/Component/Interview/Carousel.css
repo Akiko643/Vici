@@ -58,7 +58,7 @@
 }
 .vignette .image {
     height: 95vh;
-    width: 100vw;
+    width: 100%;
     z-index: -2;
 }
 .right-arrow {
