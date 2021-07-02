@@ -4,12 +4,7 @@ import "./Blog.scss";
 import { BlogItemComp } from "./BlogItemComp";
 // import leftchevron from "./zuun-chevron.svg";
 // import rightchevron from "./baruun-chevron.svg";
-import {
-  Switch,
-  Route,
-  useRouteMatch,
-  useHistory,
-} from "react-router";
+import { Switch, Route, useRouteMatch, useHistory } from "react-router";
 import { useTranslation } from "react-i18next";
 // import { BlogTemp } from "../blog-temp/blogtemp";
 import { useCol, useFirebase } from "../../Hooks/firebase";
@@ -29,7 +24,7 @@ export const Blog = () => {
     let latestData = await firebase
       .firestore()
       .collection("content/contents/Blog")
-      .where('language', '==', language)
+      .where("language", "==", language)
       .orderBy("createdAt", "desc")
       .limit(10)
       .get();
@@ -44,7 +39,7 @@ export const Blog = () => {
       .firestore()
       .collection("content/contents/Blog")
       .orderBy("visits", "desc")
-      .where('language', '==', language)
+      .where("language", "==", language)
       .orderBy("createdAt", "desc")
       .limit(10)
       .get();
@@ -59,7 +54,7 @@ export const Blog = () => {
       .firestore()
       .collection("content/contents/Blog")
       .orderBy("likes", "desc")
-      .where('language', '==', language)
+      .where("language", "==", language)
       .orderBy("createdAt", "desc")
       .limit(10)
       .get();
@@ -83,13 +78,13 @@ export const Blog = () => {
     const doSomething = async () => {
       setTopData([]);
       await getLatest();
-    } 
+    };
     doSomething();
-  }, [language])
+  }, [language]);
   useEffect(() => {
     const doSomething = async () => {
       await getLatest();
-    }
+    };
     doSomething();
   }, []);
   return (
@@ -111,7 +106,7 @@ export const Blog = () => {
                     }`}
                     onClick={() => topChange(0)}
                   >
-                    {t('latest')}
+                    {t("latest")}
                   </div>
                   <div
                     className={`pointer mr-50 ${
@@ -119,7 +114,7 @@ export const Blog = () => {
                     }`}
                     onClick={() => topChange(1)}
                   >
-                    {t('popular')}
+                    {t("popular")}
                   </div>
                   <div
                     className={`pointer ${
@@ -127,7 +122,7 @@ export const Blog = () => {
                     }`}
                     onClick={() => topChange(2)}
                   >
-                    {t('trending')}
+                    {t("trending")}
                   </div>
                 </div>
                 <BlogItemComp
@@ -159,16 +154,19 @@ export const Blog = () => {
             <div className="line" />
             <div className="flex-row">
               <div className="w60">
-                {
-                  topData.slice(5).map((topdt, index) => {
-                    return (
-                      <BlogItemComp index={index} data={topdt} size="medium" classStr={"w100"}/>
-                    );
-                  })
-                }
+                {topData.slice(5).map((topdt, index) => {
+                  return (
+                    <BlogItemComp
+                      index={index}
+                      data={topdt}
+                      size="medium"
+                      classStr={"w100"}
+                    />
+                  );
+                })}
               </div>
               <div className="w40">
-                <div className="categories-text">{t('categories')}</div>
+                <div className="categories-text">{t("categories")}</div>
                 {data?.map((category, index) => {
                   return (
                     <div
