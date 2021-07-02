@@ -1,8 +1,23 @@
 .educations {
-    min-height: calc(100vh - 150px - 195px);
+  min-height: calc(100vh - 150px - 195px);
+  background: #f8f8f8;
+}
+.edutxt {
+  margin-left: 190px;
+}
+@media screen and (max-width: 1200px) {
+  .edutxt {
+    margin-left: 50px;
+  }
 }
 @media screen and (max-width: 950px) {
-    .educations {
-        min-height: calc(100vh - 150px);
-    }
+  .educations {
+    min-height: calc(100vh - 150px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .edutxt {
+    margin-left: 20px;
+  }
 }

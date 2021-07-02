@@ -96,9 +96,13 @@ export const Blog = () => {
       <Route path={match.path}>
         <div className="blog-body-container">
           <div className="blog-body mb-60">
-            <div className="flex-row">
-              <BlogItemComp data={topData[0]} size="big" classStr={"w60"} />
-              <div className="w40 ml-20">
+            <div className="flex-row blog-body-top">
+              <BlogItemComp
+                data={topData[0]}
+                size="big"
+                classStr={"w60 blog-body-top-item"}
+              />
+              <div className="w40 ml-20 blog-body-top-item blog-body-top-item-second">
                 <div className="flex-row lpt uppercase flex-wrap">
                   <div
                     className={`pointer mr-50 ${
@@ -152,8 +156,8 @@ export const Blog = () => {
               </div>
             </div>
             <div className="line" />
-            <div className="flex-row">
-              <div className="w60">
+            <div className="flex-row blog-body-mid">
+              <div className="w60 blog-body-top-item">
                 {topData.slice(5).map((topdt, index) => {
                   return (
                     <BlogItemComp
@@ -165,7 +169,7 @@ export const Blog = () => {
                   );
                 })}
               </div>
-              <div className="w40">
+              <div className="w40 blog-body-top-item">
                 <div className="categories-text">{t("categories")}</div>
                 {data?.map((category, index) => {
                   return (
