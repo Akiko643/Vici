@@ -1,6 +1,4 @@
-import React from 'react';
-import Footer from '../Footer/Footer';
-import Navbar from '../Navbar/Navbar';
+import React, { useContext } from 'react';
 import Lesson from './Lesson';
 import img from '../../Img/oceans2.png';
 import './education.scss';
@@ -10,17 +8,19 @@ import { useCol, useDoc } from '../../Hooks/firebase';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { useTranslation } from 'react-i18next';
+import { Context } from '../../Providers/contentProvider';
 export const Education = () => {
     const { t } = useTranslation();
-    const { data } = useCol('content/contents/Education/', true);
+    const { language } = useContext(Context);
+    const { data } = useCol('content/contents/Education/', language, true);
     const responsive = {
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
+            breakpoint: { max: 3000, min: 1200 },
             items: 3,
             slidesToSlide: 3, // optional, default to 1.
         },
         tablet: {
-            breakpoint: { max: 1024, min: 464 },
+            breakpoint: { max: 1200, min: 464 },
             items: 2,
             slidesToSlide: 2, // optional, default to 1.
         },
@@ -32,7 +32,6 @@ export const Education = () => {
     };
     return (
         <>
-            <Navbar />
             <Switch>
                 <Route exact path='/education'>
                     <div
@@ -87,7 +86,6 @@ export const Education = () => {
                         );
                     })}
             </Switch>
-            <Footer />
         </>
     );
 };

@@ -19,7 +19,7 @@
 
 @each $name, $color in $colors {
     .c-#{$name} {
-        color: $color;
+        color: $color !important;
     }
 
     .b-#{$name} {
@@ -77,7 +77,7 @@
     }
 
     .pl-#{$i} {
-        padding-left: $i + px;
+        padding-left: $i + px !important;
     }
     .pa-t-#{$i} {
         padding: $i + px 0;
@@ -142,7 +142,7 @@
     }
 
     .ml-#{$i} {
-        margin-left: $i + px;
+        margin-left: $i + px !important;
     }
 
     .mr-#{$i} {
@@ -464,7 +464,9 @@ body {
 .ws30 {
     width: 30%;
 }
-
+.hs100 {
+    height: 100% !important;
+}
 .ws100 {
     width: 100% !important;
 }

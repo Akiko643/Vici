@@ -7,13 +7,14 @@ import { TopCollegeProvider } from './Providers/TopCollegeProvider';
 import { Provider } from './Providers/contentProvider';
 ReactDOM.render(
     <React.StrictMode>
-        <AuthUserProvider>
-            <Provider>
+        <Provider>
+            <AuthUserProvider>
                 <TopCollegeProvider>
                     <App />
                 </TopCollegeProvider>
-            </Provider>
-        </AuthUserProvider>
+            </AuthUserProvider>
+        </Provider>
+
     </React.StrictMode>,
     document.getElementById('root')
 );

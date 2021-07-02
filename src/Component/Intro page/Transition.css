@@ -1,0 +1,10 @@
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .intro-body {
+    padding: 0 50px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .intro-body {
+    padding: 0 20px !important;
+  }
+}

@@ -4,7 +4,7 @@ import { useDoc } from "../../Hooks/firebase";
 export const BlogItemComp = (props) => {
   const { data, size, classStr = "", index } = props;
   const toSmall = (text) => {
-    return text?.split(" ")?.slice(0, 30)?.join(" ") + "...";
+    return text?.split(" ")?.slice(0, 20)?.join(" ") + "...";
   };
   const scrollToTop = () => {
     window.scroll({
@@ -102,6 +102,7 @@ const BigItem = ({
       <img
         className="image h-430 bradius-10 pointer"
         src={image}
+        alt={header}
         onClick={() => {
           history.push(`/blog/${category.name}/${id}`);
           scrollToTop();
@@ -134,16 +135,17 @@ const MediumItem = ({
   scrollToTop, id, classStr, index, image, header, category, text }) => {
   const history = useHistory();
   return (
-    <div className={`${classStr} flex-row medium-item my-10`} key={index}>
+    <div className={`${classStr} flex-row medium-item my-10 mr-20`} key={index}>
       <img
         className="image bradius-10 w55 h-240 pointer"
         src={image}
+        alt={header}
         onClick={() => {
           history.push(`/blog/${category.name}/${id}`);
           scrollToTop();
         }}
       />
-      <div className="flex-col w45 ml-20 my-10">
+      <div className="flex-col w45 mh-20 my-10">
         <div
           className="blog-header pointer"
           onClick={() => {
@@ -178,6 +180,7 @@ const SmallItem = ({
       <img
         className="image bradius-10 w45 h-120 pointer"
         src={image}
+        alt={header}
         onClick={() => {
           history.push(`/blog/${category.name}/${id}`);
           scrollToTop()
@@ -219,6 +222,7 @@ const SmallColItem = ({
       <img
         className="image bradius-10 h-180 pointer"
         src={image}
+        alt={header}
         onClick={() => {
           history.push(`/blog/${category.name}/${id}`);
           scrollToTop();

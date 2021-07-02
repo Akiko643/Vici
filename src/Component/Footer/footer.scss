@@ -1,0 +1,49 @@
+.footer {
+    padding-top: 10px;
+    .icon {
+        margin: 8px;
+    }
+    .allright {
+        font-size: 12px;
+        background: #373737;
+    }
+}
+
+.nounderline {
+    text-decoration: none;
+}
+
+.header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.el {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: lighter;
+    color: #c0c0c0;
+    margin-bottom: 5px;
+}
+.col {
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width: 1200px) {
+    .footer {
+        .footer-item {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+    }
+}
+@media screen and (max-width: 950px) {
+    .footer {
+        padding-top: 0 !important;
+    }
+    .top-footer {
+        display: none !important;
+    }
+}

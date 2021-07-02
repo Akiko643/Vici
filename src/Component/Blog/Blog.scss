@@ -35,7 +35,7 @@
     }
 
     // margin-top: 40px;
-    padding: 0px 11.875rem;
+    padding: 0px 190px;
     .namecircle {
       width: 15px;
       height: 15px;
@@ -134,8 +134,8 @@
         font-family: Raleway;
         font-style: normal;
         font-weight: normal;
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 18px;
+        line-height: 20px;
         display: flex;
         align-items: center;
         color: #000000;
@@ -179,8 +179,14 @@
 .image {
   object-fit: cover;
 }
-@media screen and (max-width: 1060px) {
+@media screen and (min-width: 601px) and (max-width: 1200px) {
   .blog-body {
-    padding: 0;
+    padding: 0 50px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .blog-body {
+    padding: 0px 10px !important;
   }
 }

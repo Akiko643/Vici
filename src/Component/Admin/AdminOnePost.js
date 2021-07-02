@@ -21,11 +21,33 @@ export const Input = ({ basevalue, setbaseValue, placeholder }) => {
         ></input>
     );
 };
+
+const LangToggle = ({ language, changeLanguage }) => {
+    const [lang, setLang] = useState(language);
+    return (
+        <div
+            className={`w-48 h-24 b-white c-default bradius-12 br-default-2 pointer pr`}
+            onClick={() => {
+                changeLanguage(lang === 'en' ? 'mn' : 'en');
+                setLang(lang === 'en' ? 'mn' : 'en');
+            }}
+        >
+            <div
+                className={`flex-center fs-16 h-24 w-30 b-default c-white bradius-12 ph-5  languageBtn ${
+                    lang == 'mn' ? 'mnLanguageBtn' : 'enLanguageBtn'
+                }`}
+            >
+                {lang}
+            </div>
+        </div>
+    );
+};
+
 export const InterviewOnePost = ({ state, setState }) => {
     const { data, updateRecord } = useDoc(
         `/content/contents/${state.category}/${state.post}`
     );
-    console.log(data);
+    const [language, changeLanguage] = useState();
     const [value, setValue] = useState();
     const [header, setHeader] = useState();
     const [subheader, setSubheader] = useState();
@@ -36,7 +58,12 @@ export const InterviewOnePost = ({ state, setState }) => {
             {data && (
                 <>
                     <div className='w100 flex justify-center items-center fs-20'>
-                        {''}
+                        {'language: '}
+                        <LangToggle
+                            language={data.language}
+                            changeLanguage={changeLanguage}
+                        />
+                        {' header:'}
                         <Input
                             basevalue={data.header}
                             setbaseValue={setHeader}
@@ -74,7 +101,15 @@ export const InterviewOnePost = ({ state, setState }) => {
                         if (image) chapters.image = image;
                         if (video) chapters.video = video;
                         if (subheader) chapters.subheader = subheader;
-                        if (value || header || image || video || subheader)
+                        if (language) chapters.language = language;
+                        if (
+                            value ||
+                            header ||
+                            image ||
+                            video ||
+                            subheader ||
+                            language
+                        )
                             await updateRecord(chapters);
                     }}
                 >
@@ -96,7 +131,7 @@ export const CollegePrepOnePost = ({ state, setState }) => {
     const [value, setValue] = useState();
     const [header, setHeader] = useState();
     const [option, setOption] = useState('');
-
+    const [language, changeLanguage] = useState();
     const getParent = (array, parentid) => {
         console.log(array);
         return array?.find((cur) => {
@@ -110,6 +145,12 @@ export const CollegePrepOnePost = ({ state, setState }) => {
             {data && (
                 <>
                     <div className='w100 flex justify-center items-center fs-20'>
+                        {'language: '}
+                        <LangToggle
+                            language={data.language}
+                            changeLanguage={changeLanguage}
+                        />
+
                         {''}
                         <Input
                             basevalue={data.header}
@@ -154,7 +195,8 @@ export const CollegePrepOnePost = ({ state, setState }) => {
                         if (value) chapters.text = value;
                         if (header) chapters.header = header;
                         if (option) chapters.parent = option;
-                        if (value || header || option)
+                        if (language) chapters.language = language;
+                        if (value || header || option || language)
                             await updateRecord(chapters);
                     }}
                 >
@@ -173,11 +215,18 @@ export const BlogOnePost = ({ state, setState }) => {
     const [value, setValue] = useState();
     const [header, setHeader] = useState();
     const [image, setImage] = useState();
+    const [language, changeLanguage] = useState();
     return (
         <div>
             {data && (
                 <>
                     <div className='w100 flex justify-center items-center fs-20'>
+                        {'language: '}
+                        <LangToggle
+                            language={data.language}
+                            changeLanguage={changeLanguage}
+                        />
+
                         <Input
                             basevalue={data.header}
                             setbaseValue={setHeader}
@@ -200,7 +249,8 @@ export const BlogOnePost = ({ state, setState }) => {
                         if (value) chapters.text = value;
                         if (header) chapters.header = header;
                         if (image) chapters.image = image;
-                        if (value || header || image)
+                        if (language) chapters.language = language;
+                        if (value || header || image || language)
                             await updateRecord(chapters);
                     }}
                 >
@@ -211,18 +261,25 @@ export const BlogOnePost = ({ state, setState }) => {
     );
 };
 
-export const EducationOnePost = ({ state, setState }) => {
+export const EducationOnePost = ({ state, setStatem }) => {
     const { data, updateRecord } = useDoc(
         `content/contents/${state.category}/${state.field}/chapters/${state.post}`
     );
     console.log(data);
     const [value, setValue] = useState();
     const [header, setHeader] = useState();
+    const [language, changeLanguage] = useState();
     return (
         <div>
             {data && (
                 <>
                     <div className='w100 flex justify-center items-center fs-20'>
+                        {'language: '}
+                        <LangToggle
+                            language={data.language}
+                            changeLanguage={changeLanguage}
+                        />
+
                         <Input
                             basevalue={data.header}
                             setbaseValue={setHeader}
@@ -237,7 +294,9 @@ export const EducationOnePost = ({ state, setState }) => {
                     onClick={async () => {
                         if (value) data.text = value;
                         if (header) data.header = header;
-                        if (value || header) await updateRecord(data);
+                        if (language) data.language = language;
+                        if (value || header || language)
+                            await updateRecord(data);
                     }}
                 >
                     Save

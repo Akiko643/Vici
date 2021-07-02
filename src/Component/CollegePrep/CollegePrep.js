@@ -1,7 +1,5 @@
 // import React from 'react';
 // import Footer from '../Footer/Footer';
-// import Navbar from '../Navbar/Navbar';
-// import Lesson from './Lesson';
 // import img from '../../Img/oceans2.png';
 // import './education.scss';
 // import { Info } from './Info';
@@ -30,7 +28,6 @@
 //     };
 //     return (
 //         <>
-//             <Navbar />
 //             <Switch>
 //                 <Route exact path='/education'>
 //                     <div
@@ -85,7 +82,6 @@
 //                         );
 //                     })}
 //             </Switch>
-//             <Footer />
 //         </>
 //     );
 // };
