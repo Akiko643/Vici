@@ -45,8 +45,7 @@ export const InterviewTest = () => {
         setCardData(docs);
     }, []);
     return (
-        <div>
-            <Navbar />
+        <>
             <div className="interview__container pa-vw-10 pr">
                 <img
                     src={Back}
@@ -90,6 +89,6 @@ export const InterviewTest = () => {
                 </div>
             </div>
             <Footer />
-        </div>
+        </>
     );
 };

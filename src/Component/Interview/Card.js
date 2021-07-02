@@ -29,11 +29,9 @@ const Card = ({ card, index }) => {
                 <h2 className="feed-subtitle">{card.subheader}</h2>
             </Fade>
 
-            <Fade bottom collapse when={show}>
-                <h2 className={show ? "feed-title active" : "feed-title"}>
-                    {card.header}
-                </h2>
-            </Fade>
+            <div>
+                <h2 className="feed-title">{card.header}</h2>
+            </div>
         </div>
     );
 };

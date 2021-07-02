@@ -44,12 +44,12 @@ const Interview = () => {
     };
     return (
         <>
+            <Navbar />
             <Switch>
                 <Route path={`${match.path}/:interviewId`}>
                     <InterviewTest />
                 </Route>
                 <Route path={`${match.path}`}>
-                    <Navbar />
                     <Carousel slides={carouselData} />
                     <Feed />
                     <Footer />
