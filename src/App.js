@@ -86,7 +86,7 @@ const App = () => {
                 <Route path='/blog'>
                     <Blog />
                 </Route>
-                <Route path='/publisher'>
+                <Route path='/user/:userID'>
                     <Publisher />
                 </Route>
             </Switch>
