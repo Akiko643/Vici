@@ -54,6 +54,15 @@ export const SuggestPagination = () => {
         await firstLoad();
     }, [language]);
     useEffect(async () => {
+        if (900 < window.innerWidth) {
+            setNumber(4);
+        }else if (700 <= window.innerWidth && window.innerWidth <= 900) {
+            setNumber(3);
+        }else if (450 <= window.innerWidth && window.innerWidth < 700) {
+            setNumber(2);
+        }else {
+            setNumber(1);
+        }
         await firstLoad();
     }, []);
     return (
