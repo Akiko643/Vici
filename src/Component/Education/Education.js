@@ -50,7 +50,7 @@ export const Education = () => {
       <Switch>
         <Route exact path="/education">
           <div
-            className="h-150 w100 c-white pl-190 pr"
+            className="h-150 w100 c-white pr"
             style={{ backgroundImage: `url(${img})` }}
           >
             <div className="bottom-10 fs-48 absolute uppercase edutxt">
