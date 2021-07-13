@@ -4,8 +4,8 @@
   background-size: cover;
 }
 .too {
-  width: 30px;
-  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
   border-radius: 50%;
   background: #e9c692;
   display: flex;
