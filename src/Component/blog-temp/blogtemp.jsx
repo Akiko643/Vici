@@ -70,7 +70,11 @@ export const BlogTemp = (props) => {
                                     Puplisher:
                                 </div>
                                 <p
-                                    onClick={() => {}}
+                                    onClick={() => {
+                                        history.push(
+                                            `/user/${blogData?.publisherId}`
+                                        );
+                                    }}
                                     className='publisher-name'
                                 >
                                     {data?.displayName}

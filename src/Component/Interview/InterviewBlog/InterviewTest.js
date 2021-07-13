@@ -30,18 +30,21 @@ export const InterviewTest = () => {
     };
     const [cardData, setCardData] = useState([]);
     const { firebase } = useFirebase();
-    useEffect(async () => {
-        const query = await firebase
-            .firestore()
-            .collection(`/content/contents/Interview`)
-            .orderBy('createdAt', 'desc')
-            .limit(3);
-        const snapshot = await query.get();
-        const docs = snapshot.docs.map((doc) => {
-            return { ...doc.data(), id: doc.id };
-        });
-        setCardData(docs);
-    }, []);
+    useEffect(() => {
+        const fetch = async () => {
+            const query = await firebase
+                .firestore()
+                .collection(`/content/contents/Interview`)
+                .orderBy('createdAt', 'desc')
+                .limit(3);
+            const snapshot = await query.get();
+            const docs = snapshot.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id };
+            });
+            setCardData(docs);
+        };
+        fetch();
+    });
     return (
         <div>
             <div className='interview__container pa-vw-10 pr'>
@@ -49,6 +52,7 @@ export const InterviewTest = () => {
                     src={Back}
                     className='arrow pointer'
                     onClick={() => history.push('/interview')}
+                    alt=''
                 />
                 <div className='player-wrapper'>
                     <ReactPlayer
