@@ -2,8 +2,8 @@
     position: relative;
     display: flex;
     background-color: #e4e4e4;
-    height: 42vh;
-    width: 20vw;
+    height: 55vh;
+    width: 90%;
     border-radius: 10px;
     align-items: flex-end;
     justify-content: center;
@@ -53,20 +53,21 @@
 }
 @media screen and (max-width: 1024px) {
     .card {
-        height: 30vh;
-        width: 35vw;
+        height: 40vh;
+        width: 100%;
+        margin: 0;
     }
 }
 @media screen and (max-width: 600px) {
     .card {
-        height: 25vh;
-        width: 35vw;
+        height: 50vh;
+        width: 100%;
         font-size: smaller;
     }
     .feed-title {
-        font-size: x-small;
+        font-size: x-large;
     }
     .feed-subtitle {
-        font-size: x-small;
+        font-size: large;
     }
 }
