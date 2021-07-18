@@ -65,11 +65,11 @@ export const InterviewTest = () => {
                     <h1 className='int__title'>{doc?.header}</h1>
                     <h2 className='int__subtitle'>{doc?.subheader}</h2>
                     <div className='little__text mt-40'>
-                        <p className='publisher__name '>
+                        <p className='publisher__name flex items-center'>
                             <img
                                 src={data?.profilePicUrl}
                                 alt={data?.displayName}
-                                className='publisher-profile-img w-15 h-15 mr-5'
+                                className='publisher-profile-img w-30 h-30 mr-5 bradius-15'
                             />
                             {data?.displayName}
                         </p>

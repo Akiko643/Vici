@@ -14,6 +14,7 @@ export const Info = (props) => {
     null,
     true
   ).data;
+  
   const [chapterIndex, setChapterIndex] = useState(0);
   return (
     <div className="b-background">
