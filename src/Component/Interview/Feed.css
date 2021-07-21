@@ -7,7 +7,25 @@
     padding: 8%;
 }
 .card-container {
-    display: flex;
+    display: grid;
     width: 100%;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    .card-container {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 40px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card-container {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
