@@ -28,7 +28,7 @@ const Lesson = ({ icon, name, path, elements, id }) => {
           className="w-130 h-45 text-center bradius-10 b-secondary flex-center c-white pointer"
           onClick={() => history.push(location.pathname + "/" + id)}
         >
-          Start learn
+          start learning
         </div>
       </div>
     </div>
